@@ -1,0 +1,9 @@
+<%= simple_for_for @lawfirm do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <!-- Add tags as a comma separated list -->
+  <%# <%= f.input :tag_list, label: "Add a specialty", hint: "Add your specialties, separated by commas" %>
+  <!-- Add tags as checkboxes -->
+  <%= f.input :tag_list, as: :check_boxes, collection: [ "Corporate Law", "Family Law", "Patent Law", "Immigration Law" ] %>
+  <%= f.submit %>
+<% end %>
