@@ -8,16 +8,16 @@
 
 require 'faker'
 
-puts 'Destroying users...'
-User.destroy_all
 puts 'Destroying consultations...'
 Consultation.destroy_all
+puts 'Destroying lawfirms...'
+Lawfirm.destroy_all
+puts 'Destroying users...'
+User.destroy_all
 puts 'Destroying procedures...'
 Procedure.destroy_all
 puts 'Destroying steps...'
 Step.destroy_all
-puts 'Destroying lawfirms...'
-Lawfirm.destroy_all
 puts 'Destroying messages...'
 Message.destroy_all
 puts 'Clean database!'
@@ -67,17 +67,7 @@ puts 'Creating users...'
     puts "Created lawfirm #{lawfirm.id}"
   end
 
-  random = rand(1..2)
-  if random == 1
-    puts 'Creating steps...'
-    step = Step.create(
-      name: Faker::Name.first_name,
-      instruction: Faker::Name.first_name,
-      status: 0,
-      consultation: consultation
-    )
-    puts "Created step #{step.id}"
-  end
+
 
   random = rand(1..2)
   if random == 1
@@ -85,10 +75,11 @@ puts 'Creating users...'
     consultation = Consultation.create(
       user: user,
       procedure: procedure,
-      lawfirm: lawfirm,
+      lawfirm: lawfirm
     )
     puts "Created consultation #{consultation.id}"
   end
+
 
 
 

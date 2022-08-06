@@ -12,10 +12,10 @@ class Procedure < ApplicationRecord
     },
     # one for each kind of procedure
   }
-  def create_steps(consultation_id)
-    steps = STEP_OUTLINES[self.name.to_sym]
-    steps.each do |step|
-      Step.create!(name: step[:name], instruction: step[:instruction], consultation_id: consultation_id, status: :incomplete)
-    end
-  end
+  # def create_steps(consultation_id)
+  #   steps = STEP_OUTLINES[self.name.to_sym]
+  #   steps.each do |step|
+  #     Step.create!(name: step[:name], instruction: step[:instruction], consultation_id: consultation_id, status: :incomplete)
+  #   end
+  # end
 end
