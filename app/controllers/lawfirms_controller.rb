@@ -5,8 +5,9 @@ class LawfirmsController < ApplicationController
 
   def show
     @lawfirm = Lawfirm.find(params[:id])
+    @related_lawfirms = @lawfirm.find_related_tags
   end
-  
+
   def new
     @lawfirm = Lawfirm.new
   end
@@ -20,9 +21,17 @@ class LawfirmsController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @lawfirms = Lawfirm.tagged_with(params[:tag])
+    else
+      @lawfirms = Lawfirm.all
+    end
+  end
+
   private
 
   def lawfirm_params
-    params.require(:lawfirm).permit(:name, :location)
+    params.require(:lawfirm).permit(:name, :location, :specialty [])
   end
 end
