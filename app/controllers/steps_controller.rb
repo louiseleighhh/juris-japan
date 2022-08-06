@@ -15,18 +15,31 @@ class StepsController < ApplicationController
 
   def create
     @step = Step.new(step_params)
-    @procedure = Procedure.find(params[:procedure_id])
-    @submission.procedure = @procedure
-    if @submission.save
-      redirect_to procedures_path
+    @consultation = Consultation.find(params[:consultation_id])
+    @step.consultation = @consultation
+    @step.status = 0
+    if @step.save
+      redirect_to step_path(@step)
+      #Again not really sure where we should redirect
     else
       render :new
     end
   end
 
+  def edit
+    @step = Step.find(params[:id])
+  end
+
+  def update
+    @step = Step.find(params[:id])
+    @step.update(step_params)
+    redirect_to step_path(@step)
+    #Again not really sure where we should redirect
+  end
+
   private
 
-  def submission_params
-    params.require(:submission).permit(:name)
+  def step_params
+    params.require(:step).permit(:name, :status, :instruction)
   end
 end

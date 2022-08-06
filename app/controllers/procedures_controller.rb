@@ -28,7 +28,9 @@ class ProceduresController < ApplicationController
     @procedure = Procedure.find(params[:id])
     @procedure.update(procedure_params)
     redirect_to procedure_path(@procedure)
+    # or maybe to procedures_path ?
     # Not sure if you prefer to refirect to procedures_path
+
   end
 
   private
