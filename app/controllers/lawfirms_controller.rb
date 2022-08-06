@@ -4,6 +4,6 @@ class LawfirmsController < ApplicationController
   end
 
   def show
-    @lawfirm = Lawfirm.find[params[:id]]
+    @lawfirm = Lawfirm.find(params[:id])
   end
 end

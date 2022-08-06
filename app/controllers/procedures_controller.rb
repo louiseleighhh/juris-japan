@@ -4,6 +4,6 @@ class ProceduresController < ApplicationController
   end
 
   def show
-    @procedure = Procedure.find[params[:id]]
+    @procedure = Procedure.find(params[:id])
   end
 end

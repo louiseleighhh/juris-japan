@@ -5,6 +5,6 @@ class ConsultationsController < ApplicationController
   end
 
   def show
-    @consultation = Consultation.find[params[:id]]
+    @consultation = Consultation.find(params[:id])
   end
 end
