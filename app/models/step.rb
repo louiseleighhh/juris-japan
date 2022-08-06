@@ -1,5 +1,4 @@
 class Step < ApplicationRecord
-  belongs_to :procedure
-  has_many :submissions
-  validates :name, presence: true
+  belongs_to :consultation
+  validates :name, :instruction, presence: true
 end
