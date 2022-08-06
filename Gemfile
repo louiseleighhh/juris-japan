@@ -68,3 +68,6 @@ gem 'acts-as-taggable-on', '~> 9.0'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# Faker
+gem 'faker'

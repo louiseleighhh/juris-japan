@@ -110,6 +110,6 @@ ActiveRecord::Schema.define(version: 2022_08_06_063414) do
   add_foreign_key "consultations", "procedures"
   add_foreign_key "consultations", "users"
   add_foreign_key "lawfirms", "users"
-  add_foreign_key "taggings", "tags"
   add_foreign_key "steps", "consultations"
+  add_foreign_key "taggings", "tags"
 end
