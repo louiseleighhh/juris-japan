@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_014931) do
+ActiveRecord::Schema.define(version: 2022_08_06_021718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consultations", force: :cascade do |t|
+    t.string "user_id"
+    t.string "procedure_id"
+    t.string "lawfirm_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "lawfirms", force: :cascade do |t|
     t.string "name"
@@ -23,7 +31,15 @@ ActiveRecord::Schema.define(version: 2022_08_06_014931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_lawfirms_on_user_id"
-   end
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "user_id"
+    t.string "consultation_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "procedures", force: :cascade do |t|
     t.string "name"
