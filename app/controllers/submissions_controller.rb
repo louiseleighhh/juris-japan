@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
 
-  
+
   def index
     @submissions = Submission.all
   end
@@ -28,6 +28,7 @@ class SubmissionsController < ApplicationController
 
   def submission_params
     params.require(:submission).permit(:status)
+  end
 
   def show
     @submission = Submission.find(params[:id])
