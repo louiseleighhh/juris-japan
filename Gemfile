@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Acts As Taggable
 gem 'acts-as-taggable-on', '~> 9.0'
+
+# Faker
+gem 'faker'
