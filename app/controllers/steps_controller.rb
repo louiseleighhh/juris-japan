@@ -1,5 +1,9 @@
 class StepsController < ApplicationController
 
+  def index
+    @steps = Step.all
+  end
+  
   def new
     @step = Step.new
     @procedure = Procedure.find(params[:procedure_id])
@@ -20,5 +24,8 @@ class StepsController < ApplicationController
 
   def submission_params
     params.require(:submission).permit(:name)
+
+  def show
+    @step = Step.find(params[:id])
   end
 end

@@ -1,5 +1,9 @@
 class ProceduresController < ApplicationController
 
+  def index
+    @procedures = Procedure.all
+  end
+  
   def new
     @procedure = Procedure.new
   end
@@ -17,5 +21,8 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     params.require(:procedure).permit(:name)
+
+  def show
+    @procedure = Procedure.find(params[:id])
   end
 end
