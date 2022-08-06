@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_053426) do
+ActiveRecord::Schema.define(version: 2022_08_06_054913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "consultations", force: :cascade do |t|
-    t.string "user_id"
-    t.string "procedure_id"
-    t.string "lawfirm_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "procedure_id", null: false
+    t.bigint "lawfirm_id"
+    t.index ["lawfirm_id"], name: "index_consultations_on_lawfirm_id"
+    t.index ["procedure_id"], name: "index_consultations_on_procedure_id"
+    t.index ["user_id"], name: "index_consultations_on_user_id"
   end
 
   create_table "lawfirms", force: :cascade do |t|
@@ -53,6 +56,8 @@ ActiveRecord::Schema.define(version: 2022_08_06_053426) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "instruction"
     t.integer "status"
+    t.bigint "consultation_id", null: false
+    t.index ["consultation_id"], name: "index_steps_on_consultation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,5 +76,9 @@ ActiveRecord::Schema.define(version: 2022_08_06_053426) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "consultations", "lawfirms"
+  add_foreign_key "consultations", "procedures"
+  add_foreign_key "consultations", "users"
   add_foreign_key "lawfirms", "users"
+  add_foreign_key "steps", "consultations"
 end
