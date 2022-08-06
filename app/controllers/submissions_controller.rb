@@ -5,6 +5,10 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.all
   end
 
+  def show
+    @submission = Submission.find(params[:id])
+  end
+
   def new
     @submission = Submission.new
     @procedure = Procedure.find(params[:procedure_id])
@@ -28,9 +32,5 @@ class SubmissionsController < ApplicationController
 
   def submission_params
     params.require(:submission).permit(:status)
-  end
-
-  def show
-    @submission = Submission.find(params[:id])
   end
 end
