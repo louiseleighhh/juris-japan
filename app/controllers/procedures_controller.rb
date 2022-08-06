@@ -20,6 +20,17 @@ class ProceduresController < ApplicationController
     end
   end
 
+  def edit
+    @procedure = Procedure.find(params[:id])
+  end
+
+  def update
+    @procedure = Procedure.find(params[:id])
+    @procedure.update(procedure_params)
+    redirect_to procedure_path(@procedure)
+    # or maybe to procedures_path ?
+  end
+
   private
 
   def procedure_params
