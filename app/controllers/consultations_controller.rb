@@ -2,8 +2,7 @@ class ConsultationsController < ApplicationController
   before_action :set_consultation, only: [:update, :edit]
 
   def index
-    @consultations = Consultation.all
-    # Consultation.where(user: current_user)
+    @consultations = Consultation.where(user: current_user)
   end
 
   def new
