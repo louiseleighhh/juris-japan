@@ -49,7 +49,7 @@ puts 'Creating users...'
   if random == 1
     puts 'Creating procedures...'
     procedure = Procedure.create(
-      name: Faker::Name.first_name
+      name: "Immigration"
     )
     puts "Created procedure #{procedure.id}"
   end

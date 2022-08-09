@@ -1,5 +1,5 @@
 class ConsultationsController < ApplicationController
-  before_action :set_consultation, only: [:update, :edit]
+  before_action :set_consultation, only: [:update, :edit, :show]
 
   def index
     @consultations = Consultation.all
@@ -24,9 +24,7 @@ class ConsultationsController < ApplicationController
     end
   end
 
-  def show
-    @consultation = Consultation.find(params[:id])
-  end
+  def show; end
 
   def edit; end
 
