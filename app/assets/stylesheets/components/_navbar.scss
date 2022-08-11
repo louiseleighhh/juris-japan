@@ -1,6 +1,26 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  .navbar-lewagon-white-a a {
+    color: white;
+  }
+  .navbar-lewagon-white-a i {
+    color: white;
+    font-size: 24px;
+  }
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  .navbar-lewagon-white-a a {
+    color: black;
+  }
+
+  .navbar-lewagon-white-a i {
+    color: black;
+    font-size: 24px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +29,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.dropdown-menu-right { // overrides Bootstrap because it doesn't seem to work
+  right: 0 !important;
+  left: auto !important;
 }
