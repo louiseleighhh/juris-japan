@@ -49,15 +49,6 @@ puts 'Creating users...'
 
   random = rand(1..2)
   if random == 1
-    puts 'Creating procedures...'
-    procedure = Procedure.create(
-      name: "Immigration"
-    )
-    puts "Created procedure #{procedure.id}"
-  end
-
-  random = rand(1..2)
-  if random == 1
     puts 'Creating lawfirms...'
     lawfirm = Lawfirm.create(
       name: Faker::Name.first_name,
@@ -66,8 +57,6 @@ puts 'Creating users...'
     )
     puts "Created lawfirm #{lawfirm.id}"
   end
-
-
 
   random = rand(1..2)
   if random == 1
@@ -79,9 +68,6 @@ puts 'Creating users...'
     )
     puts "Created consultation #{consultation.id}"
   end
-
-
-
 
   random = rand(1..2)
   if random == 1

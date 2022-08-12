@@ -1,5 +1,8 @@
 <%= @consultations.each do |consultation| %>
-  <%= consultation.id %>
-  <%= consultation.user_id %>
-  <%= consultation.procedure.name %>
+  <div>
+    <%= consultation.id %>
+    <%= consultation.user_id %>
+    <%= consultation.procedure.name %>
+    <%= consultation.steps.count %>
+  </div>
 <% end %>

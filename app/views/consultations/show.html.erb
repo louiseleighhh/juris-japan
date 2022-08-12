@@ -1,0 +1,9 @@
+    <%= @consultation.id %>
+    <%= @consultation.user_id %>
+    <%= @consultation.procedure.name %>
+    <%= @consultation.steps.count %>
+
+<% @consultation.steps.each do |step| %>
+  <h2><%= step.name %></h2>
+  <p><%= step.instruction %></p>
+<% end %>
