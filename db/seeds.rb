@@ -14,10 +14,6 @@ puts 'Destroying lawfirms...'
 Lawfirm.destroy_all
 puts 'Destroying users...'
 User.destroy_all
-puts 'Destroying procedures...'
-Procedure.destroy_all
-puts 'Destroying steps...'
-Step.destroy_all
 puts 'Destroying messages...'
 Message.destroy_all
 puts 'Clean database!'
@@ -32,18 +28,24 @@ user = User.create(
 )
 puts 'Test user created...'
 
+puts 'Creating procedures...'
+  procedure = Procedure.create(
+    name: "PR"
+    )
+  puts "Created procedure #{procedure.id}"
+
+# seed the steps
+
 puts 'Creating users...'
 25.times do
   user = User.create(
-    email: Faker::Internet.email,
-    password: '1234567',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '1234567',
     location: ["Tokyo", "Osaka", "Kyoto", "Chiba", "Ibaraki", "Yokohama", "Nagoya", "Shizuoka"].sample
   )
   puts "Created user #{user.id}"
-
-
 
   random = rand(1..2)
   if random == 1
@@ -53,8 +55,6 @@ puts 'Creating users...'
     )
     puts "Created procedure #{procedure.id}"
   end
-
-
 
   random = rand(1..2)
   if random == 1
