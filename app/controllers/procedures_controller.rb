@@ -5,6 +5,7 @@ class ProceduresController < ApplicationController
 
   def show
     @procedure = Procedure.find(params[:id])
+    @consultation = Consultation.new
   end
 
   #def new
