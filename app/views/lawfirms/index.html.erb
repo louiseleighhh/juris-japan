@@ -1,3 +1,27 @@
+<div class="banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="button-secondary" href="#">Apply now</a>
+  </div>
+</div>
+
+<% @lawfirms.each do |r| %>
+  <h2><%= r.name %></h2>
+  <p>
+    <% r.tag_list.each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </p>
+<% end %>
+<% @lawfirms.each do |r| %>
+  <h2><%= r.name %></h2>
+  <p>
+    <% r.tag_list.each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </p>
+<% end %>
 <% @lawfirms.each do |r| %>
   <h2><%= r.name %></h2>
   <p>
