@@ -23,7 +23,7 @@ class Procedure < ApplicationRecord
         {name: "Step 6 - Passport / Certificate of Eligibility (COE)", instruction: "Upload only if applying via a proxy, otherwise please produce your passport or CoE at the immigration office"},
         {name: "Step 7 - *Proxy Only* Documents certifying identity", instruction: "Please produce ID at immigration office"} ]
     },
-    divorce: {
+    procedure_name: {
       steps: [ {name: "Step 1", instruction: "What do you need to do"}, {name: "Step 1", instruction: "What do you need to do"}, {name: "Step 2", instruction: "What do you need to do"}, {name: "Step 3", instruction: "What do you need to do"} ]
     },
   }
