@@ -19,6 +19,7 @@
               <%= step.instruction %>
               <%= simple_form_for(step) do |f| %>
                 <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                <%= f.button :submit, 'Upload File(s)' %>
               <% end %>
             </p>
           </div>

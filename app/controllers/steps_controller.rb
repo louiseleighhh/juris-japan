@@ -33,7 +33,7 @@ class StepsController < ApplicationController
   def update
     @step = Step.find(params[:id])
     @step.update(step_params)
-    redirect_to step_path(@step)
+    # redirect_to step_path(@step)
     #Again not really sure where we should redirect
   end
 
