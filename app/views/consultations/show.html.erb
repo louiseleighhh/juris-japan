@@ -1,9 +1,26 @@
-    <%= @consultation.id %>
-    <%= @consultation.user_id %>
-    <%= @consultation.procedure.name %>
-    <%= @consultation.steps.count %>
-
-<% @consultation.steps.each do |step| %>
-  <h2><%= step.name %></h2>
-  <p><%= step.instruction %></p>
-<% end %>
+<head>
+</head>
+<body>
+  <div class="banner">
+  </div>
+  <div class="container">
+    <div class="row">
+      <h2><%= @consultation.id %></h2>
+      <h2><%= @consultation.user_id %></h2>
+      <h2><%= @consultation.procedure.name %></h2>
+      <h2><%= @consultation.steps.count %></h2>
+    </div>
+    <% @consultation.steps.each do |step| %>
+      <div class="container_seemore">
+        <div class="seemore" data-controller="seemore">
+          <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
+          <div class="seemore__content" data-seemore-target="content">
+            <p>
+              <%= step.instruction %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</body>
