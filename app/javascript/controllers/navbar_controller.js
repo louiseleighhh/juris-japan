@@ -6,10 +6,10 @@ export default class extends Controller {
     const logoPic = document.getElementById("logo")
     if (window.scrollY >= navBar.scrollHeight) {
       this.element.classList.add("navbar-lewagon-white")
-      logoPic.src = "assets/logo-black.PNG"
+      logoPic.src = "/assets/logo-black.PNG"
     } else {
       this.element.classList.remove("navbar-lewagon-white")
-      logoPic.src = "assets/logo-white.PNG"
+      logoPic.src = "/assets/logo-white.PNG"
     }
   };
 }

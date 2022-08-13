@@ -1,24 +1,22 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('assets/procedures-banner.jpg')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('/assets/procedures-banner.jpg')">
   <div class="container">
       <h1>Steps to Follow</h1>
   </div>
 </div>
 
-    <% @consultation.steps.each do |step| %>
-      <div class="container_seemore">
-        <div class="seemore" data-controller="seemore">
-          <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
-          <div class="seemore__content" data-seemore-target="content">
-            <p>
-              <%= step.instruction %>
-              <%= simple_form_for(step) do |f| %>
-                <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-                <%= f.button :submit, 'Upload File(s)' %>
-              <% end %>
-            </p>
-          </div>
-        </div>
+<% @consultation.steps.each do |step| %>
+  <div class="container_seemore">
+    <div class="seemore" data-controller="seemore">
+      <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
+      <div class="seemore__content" data-seemore-target="content">
+        <p>
+          <%= step.instruction %>
+          <%= simple_form_for(step) do |f| %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <%= f.button :submit, 'Upload File(s)' %>
+          <% end %>
+        </p>
       </div>
-    <% end %>
+    </div>
   </div>
-</body>
+<% end %>

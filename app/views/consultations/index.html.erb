@@ -1,12 +1,12 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('assets/procedures-banner.jpg')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('/assets/procedures-banner.jpg')">
   <div class="container">
       <h1>Ongoing Procedures</h1>
   </div>
 </div>
-<body>
 
-    <ul class="cards">
-      <li>
+
+
+
         <% @consultations.each do |consultation| %>
           <div class="display-flex">
             <div class="row col-6">
@@ -23,6 +23,4 @@
                 </div>
               </div>
         <% end %>
-      </li>
-    </div>
-</body>
+      </div>
