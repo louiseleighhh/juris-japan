@@ -87,16 +87,6 @@ ActiveRecord::Schema.define(version: 2022_08_06_084828) do
     t.index ["consultation_id"], name: "index_steps_on_consultation_id"
   end
 
-  create_table "submissions", force: :cascade do |t|
-    t.integer "status"
-    t.bigint "step_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["step_id"], name: "index_submissions_on_step_id"
-    t.index ["user_id"], name: "index_submissions_on_user_id"
-  end
-
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.string "taggable_type"
@@ -151,7 +141,5 @@ ActiveRecord::Schema.define(version: 2022_08_06_084828) do
   add_foreign_key "consultations", "users"
   add_foreign_key "lawfirms", "users"
   add_foreign_key "steps", "consultations"
-  add_foreign_key "submissions", "steps"
-  add_foreign_key "submissions", "users"
   add_foreign_key "taggings", "tags"
 end
