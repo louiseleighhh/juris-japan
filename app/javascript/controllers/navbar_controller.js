@@ -9,7 +9,7 @@ export default class extends Controller {
       logoPic.src = "https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374731/logo-black_j2oilu.png"
     } else {
       this.element.classList.remove("navbar-lewagon-white")
-      logoPic.src = "https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.pnge.PNG"
+      logoPic.src = "https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png"
     }
   };
 }
