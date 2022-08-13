@@ -10,6 +10,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  font-family: Helvetica;
 }
 
 .banner p {
@@ -17,6 +18,7 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: Helvetica;
 }
 
 .section {
@@ -129,4 +131,61 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
+}
+
+.banner-procedures-offer {
+  background-size: cover;
+  background-position: center;
+  padding: 48px 0;
+}
+
+.banner-procedures-offer h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Helvetica;
+}
+
+.banner-procedures-offer a {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-decoration: none;
+}
+
+.banner-procedures-offer p {
+  padding-top: 2rem;
+}
+
+.icon-home {
+  padding-top: 1rem;
+  width: 170px;
+  height: 190px;
+  transition: .3s;
+}
+
+.icon-text {
+  text-align: center;
+  color: white;
+  p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.lower-home {
+  padding-top: 45px;
+}
+
+.banner-see-more {
+  transition: .3s;
+}
+
+.banner-see-more:hover{
+  padding-left: 24px;
 }
