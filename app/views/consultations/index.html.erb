@@ -1,8 +1,20 @@
-<%= @consultations.each do |consultation| %>
-  <div>
-    <%= consultation.id %>
-    <%= consultation.user_id %>
-    <%= consultation.procedure.name %>
-    <%= consultation.steps.count %>
+<head>
+</head>
+<body>
+  <div class="banner">
+    <div class="container">
+      <%= @consultations.each do |consultation| %>
+        <div class="display-flex">
+          <div class="row col-6">
+            <%= consultation.id %>
+            <%= consultation.user_id %>
+            <%= consultation.procedure.name %>
+            <%= consultation.steps.count %>
+            <%= link_to "More Details", consultation_path(consultation), class:"btn btn-primary"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</body>
+s
