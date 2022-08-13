@@ -1,0 +1,41 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.outer-footer {
+  padding: 10px;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  color: #FFFF;
+  font-size: 18px;
+  background-color: #123669;
+  h4 {
+    font-family: Helvetica;
+    font-weight: bold;
+    margin-bottom: 0rem;
+  }
+  i {
+    font-size: 30px;
+  }
+  a {
+    color: #FFFF;
+  }
+
+  a:hover {
+    color: #F4B215;
+    transition: .3s
+  }
+}
