@@ -1,19 +1,28 @@
-<head>
-</head>
-<body>
-  <div class="banner">
-    <div class="container">
-      <% @consultations.each do |consultation| %>
-        <div class="display-flex">
-          <div class="row col-6">
-            <%= consultation.id %>
-            <%= consultation.user_id %>
-            <%= consultation.procedure.name %>
-            <%= consultation.steps.count %>
-            <%= link_to "More Details", consultation_path(consultation), class:"btn btn-primary"%>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('assets/procedures-banner.jpg')">
+  <div class="container">
+      <h1>Ongoing Procedures</h1>
   </div>
+</div>
+<body>
+
+    <ul class="cards">
+      <li>
+        <% @consultations.each do |consultation| %>
+          <div class="display-flex">
+            <div class="row col-6">
+              </div>
+              <div class="container_consultations">
+                <div class="card-consultation">
+                  <%= image_tag ("immigration-icon")%>
+                  <div class="card-consultation-infos">
+                    <h2><%="Procedure: #{consultation.procedure.name}"%></h2>
+                    <p><%="Created at: #{consultation.created_at}"%></p>
+                    <p><%="Last updated at: #{consultation.updated_at}"%></p>
+                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class:"btn button-consultations"%></p>
+                  </div>
+                </div>
+              </div>
+        <% end %>
+      </li>
+    </div>
 </body>

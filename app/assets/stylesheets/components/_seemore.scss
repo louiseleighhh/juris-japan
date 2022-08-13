@@ -9,6 +9,7 @@
   margin: auto;
 }
 
+
 .seemore__button {
   display: block;
   width: 100%;
@@ -16,7 +17,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #D9D9D9;
+  background-color: #adbedb;
   color:black;
   text-align: left;
   transition: background 0.2s;
@@ -29,7 +30,7 @@
 }
 
 .seemore__button--active{
-  background: #555555;
+  background: #4d6ea8;
   color:white;
 }
 

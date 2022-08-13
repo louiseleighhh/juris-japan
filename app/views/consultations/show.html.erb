@@ -1,15 +1,9 @@
-<head>
-</head>
-<body>
-  <div class="banner">
-  </div>
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('assets/procedures-banner.jpg')">
   <div class="container">
-    <div class="row">
-      <h2><%= @consultation.id %></h2>
-      <h2><%= @consultation.user_id %></h2>
-      <h2><%= @consultation.procedure.name %></h2>
-      <h2><%= @consultation.steps.count %></h2>
-    </div>
+      <h1>Steps to Follow</h1>
+  </div>
+</div>
+
     <% @consultation.steps.each do |step| %>
       <div class="container_seemore">
         <div class="seemore" data-controller="seemore">
