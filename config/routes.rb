@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/tagged', to: "lawfirms#tagged", as: :tagged
-  get "/profile", to: "pages#profile"
+  get '/profile', to: "pages#profile"
+  get '/about', to: "pages#about"
 end
