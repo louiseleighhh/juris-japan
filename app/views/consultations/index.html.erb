@@ -3,24 +3,30 @@
       <h1>Ongoing Procedures</h1>
   </div>
 </div>
-
-
-
-
-        <% @consultations.each do |consultation| %>
-          <div class="display-flex">
-            <div class="row col-6">
-              </div>
-              <div class="container_consultations">
-                <div class="card-consultation">
-                  <%= image_tag ("immigration-icon.png")%>
+<body>
+  <div class="container">
+    <% if @consultations.any? %>%
+      <% @consultations.each do |consultation| %>
+        <div class="display-flex">
+          <div class="row col-6">
+            <div class="container_consultations">
+              <div class="card-consultation">
+                <%= image_tag ("immigration-icon.png")%>
                   <div class="card-consultation-infos">
                     <h2><%="Procedure: #{consultation.procedure.name}"%></h2>
                     <p><%="Created at: #{consultation.created_at}"%></p>
                     <p><%="Last updated at: #{consultation.updated_at}"%></p>
                     <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class:"btn button-consultations"%></p>
+                    <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p>
                   </div>
-                </div>
               </div>
+            </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <h2>I'm sorry, you don't have any ongoing applications at the moment.</h2>
+      <%= link_to "Procedures", procedures_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</body>

@@ -1,5 +1,5 @@
 class ConsultationsController < ApplicationController
-  before_action :set_consultation, only: [:update, :edit, :show]
+  before_action :set_consultation, only: [:update, :edit, :show, :destroy]
 
   def index
     @consultations = Consultation.where(user: current_user)
@@ -32,6 +32,11 @@ class ConsultationsController < ApplicationController
     @consultation.lawfirm = @lawfirm
     @consultation.update
     redirect_to consultation_path(@consultation)
+  end
+
+  def destroy
+    @consultation.destroy
+    redirect_to consultations_path
   end
 
   private

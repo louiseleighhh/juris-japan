@@ -12,6 +12,7 @@
           <h2>Name: <%= current_user.first_name %> <%= current_user.last_name %></h2>
           <h2>Email Address: <%= current_user.email %></h2>
           <h2>Location: <%= current_user.location %></h2>
+          <%= link_to "Ongoing Applications", consultations_path, class: "btn button-consultations"  %>
         </div>
       </div>
     </div>
