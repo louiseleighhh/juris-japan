@@ -1,32 +1,31 @@
-<div class="banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660554814/pexels-josh-sorenson-391522_uqnmaf.jpg')">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="button-secondary" href="#">Apply now</a>
+      <h1>Law Firms</h1>
   </div>
 </div>
 
-<% @lawfirms.each do |r| %>
-  <h2><%= r.name %></h2>
-  <p>
-    <% r.tag_list.each do |tag| %>
-      <%= link_to tag, tagged_path(tag: tag) %>
+<div class="container">
+  <div class="wrapper">
+  <% if @lawfirms.empty? %>
+    <div class="no-results"><h1>There are currently no law firms in this location <i class="fa-regular fa-face-frown"></i></h1></div>
+  <% else %>
+    <div class="cards">
+      <% @lawfirms.each do |r| %>
+      <div class="card">
+          <h2><%= r.name %></h2>
+          <%= link_to "Show more information", lawfirm_path(r) %>
+          <p>
+            <% r.tag_list.each do |tag| %>
+              <%= link_to tag, tagged_path(tag: tag) %>
+            <% end %>
+          </p>
+          </div>
+      <% end %>
+    </div>
+
+    <div class = "map">
+    <h1></h1>
+    </div>
     <% end %>
-  </p>
-<% end %>
-<% @lawfirms.each do |r| %>
-  <h2><%= r.name %></h2>
-  <p>
-    <% r.tag_list.each do |tag| %>
-      <%= link_to tag, tagged_path(tag: tag) %>
-    <% end %>
-  </p>
-<% end %>
-<% @lawfirms.each do |r| %>
-  <h2><%= r.name %></h2>
-  <p>
-    <% r.tag_list.each do |tag| %>
-      <%= link_to tag, tagged_path(tag: tag) %>
-    <% end %>
-  </p>
-<% end %>
+    </div>
+</div>
