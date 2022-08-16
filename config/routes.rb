@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :consultations, only: [ :index, :show ]
+  resources :consultations, only: [ :index, :show, :destroy ]
 
   resources :procedures, only: [ :index, :show ] do
     resources :consultations, only: [:new, :create]
