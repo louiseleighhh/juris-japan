@@ -1,11 +1,20 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374503/procedures-banner_djefl8.jpg')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660549281/pexels-pixabay-207662_wgzxbt.jpg')">
   <div class="container">
-      <h1>Ongoing Procedures</h1>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1>
   </div>
 </div>
 <body>
   <div class="container">
-    <% if @consultations.any? %>
+    <div class="row">
+      <div class="card-product display=flex col-5 mt-2">
+        <%= image_tag ("logo-black.PNG") %>
+        <div class="card-product-info">
+          <h2>Name: <%= current_user.first_name %> <%= current_user.last_name %></h2>
+          <h2>Email Address: <%= current_user.email %></h2>
+          <h2>Location: <%= current_user.location %></h2>
+          <%= link_to "Ongoing Applications", consultations_path, class: "btn button-consultations"  %>
+        </div>
+      </div>
       <% @consultations.each do |consultation| %>
         <div class="display-flex">
           <div class="row col-6">
@@ -24,9 +33,6 @@
           </div>
         </div>
       <% end %>
-    <% else %>
-      <h2>I'm sorry, you don't have any ongoing applications at the moment.</h2>
-      <%= link_to "Procedures", procedures_path, class: "btn btn-primary" %>
-    <% end %>
+    </div>
   </div>
 </body>
