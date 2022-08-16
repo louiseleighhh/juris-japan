@@ -3,7 +3,7 @@
 <body>
   <div class="banner">
     <div class="container">
-      <%= @consultations.each do |consultation| %>
+      <% @consultations.each do |consultation| %>
         <div class="display-flex">
           <div class="row col-6">
             <%= consultation.id %>
@@ -17,4 +17,3 @@
     </div>
   </div>
 </body>
-s

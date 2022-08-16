@@ -1,5 +1,4 @@
 class StepsController < ApplicationController
-
   #def index
   #  @steps = Step.all
   #end
@@ -8,10 +7,9 @@ class StepsController < ApplicationController
   #  @step = Step.find(params[:id])
   #end
 
-  #def new
-  #  @step = Step.new
-  #  @procedure = Procedure.find(params[:procedure_id])
-  #end
+  # def new
+  #   @step = Step.new
+  # end
 
   #def create
   #  @step = Step.new(step_params)
@@ -35,6 +33,15 @@ class StepsController < ApplicationController
     @step.update(step_params)
     # redirect_to step_path(@step)
     #Again not really sure where we should redirect
+  end
+
+  def delete_photo_attachment
+    @photo = ActiveStorage::Blob.find(params[:id])
+    @photo.purge
+    @step = Step.find(params[:id])
+    @consultation = @step.consultation_id
+    raise
+    redirect_to consultation_path(@consultation)
   end
 
   private

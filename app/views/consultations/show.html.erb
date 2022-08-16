@@ -10,7 +10,7 @@
       <h2><%= @consultation.procedure.name %></h2>
       <h2><%= @consultation.steps.count %></h2>
     </div>
-    <% @consultation.steps.each do |step| %>
+    <% @consultation.steps.order(:created_at).each do |step| %>
       <div class="container_seemore">
         <div class="seemore" data-controller="seemore">
           <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
@@ -20,6 +20,13 @@
               <%= simple_form_for(step) do |f| %>
                 <%= f.input :photos, as: :file, input_html: { multiple: true } %>
                 <%= f.button :submit, 'Upload File(s)' %>
+                <% if step.photos.attached? %>
+                  <% step.photos.each do |photo| %>
+                    <%= photo.id %> | Edit | Delete
+                    <%= link_to 'Remove', delete_photo_attachment_step_path(photo.id),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                <% end %>
               <% end %>
             </p>
           </div>
