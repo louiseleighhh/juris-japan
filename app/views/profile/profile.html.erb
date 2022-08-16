@@ -1,0 +1,38 @@
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660549281/pexels-pixabay-207662_wgzxbt.jpg')">
+  <div class="container">
+      <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1>
+  </div>
+</div>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="card-product display=flex col-5 mt-2">
+        <%= image_tag ("logo-black.PNG") %>
+        <div class="card-product-info">
+          <h2>Name: <%= current_user.first_name %> <%= current_user.last_name %></h2>
+          <h2>Email Address: <%= current_user.email %></h2>
+          <h2>Location: <%= current_user.location %></h2>
+          <%= link_to "Ongoing Applications", consultations_path, class: "btn button-consultations"  %>
+        </div>
+      </div>
+      <% @consultations.each do |consultation| %>
+        <div class="display-flex">
+          <div class="row col-6">
+            <div class="container_consultations">
+              <div class="card-consultation">
+                <%= image_tag ("immigration-icon.png")%>
+                  <div class="card-consultation-infos">
+                    <h2><%="Procedure: #{consultation.procedure.name}"%></h2>
+                    <p><%="Created at: #{consultation.created_at}"%></p>
+                    <p><%="Last updated at: #{consultation.updated_at}"%></p>
+                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class:"btn button-consultations"%></p>
+                    <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>

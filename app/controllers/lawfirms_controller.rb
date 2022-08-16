@@ -32,6 +32,6 @@ class LawfirmsController < ApplicationController
   private
 
   def lawfirm_params
-    params.require(:lawfirm).permit(:name, :location, :specialty [])
+    params.require(:lawfirm).permit(:name, :location, :tag_list [])
   end
 end

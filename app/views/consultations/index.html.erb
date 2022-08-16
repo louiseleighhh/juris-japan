@@ -1,19 +1,32 @@
-<head>
-</head>
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374503/procedures-banner_djefl8.jpg')">
+  <div class="container">
+      <h1>Ongoing Procedures</h1>
+  </div>
+</div>
 <body>
-  <div class="banner">
-    <div class="container">
+  <div class="container">
+    <% if @consultations.any? %>
       <% @consultations.each do |consultation| %>
         <div class="display-flex">
           <div class="row col-6">
-            <%= consultation.id %>
-            <%= consultation.user_id %>
-            <%= consultation.procedure.name %>
-            <%= consultation.steps.count %>
-            <%= link_to "More Details", consultation_path(consultation), class:"btn btn-primary"%>
+            <div class="container_consultations">
+              <div class="card-consultation">
+                <%= image_tag ("immigration-icon.png")%>
+                  <div class="card-consultation-infos">
+                    <h2><%="Procedure: #{consultation.procedure.name}"%></h2>
+                    <p><%="Created at: #{consultation.created_at}"%></p>
+                    <p><%="Last updated at: #{consultation.updated_at}"%></p>
+                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class:"btn button-consultations"%></p>
+                    <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
-    </div>
+    <% else %>
+      <h2>I'm sorry, you don't have any ongoing applications at the moment.</h2>
+      <%= link_to "Procedures", procedures_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </body>
