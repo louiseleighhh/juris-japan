@@ -36,11 +36,10 @@ class StepsController < ApplicationController
   end
 
   def delete_photo_attachment
-    @photo = ActiveStorage::Blob.find(params[:id])
+    @photo = ActiveStorage::Blob.find(params[:photo])
     @photo.purge
     @step = Step.find(params[:id])
-    @consultation = @step.consultation_id
-    raise
+    @consultation = @step.consultation
     redirect_to consultation_path(@consultation)
   end
 

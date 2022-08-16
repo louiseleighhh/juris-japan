@@ -22,8 +22,8 @@
                 <%= f.button :submit, 'Upload File(s)' %>
                 <% if step.photos.attached? %>
                   <% step.photos.each do |photo| %>
-                    <%= photo.id %> | Edit | Delete
-                    <%= link_to 'Remove', delete_photo_attachment_step_path(photo.id),
+                    <%= photo.filename %> | Edit |
+                    <%= link_to 'Remove', delete_photo_attachment_step_path(step, photo: photo.id),
                     method: :delete, data: { confirm: 'Are you sure?' } %>
                   <% end %>
                 <% end %>
