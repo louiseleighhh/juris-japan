@@ -31,14 +31,14 @@ class StepsController < ApplicationController
   def update
     @step = Step.find(params[:id])
     @step.update(step_params)
-    # redirect_to step_path(@step)
-    #Again not really sure where we should redirect
+    @consultation = @step.consultation
+    redirect_to consultation_path(@consultation)
   end
 
   def delete_photo_attachment
-    @photo = ActiveStorage::Blob.find(params[:photo])
-    @photo.purge
     @step = Step.find(params[:id])
+    @photo = @step.photos.find_by(blob_id: params[:photo])
+    @photo.purge
     @consultation = @step.consultation
     redirect_to consultation_path(@consultation)
   end
