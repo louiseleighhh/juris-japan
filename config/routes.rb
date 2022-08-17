@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :steps, only: [ :show, :edit, :update ]
   resources :lawfirms, only: [ :index, :show ]
 
+  namespace :lawyers do
+    resources :consultations, only: [ :index, :show, :update ]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/tagged', to: "lawfirms#tagged", as: :tagged
   get '/profile', to: "pages#profile"
