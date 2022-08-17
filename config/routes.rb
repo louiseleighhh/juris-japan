@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :consultations, only: [:new, :create]
   end
 
-  resources :steps, only: [ :show, :edit, :update ]
+  resources :steps, only: [ :show, :edit, :update ] do
+    resources :items, only: [ :show, :edit, :update ]
+  end
+
   resources :lawfirms, only: [ :index, :show ]
 
   namespace :lawyers do
@@ -17,6 +20,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/tagged', to: "lawfirms#tagged", as: :tagged
-  get '/profile', to: "pages#profile"
+  get '/profile', to: "profile#profile"
   get '/about', to: "pages#about"
 end

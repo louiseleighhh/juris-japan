@@ -1,8 +1,20 @@
-<h1><%= @lawfirm.name %></h1>
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660653517/gavel-gbf4d8f0fc_1920_blzqpt.jpg')">
+  <div class="container">
+      <h1><%= @lawfirm.name %></h1>
+  </div>
+</div>
 
+<h1><%= @lawfirm.name %></h1>
+<h1><%= @lawfirm.location %></h1>
+<% if @lawfirm.tag_list.empty? %>
+  <h1>There is no taglist/specialty</h1>
+<% else %>
+  <%= @lawfirm.tag_list %>
+<% end %>
 <h3>Related Firms</h3>
 <ul>
   <% @related_lawfirms.each do |r| %>
     <li><%= r.name %></li>
+    <li><%= r.location %></li>
   <% end %>
 </ul>
