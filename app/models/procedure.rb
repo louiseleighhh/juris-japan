@@ -6,7 +6,7 @@ class Procedure < ApplicationRecord
   STEP_OUTLINES = {
     # one for each kind of procedure
     PR: {
-      steps: [ {name: "Step 1 - Fill in Application form", instruction: "Please   fill in the application form (永住許可申請書) and upload the form"},
+      steps: [ {name: "Step 1 - Fill in Application form", instruction: "Please fill in the application form (永住許可申請書) and upload the form"},
         {name: "Step 2 - Upload a photograph", instruction: "Please upload a 40mm x 30mm photo taken in the last three months. See the MOJ website for more details"},
         {name: "Step 3 - Demonstrative Materials", instruction: "Please upload all of the following documents:"},
         {name: "Step 3A - Statement", instruction: "Please upload a statement detailing why you are applying for permanent residency. Please note, any statements will require translation to Japanese"},
@@ -34,6 +34,6 @@ class Procedure < ApplicationRecord
       Step.create!(name: step[:name], instruction: step[:instruction], consultation_id: consultation_id, status: 0)
     end
   end
-end
 
 # {name: "", instruction: ""}
+end

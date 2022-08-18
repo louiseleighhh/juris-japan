@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <div class="navbar-lewagon-white-a">
-      <img src="https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png" alt="logo" id="logo">
+    <div class="navbar-lewagon-blue-a">
+      <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1660748365/logo-white_ofvlr8.png" alt="logo" id="logo" data-action="mouseover->navbar#updateNavbar">
     </div>
     <% end %>
 
@@ -14,40 +14,40 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <div class="navbar-lewagon-white-a">
+        <div class="navbar-lewagon-blue-a">
           <li class="nav-item active">
-            <%= link_to "About", about_path, class: "nav-link" %>
+            <%= link_to "ABOUT", about_path, class: "nav-link" %>
           </li>
         </div>
-        <div class="navbar-lewagon-white-a">
+        <div class="navbar-lewagon-blue-a">
           <li class="nav-item active">
-            <%= link_to "Procedures", procedures_path, class: "nav-link" %>
+            <%= link_to "PROCEDURES", procedures_path, class: "nav-link" %>
           </li>
         </div>
-        <div class="navbar-lewagon-white-a">
+        <div class="navbar-lewagon-blue-a">
           <li class="nav-item active">
-            <%= link_to "Law Firms", lawfirms_path, class: "nav-link" %>
+            <%= link_to "LAW FIRMS", lawfirms_path, class: "nav-link" %>
           </li>
         </div>
         <% if user_signed_in? %>
-        <div class="navbar-lewagon-white-a">
+        <div class="navbar-lewagon-blue-a">
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "MESSAGES", "#", class: "nav-link" %>
           </li>
         </div>
 
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <li class="nav-item dropdown" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="dropdown">
+              <%= link_to "PROFILE", profile_path, class: "dropdown-item" %>
+              <%= link_to "ANOTHER ACTION", "#", class: "dropdown-item" %>
+              <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-          <div class="navbar-lewagon-white-a">
+          <div class="navbar-lewagon-blue-a">
             <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <%= link_to "LOGIN", new_user_session_path, class: "nav-link" %>
             </li>
           </div>
         <% end %>
@@ -56,4 +56,3 @@
     </div>
   </div>
 </div>
-<div>

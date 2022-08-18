@@ -2,22 +2,21 @@
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
-  .navbar-lewagon-white-a a {
+  .navbar-lewagon-blue-a a {
     color: white;
   }
-  .navbar-lewagon-white-a i {
-    color: white;
-    font-size: 24px;
+  .navbar-lewagon-blue-a a:hover {
+    color: #F6BC16;
   }
 }
 
-.navbar-lewagon-white {
-  background-color: white;
-  .navbar-lewagon-white-a a {
-    color: black;
+.navbar-lewagon-blue {
+  background-color: #0D3369;
+  .navbar-lewagon-blue-a a {
+    color: rgb(255, 255, 255);
   }
 
-  .navbar-lewagon-white-a i {
+  .navbar-lewagon-blue-a i {
     color: black;
     font-size: 24px;
   }
@@ -28,7 +27,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 6%;
+  width: 30%;
 }
 
 .dropdown-menu-right { // overrides Bootstrap because it doesn't seem to work
@@ -38,4 +37,36 @@
 
 .nav-link {
   white-space: nowrap;
+}
+
+.navbar-expand-sm .navbar-nav {
+  align-items: center;
+}
+
+.nav-item {
+  padding-left: 20px;
+}
+
+.navbar-nav .dropdown-menu-blue {
+  margin-top: 24px;
+  background-color: #0D3369 !important;
+  .dropdown-item{
+    color:  white;
+  }
+  .dropdown-item:hover{
+    color:  #F6BC16;
+    background-color: #0D3369;
+  }
+}
+
+.navbar-nav .dropdown-menu {
+  margin-top: 24px;
+  background-color: transparent;
+  .dropdown-item{
+    color:  white;
+  }
+  .dropdown-item:hover{
+    color:  #F6BC16;
+    background-color: transparent;
+  }
 }
