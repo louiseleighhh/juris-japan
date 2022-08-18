@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2022_08_18_110945) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "step_id", null: false
+    t.index ["step_id"], name: "index_items_on_step_id"
   end
 
   create_table "lawfirms", force: :cascade do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 2022_08_18_110945) do
   add_foreign_key "consultations", "lawfirms"
   add_foreign_key "consultations", "procedures"
   add_foreign_key "consultations", "users"
+  add_foreign_key "items", "steps"
   add_foreign_key "lawfirms", "users"
   add_foreign_key "steps", "consultations"
   add_foreign_key "taggings", "tags"
