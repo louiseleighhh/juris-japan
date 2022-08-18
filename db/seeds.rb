@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
 puts 'Destroying consultations...'
 Consultation.destroy_all
 puts 'Destroying lawfirms...'
@@ -32,11 +31,11 @@ puts 'Creating procedures...'
   procedure = Procedure.create(
     name: "PR"
     )
-  puts "Created procedure #{procedure.id}"
+    puts "Created procedure #{procedure.id}"
 
-# seed the steps
+    # seed the steps
 
-puts 'Creating users...'
+    puts 'Creating users...'
 25.times do
   user = User.create(
     first_name: Faker::Name.first_name,
@@ -46,6 +45,25 @@ puts 'Creating users...'
     location: ["Tokyo", "Osaka", "Kyoto", "Chiba", "Ibaraki", "Yokohama", "Nagoya", "Shizuoka"].sample
   )
   puts "Created user #{user.id}"
+
+  step_path = Rails.root.join
+
+  consultation = Consultation.new(
+    user: user,
+    procedure: procedure
+  )
+
+  step1 = Step.create(
+    name: "Application Form",
+    consultation: consultation,
+    instruction: File.open("#{step_path}/steps/step1.md").read
+  )
+
+  item = Item.create(
+    name: "Application Form",
+    description: File.open("#{step_path}/steps/step1.md").read,
+    step: step1
+  )
 
   random = rand(1..2)
   if random == 1

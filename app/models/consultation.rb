@@ -5,7 +5,7 @@ class Consultation < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :steps, dependent: :destroy
 
-  after_create :create_steps
+  # after_create :create_steps
 
   private
 
