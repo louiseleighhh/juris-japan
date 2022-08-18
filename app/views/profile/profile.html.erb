@@ -12,7 +12,7 @@
           <h2>Name: <%= current_user.first_name %> <%= current_user.last_name %></h2>
           <h2>Email Address: <%= current_user.email %></h2>
           <h2>Location: <%= current_user.location %></h2>
-          <%= link_to "Ongoing Applications", consultations_path, class: "btn button-consultations"  %>
+          <%= link_to "Ongoing Applications", consultations_path, class: "button-main"  %>
         </div>
       </div>
       <% @consultations.each do |consultation| %>
@@ -25,7 +25,7 @@
                     <h2><%="Procedure: #{consultation.procedure.name}"%></h2>
                     <p><%="Created at: #{consultation.created_at}"%></p>
                     <p><%="Last updated at: #{consultation.updated_at}"%></p>
-                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class:"btn button-consultations"%></p>
+                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class: "button-main"%></p>
                     <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p>
                   </div>
               </div>

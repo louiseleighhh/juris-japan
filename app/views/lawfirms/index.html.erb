@@ -8,28 +8,29 @@
   <% if @lawfirms.empty? %>
     <div class="no-results"><h1>There are currently no law firms in this location <i class="fa-regular fa-face-frown"></i></h1></div>
   <% else %>
-    <div class="wrapper-lawfirms">
-      <div class="cards-lawfirms">
-        <% @lawfirms.each do |r| %>
-        <div class="card-lawfirms">
-        <div class="gradient">
-        </div>
+  <div class="wrapper-lawfirms">
+    <div class="cards-lawfirms">
+      <% @lawfirms.each do |lawfirm| %>
+      <div class="card-lawfirms">
+      <div class="gradient">
+      </div>
         <div class="card-lawfirms-img">
-            <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+          <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
         </div>
         <div class="content-lawfirms">
-            <h2><%= r.name %></h2>
-            <%= link_to "Show more information", lawfirm_path(r) %>
-            <p>
-              <% r.tag_list.each do |tag| %>
-                <%= link_to tag, tagged_path(tag: tag) %>
-              <% end %>
-            </p>
-            </div>
-          </div>
-        <% end %>
+          <h2><%= lawfirm.name %></h2>
+          <h2><%= lawfirm.location %></h2>
+          <%= link_to "Show more information", lawfirm_path(lawfirm) %>
+          <p>
+            <% lawfirm.tag_list.each do |tag| %>
+              <%= link_to tag, tagged_path(tag: tag) %>
+            <% end %>
+          </p>
+        </div>
       </div>
-
+      <% end %>
+    </div>
+    
       <div class="map" style="width: 100%; height: 600px; position: sticky"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
