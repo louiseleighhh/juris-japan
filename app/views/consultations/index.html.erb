@@ -3,9 +3,8 @@
       <h1>Ongoing Procedures</h1>
   </div>
 </div>
-<body>
   <div class="container">
-    <% if @consultations.any? %>
+    <% if @consultations.any? %>%
       <% @consultations.each do |consultation| %>
         <div class="display-flex">
           <div class="row col-6">
@@ -29,4 +28,3 @@
       <%= link_to "Procedures", procedures_path, class: "btn btn-primary" %>
     <% end %>
   </div>
-</body>
