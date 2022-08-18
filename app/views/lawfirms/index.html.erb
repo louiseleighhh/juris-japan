@@ -5,13 +5,20 @@
 </div>
 
 <div class="container">
-  <div class="wrapper">
+
   <% if @lawfirms.empty? %>
     <div class="no-results"><h1>There are currently no law firms in this location <i class="fa-regular fa-face-frown"></i></h1></div>
   <% else %>
-    <div class="cards">
+  <div class="wrapper-lawfirms">
+    <div class="cards-lawfirms">
       <% @lawfirms.each do |r| %>
-      <div class="card">
+      <div class="card-lawfirms">
+      <div class="gradient">
+      </div>
+      <div class="card-lawfirms-img">
+          <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+      </div>
+      <div class="content-lawfirms">
           <h2><%= r.name %></h2>
           <%= link_to "Show more information", lawfirm_path(r) %>
           <p>
@@ -20,12 +27,15 @@
             <% end %>
           </p>
           </div>
+        </div>
       <% end %>
     </div>
 
     <div class = "map">
+    <img src="https://geology.com/world/world-map.gif" alt="">
     <h1></h1>
     </div>
-    <% end %>
     </div>
+    <% end %>
+
 </div>

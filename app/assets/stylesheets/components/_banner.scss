@@ -39,6 +39,7 @@
       color: white;
       font-size: 80px;
       font-family: Helvetica;
+      letter-spacing: 8px;
     }
     a {
       z-index: 1;
@@ -48,11 +49,18 @@
       color: white;
       font-size: 40px;
       font-family: Helvetica;
+      letter-spacing: 2px;
     }
     i {
       color: white;
       font-size: 40px;
       z-index: 1;
+    }
+    img {
+      z-index: 1;
+      width: 50%;
+      opacity: 0.2;
+      position: absolute;
     }
 }
 
@@ -165,17 +173,26 @@
 .icon-home {
   padding-top: 1rem;
   width: 170px;
-  height: 190px;
+  height: 200px;
   transition: .3s;
+  filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.5));
+}
+.icon-home:hover {
+  transform: scale(1.2);
 }
 
 .icon-text {
   text-align: center;
   color: white;
+  transition: .3s;
   p {
     font-size: 24px;
     font-weight: bold;
   }
+}
+
+.icon-text:hover {
+  color: #F6BC16;
 }
 
 .lower-home {
