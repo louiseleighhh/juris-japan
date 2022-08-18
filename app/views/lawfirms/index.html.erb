@@ -5,7 +5,16 @@
 </div>
 
 <div class="container">
-
+  <div class="search">
+    <%= form_tag movies_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a law firm"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <% if @lawfirms.empty? %>
     <div class="no-results"><h1>There are currently no law firms in this location <i class="fa-regular fa-face-frown"></i></h1></div>
   <% else %>
@@ -31,10 +40,11 @@
       <% end %>
     </div>
 
-    <div class = "map">
-    <img src="https://geology.com/world/world-map.gif" alt="">
-    <h1></h1>
-    </div>
+      <div class="map" style="width: 100%; height: 600px; position: sticky"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
     <% end %>
 
