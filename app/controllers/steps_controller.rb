@@ -35,14 +35,6 @@ class StepsController < ApplicationController
     redirect_to consultation_path(@consultation)
   end
 
-  def delete_photo_attachment
-    @step = Step.find(params[:id])
-    @photo = @step.photos.find_by(blob_id: params[:photo])
-    @photo.purge
-    @consultation = @step.consultation
-    redirect_to consultation_path(@consultation)
-  end
-
   private
 
   def step_params

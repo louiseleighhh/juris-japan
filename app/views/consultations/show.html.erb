@@ -13,16 +13,16 @@
           <div class="seemore__content" data-seemore-target="content">
             <p>
               <%= step.instruction %>
-              <% if step.photos.attached? %>
+              <% if @item.photos.attached? %>
                 <p>
-                <% step.photos.each do |photo| %>
+                <% @item.photos.each do |photo| %>
                   Uploaded File: <%= photo.filename %> |
-                  <%= link_to 'Remove', delete_photo_attachment_step_path(step, photo: photo.id),
+                  <%= link_to 'Remove', delete_photo_attachment_item_path(@item, photo: photo.id),
                   method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
                 </p>
               <% else %>
-                <%= simple_form_for(step) do |f| %>
+                <%= simple_form_for(@item) do |f| %>
                   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
                   <%= f.button :submit, 'Upload File' %>
                 <% end %>
