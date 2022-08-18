@@ -20,23 +20,24 @@
   <% else %>
   <div class="wrapper-lawfirms">
     <div class="cards-lawfirms">
-      <% @lawfirms.each do |r| %>
+      <% @lawfirms.each do |lawfirm| %>
       <div class="card-lawfirms">
       <div class="gradient">
       </div>
-      <div class="card-lawfirms-img">
+        <div class="card-lawfirms-img">
           <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
-      </div>
-      <div class="content-lawfirms">
-          <h2><%= r.name %></h2>
-          <%= link_to "Show more information", lawfirm_path(r) %>
+        </div>
+        <div class="content-lawfirms">
+          <h2><%= lawfirm.name %></h2>
+          <h2><%= lawfirm.location %></h2>
+          <%= link_to "Show more information", lawfirm_path(lawfirm) %>
           <p>
-            <% r.tag_list.each do |tag| %>
+            <% lawfirm.tag_list.each do |tag| %>
               <%= link_to tag, tagged_path(tag: tag) %>
             <% end %>
           </p>
-          </div>
         </div>
+      </div>
       <% end %>
     </div>
 
@@ -46,6 +47,6 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <% end %>
+  <% end %>
 
 </div>

@@ -9,15 +9,16 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item)
-
+    @item.update(item_params)
+    @consultation = @item.step.consultation
+    redirect_to consultation_path(@consultation)
   end
 
   def delete_photo_attachment
     @item = Item.find(params[:id])
     @photo = @item.photos.find_by(blob_id: params[:photo])
     @photo.purge
-    @consultation = @item.consultation
+    @consultation = @item.step.consultation
     redirect_to consultation_path(@consultation)
   end
 

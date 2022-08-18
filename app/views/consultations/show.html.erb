@@ -12,7 +12,7 @@
           <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
           <div class="seemore__content" data-seemore-target="content">
             <p>
-              <%= step.instruction %>
+              <%= @markdown.render(step.instruction).html_safe %>
               <% step.items.each do |item| %>
                 <% if item.photos.attached? %>
                   <p>

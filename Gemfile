@@ -71,8 +71,9 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Faker
 gem 'faker'
-# <<<<<<< Updated upstream
-# =======
+
+# Red Carpet
+gem 'redcarpet'
 
 # Geocoder
 gem "geocoder"

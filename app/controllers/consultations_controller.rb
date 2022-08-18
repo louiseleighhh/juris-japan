@@ -23,7 +23,10 @@ class ConsultationsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+  end
 
   def edit; end
 
@@ -46,6 +49,6 @@ class ConsultationsController < ApplicationController
   # end
 
   def set_consultation
-    @consultation = Consultation.find(params[:id])
+    @consultation = Consultation.includes(steps: :items).find(params[:id])
   end
 end
