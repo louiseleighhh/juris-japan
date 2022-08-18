@@ -51,34 +51,34 @@ puts 'Creating users...'
   if random == 1
     puts 'Creating lawfirms...'
     lawfirm = Lawfirm.create(
-      name: Faker::Name.first_name,
+      name: "#{Faker::Company.name} LLC",
       user: user,
-      location: ["Tokyo", "Osaka", "Kyoto", "Chiba", "Ibaraki", "Yokohama", "Nagoya", "Shizuoka"].sample
+      location: user.location
     )
-    puts "Created lawfirm #{lawfirm.id}"
+    puts "Created lawfirm #{lawfirm.id}, #{lawfirm.name}"
   end
 
-  random = rand(1..2)
-  if random == 1
-    puts 'Creating consultations...'
-    consultation = Consultation.create(
-      user: user,
-      procedure: procedure,
-      lawfirm: lawfirm
-    )
-    puts "Created consultation #{consultation.id}"
-  end
+  # random = rand(1..2)
+  # if random == 1
+  #   puts 'Creating consultations...'
+  #   consultation = Consultation.create(
+  #     user: user,
+  #     procedure: procedure,
+  #     lawfirm: lawfirm
+  #   )
+  #   puts "Created consultation #{consultation.id}"
+  # end
 
-  random = rand(1..2)
-  if random == 1
-    puts 'Creating messages...'
-    message = Message.create(
-      user: user,
-      consultation: consultation,
-      content: Faker::Name.first_name
-    )
-    puts "Created message #{message.id}"
-  end
+  # random = rand(1..2)
+  # if random == 1
+  #   puts 'Creating messages...'
+  #   message = Message.create(
+  #     user: user,
+  #     consultation: consultation,
+  #     content: Faker::Name.first_name
+  #   )
+  #   puts "Created message #{message.id}"
+  # end
 end
 
 puts 'Done!'
