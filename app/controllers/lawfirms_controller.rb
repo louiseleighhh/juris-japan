@@ -1,6 +1,15 @@
 class LawfirmsController < ApplicationController
   def index
-    @lawfirms = Lawfirm.all
+    if params[:query].present?
+      sql_query = " \
+        lawfirms.name @@ :query \
+        OR lawfirms.location @@ :query \
+        OR lawfirms.address @@ :query \
+      "
+      @lawfirms = Lawfirm.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @lawfirms = Lawfirm.all
+    end
     @markers = @lawfirms.geocoded.map do |lawfirm|
       {
         lat: lawfirm.latitude,
