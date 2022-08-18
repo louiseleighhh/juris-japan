@@ -31,7 +31,6 @@ class Procedure < ApplicationRecord
     steps = STEP_OUTLINES[self.name.to_sym]
     steps[:steps].each do |step|
       puts step.inspect
-
       Step.create!(name: step[:name], instruction: step[:instruction], consultation_id: consultation_id, status: 0)
     end
   end

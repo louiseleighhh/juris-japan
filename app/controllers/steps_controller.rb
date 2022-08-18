@@ -1,5 +1,4 @@
 class StepsController < ApplicationController
-
   #def index
   #  @steps = Step.all
   #end
@@ -8,10 +7,9 @@ class StepsController < ApplicationController
   #  @step = Step.find(params[:id])
   #end
 
-  #def new
-  #  @step = Step.new
-  #  @procedure = Procedure.find(params[:procedure_id])
-  #end
+  # def new
+  #   @step = Step.new
+  # end
 
   #def create
   #  @step = Step.new(step_params)
@@ -33,8 +31,8 @@ class StepsController < ApplicationController
   def update
     @step = Step.find(params[:id])
     @step.update(step_params)
-    # redirect_to step_path(@step)
-    #Again not really sure where we should redirect
+    @consultation = @step.consultation
+    redirect_to consultation_path(@consultation)
   end
 
   private

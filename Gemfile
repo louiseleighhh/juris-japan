@@ -66,7 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Acts As Taggable
 gem 'acts-as-taggable-on', '~> 9.0'
 
-# Cloudinary
+# Cloudinary / Carrierwave
 gem 'cloudinary', '~> 1.16.0'
 
 # Faker
@@ -78,3 +78,5 @@ gem 'redcarpet'
 # Geocoder
 gem "geocoder"
 
+# PG Search
+gem 'pg_search', '~> 2.3.0'

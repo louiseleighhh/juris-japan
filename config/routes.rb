@@ -8,8 +8,12 @@ Rails.application.routes.draw do
     resources :consultations, only: [:new, :create]
   end
 
-  resources :steps, only: [ :show, :edit, :update ] do
-    resources :items, only: [ :show, :edit, :update ]
+  resources :steps, only: [ :show, :edit, :update ]
+
+  resources :items, only: [ :show, :edit, :update ] do
+    member do
+      delete :delete_photo_attachment
+    end
   end
 
   resources :lawfirms, only: [ :index, :show ]

@@ -1,21 +1,37 @@
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374503/procedures-banner_djefl8.jpg')">
   <div class="container">
-      <h1>Steps to Follow</h1>
-  </div>
-</div>
-
-<% @consultation.steps.each do |step| %>
-  <div class="container_seemore">
-    <div class="seemore" data-controller="seemore">
-      <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
-      <div class="seemore__content" data-seemore-target="content">
-        <p>
-          <%= @markdown.render(step.instruction).html_safe %>
-          <%= simple_form_for(step) do |f| %>
-            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.button :submit, 'Upload File(s)' %>
-          <% end %>
-        </p>
+    <div class="row">
+      <h2><%= @consultation.id %></h2>
+      <h2><%= @consultation.user_id %></h2>
+      <h2><%= @consultation.procedure.name %></h2>
+      <h2><%= @consultation.steps.count %></h2>
+    </div>
+    <% @consultation.steps.order(:created_at).each do |step| %>
+      <div class="container_seemore">
+        <div class="seemore" data-controller="seemore">
+          <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
+          <div class="seemore__content" data-seemore-target="content">
+            <p>
+              <%= @markdown.render(step.instruction).html_safe %>
+              <% step.items.each do |item| %>
+                <% if item.photos.attached? %>
+                  <p>
+                  <% item.photos.each do |photo| %>
+                    Uploaded File: <%= photo.filename %> |
+                    <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                  </p>
+                <% else %>
+                  <%= simple_form_for(item) do |f| %>
+                    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                    <%= f.button :submit, 'Upload File' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
