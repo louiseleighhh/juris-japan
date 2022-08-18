@@ -1,6 +1,14 @@
 class LawfirmsController < ApplicationController
   def index
     @lawfirms = Lawfirm.all
+    @markers = @lawfirms.geocoded.map do |lawfirm|
+      {
+        lat: lawfirm.latitude,
+        lng: lawfirm.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { lawfirm: lawfirm })
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   def show
@@ -32,6 +40,6 @@ class LawfirmsController < ApplicationController
   private
 
   def lawfirm_params
-    params.require(:lawfirm).permit(:name, :location, :tag_list [])
+    params.require(:lawfirm).permit(:name, :address, :tag_list [])
   end
 end
