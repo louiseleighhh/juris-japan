@@ -72,5 +72,9 @@ gem 'cloudinary', '~> 1.16.0'
 # Faker
 gem 'faker'
 
+# Red Carpet
+gem 'redcarpet'
+
 # Geocoder
 gem "geocoder"
+

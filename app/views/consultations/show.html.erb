@@ -10,7 +10,7 @@
       <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
       <div class="seemore__content" data-seemore-target="content">
         <p>
-          <%= step.instruction %>
+          <%= @markdown.render(step.instruction).html_safe %>
           <%= simple_form_for(step) do |f| %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
             <%= f.button :submit, 'Upload File(s)' %>
