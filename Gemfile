@@ -74,3 +74,7 @@ gem 'faker'
 
 # Red Carpet
 gem 'redcarpet'
+
+# Geocoder
+gem "geocoder"
+

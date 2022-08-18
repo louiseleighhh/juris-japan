@@ -71,7 +71,8 @@ puts 'Creating procedures...'
     lawfirm = Lawfirm.create(
       name: "#{Faker::Company.name} LLC",
       user: user,
-      location: user.location
+      location: user.location,
+      address: Faker::Address.street_address
     )
     puts "Created lawfirm #{lawfirm.id}, #{lawfirm.name}"
   end
