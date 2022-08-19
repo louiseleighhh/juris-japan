@@ -1,0 +1,61 @@
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  font-family: Helvetica;
+}
+
+.about-us-left {
+  grid-area: 1 / 1 / 2 / 2;
+  place-items: center;
+  display: grid;
+  background: url("https://res.cloudinary.com/drmu7et5q/image/upload/v1660927729/25_logo_vpsirc.png") no-repeat center center;
+  h1 {
+    font-family: Helvetica;
+    letter-spacing: 5px;
+  }
+  img {
+    width: 30%;
+    opacity: 0.1;
+    position: absolute;
+    left: 8rem;
+    top: 52rem;
+  }
+}
+
+.about-us-right {
+  grid-area: 1 / 2 / 2 / 3;
+  display: grid;
+  place-items: center;
+  padding: 72px;
+  h1 {
+    font-family: Helvetica;
+  }
+  p {
+    font-family: Helvetica;
+    font-size: 24px;
+  }
+  a {
+    margin: 0;
+    color: black;
+    font-size: 24px;
+    font-family: Helvetica;
+    text-decoration: none;
+  }
+}
+
+.procedures-we-offer {
+  grid-area: 2 / 1 / 3 / 3;
+  background: url("https://res.cloudinary.com/drmu7et5q/image/upload/v1660756235/pattern_qahxu9.png");
+}
+
+.lawfirms-we-offer {
+  grid-area: 3 / 1 / 4 / 3;
+  background: url("https://images.unsplash.com/photo-1505664063603-28e48ca204eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4));
+}
+
+.blue {
+  color: #5177AC;
+}
