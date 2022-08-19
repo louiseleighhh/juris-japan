@@ -1,9 +1,149 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660549281/pexels-pixabay-207662_wgzxbt.jpg')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
   <div class="container">
-      <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1>
+      <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
   </div>
 </div>
-<body>
+
+<div class="container-facebook-profile">
+  <div class="card-facebook-profile">
+    <div class="gradient">
+    </div>
+    <div class="facebook-profile-img">
+
+        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="user">
+
+    </div>
+    <div class="content-facebook-profile">
+      <div class="top">
+        <div class="container-pet-profile">
+          <div class="left-right">
+            <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
+          </div>
+          <div class="left-right">
+            <div class="profile-buttons">
+
+              <%= link_to edit_user_registration_path, class: "nav-link", class: "button-secondary" do %>
+              <i class="fa-solid fa-pen"></i> Edit Profile
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <h1><%= current_user.email %></h1>
+        <% if current_user.consultations.count == 1 %>
+          <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultation</h2>
+        <% else %>
+          <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultations</h2>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="mytabs">
+  <input type="radio" id="tabfree" name="mytabs" checked="checked">
+    <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
+    <div class="tab">
+      <h2>About:</h2>
+        <div class="user-info">
+        <ul>
+          <li>
+            <h3><i class="fa-solid fa-file-signature"></i></h3>
+            <h3>Name: <%= current_user.first_name%> <%= current_user.last_name%></h3>
+          </li>
+          <li>
+            <h3><i class="fa-solid fa-envelope"></i></h3>
+            <h3>Email Address: <%= current_user.email %> </h3>
+          </li>
+          <li>
+            <h3><i class="fa-solid fa-map-pin"></i></h3>
+            <h3>Lives in <%= current_user.location %></h3>
+          </li>
+        </ul>
+      </div>
+      <!--
+        <h3><i class="fa-solid fa-file-signature">&nbsp </i> Name: <%= current_user.first_name%> <%= current_user.last_name%></h3>
+        <h3><i class="fa-solid fa-envelope"></i>&nbsp Email Address: <%= current_user.email %> </h3>
+        <h3><i class="fa-solid fa-map-pin"></i>&nbsp &nbsp Lives in <%= current_user.location %> </i></h3>
+      -->
+    </div>
+
+<input type="radio" id="tabsilver" name="mytabs">
+<label for="tabsilver">Consultations <i class="fa-solid fa-clipboard"></i></label>
+  <div class="tab" >
+
+  <% if current_user.consultations.any? %>
+      <h2 id="consultations">Consultations:</h2>
+      <div class="wrapper-consultations">
+        <% current_user.consultations.each do |consultation|%>
+          <div class="card-consultations">
+            <div class="gradient-consultations"></div>
+              <!-- <div class="consultations-img">
+
+                 <%#= image_tag ("immigration-icon.png")%>
+
+              </div> -->
+
+                <div class="content-consultations">
+               <!-- <p><%="Created at: #{consultation.created_at}"%></p>
+                    <p><%="Last updated at: #{consultation.updated_at}"%></p>
+                    <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class: "button-main"%></p>
+                    <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p> -->
+                  <div class="consultations-flex">
+                    <div class="left-right">
+                      <p>Name:</p>
+                    </div>
+                    <div class="left-right">
+                    <p><%= consultation.procedure.name%></p>
+                    </div>
+                  </div>
+                  <div class="consultations-flex">
+                    <div class="left-right">
+                      <p>Created at:</p>
+                    </div>
+                    <div class="left-right">
+                    <p><%= consultation.created_at%></p>
+                    </div>
+                  </div>
+                  <div class="consultations-flex">
+                    <div class="left-right">
+                      <p>Last updated at:</p>
+                    </div>
+                    <div class="left-right">
+                      <p><%= consultation.updated_at %></p>
+                    </div>
+                  </div>
+                  <div class="consultations-flex pt-3">
+                    <div class="left-right">
+                      <%= link_to "Review Ongoing Procedure", consultation_path(consultation), class: "button-main"%>
+                    </div>
+                    <div class="left-right">
+                      <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <% end %>
+      </div>
+      <% else %>
+        <h1>It seems like you don't have any pets at the moment.</h1>
+        <h1>Please add a pet.</h1>
+      <% end %>
+
+  </div>
+  <!-- extra tab
+    <input type="radio" id="tabgold" name="mytabs">
+      <label for="tabgold"> Extra Tab <i class="fa-solid fa-dog"></i></label>
+      <div class="tab">
+        <h1>Chaka</h1>
+      </div>
+-->
+
+</div>
+
+
+<!--
+
   <div class="container">
     <div class="row">
       <div class="card-product display=flex col-5 mt-2">
@@ -15,6 +155,9 @@
           <%= link_to "Ongoing Applications", consultations_path, class: "button-main"  %>
         </div>
       </div>
+      <% if @consultations.empty? %>
+        <h1>There are no ongoing applications</h1>
+      <% else %>
       <% @consultations.each do |consultation| %>
         <div class="display-flex">
           <div class="row col-6">
@@ -33,6 +176,8 @@
           </div>
         </div>
       <% end %>
+    <% end %>
     </div>
   </div>
-</body>
+
+-->

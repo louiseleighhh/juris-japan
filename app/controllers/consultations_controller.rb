@@ -17,7 +17,7 @@ class ConsultationsController < ApplicationController
     @procedure = Procedure.find(params[:procedure_id])
     @consultation.procedure = @procedure
     if @consultation.save
-      redirect_to consultations_path
+      redirect_to profile_path(anchor: "consultations")
     else
       render :new
     end
@@ -39,7 +39,7 @@ class ConsultationsController < ApplicationController
 
   def destroy
     @consultation.destroy
-    redirect_to consultations_path
+    redirect_to profile_path(anchor: "consultations")
   end
 
   private

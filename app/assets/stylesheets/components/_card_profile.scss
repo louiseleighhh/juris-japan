@@ -1,0 +1,221 @@
+.container-facebook-profile {
+  position: relative;
+  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  /* padding-left: 7em; */
+  padding-top: 16px;
+  margin-top: -100px;
+}
+
+.cards-facebook-profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  padding-left: 100px;
+}
+
+.container-facebook-profile .card-facebook-profile {
+  position: relative;
+  width: 79%;
+  height: 200px;
+  background: #fff;
+  margin: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: 0.5s;
+  border-radius: 8px;
+  .content-facebook-profile{
+    position: absolute;
+    padding: 28px 19px 20px 156px;
+    left: 148px;
+    margin: auto;
+    font-family: helvetica;
+    place-items: top;
+
+    top: 4%;
+    width: 84%;
+    text-align: top;
+
+    h1 {
+      font-family: helvetica;
+      font-weight: bold;
+      margin-top: -7px;
+    }
+
+    h2 {
+      font-family: helvetica;
+      margin-top: -7px;
+    }
+
+    .pending {
+      position: relative;
+      display: inline-block;
+      padding: 10px 40px;
+      background: rgb(233, 233, 233);
+      border: 1px solid #D5A021;;
+      color: rgb(231, 139, 0);
+      border-radius: 40px;
+      text-decoration: none;
+    }
+    .pending:hover {
+      position: relative;
+      display: inline-block;
+      padding: 10px 40px;
+      background: rgb(211, 110, 9);
+      color: #fff;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: .3s;
+    }
+  }
+}
+
+.container-facebook-profile .card-facebook-profile .gradient {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // background-image: linear-gradient(180deg, rgb(231, 139, 0) 0%, rgba(255,184,91,1) 28%);
+  //background-image: linear-gradient(180deg, #1E528A, #5982B0);
+  background-image: linear-gradient(0deg, #f5a50f, #FAD22C);
+  /*clip-path: circle(148px at 0 100px);
+  /* clip-path: circle(17% at 14.2% 0); */
+  /* clip-path: polygon(0 0, 28% 0, 16% 100%, 0% 100%); */
+  /* text-align: center; */
+  /* clip-path: polygon(8% 0, 30% 0, 10% 100%, 0 100%, 0 40%); */
+  /* clip-path: polygon(26% 0, 37% 50%, 26% 100%, 0% 100%, 0 55%, 0% 0%); */
+  clip-path: polygon(19% 0, 24% 53%, 19% 100%, 0% 100%, 0 55%, 0% 0%);
+  text-align: center;
+  h1 {
+   color: #fff;
+   font-size: 32px;
+   font-weight: bold;
+   font-family: helvetica;
+  }
+  h2 {
+  color: #fff;
+  font-size: 24px;
+  margin-top: -16px;
+  font-family: helvetica;
+  }
+}
+
+.price{
+  padding-top: 90px;
+}
+
+.facebook-profile-img {
+  width: 17em;
+  height: 17em;
+  margin: -14.8em auto 0 5em;
+  border-radius: 50%;
+  background-image: linear-gradient(180deg, #1E528A, #5982B0);
+  // background-image: linear-gradient(180deg, #f5a50f, #FAD22C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transform: translateX(-50%);
+  img {
+    width: 90%;
+    height: 90%;
+    border-radius: inherit;
+  }
+}
+
+.mytabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2% 4%;
+}
+.mytabs input[type="radio"] {
+  display: none;
+}
+.mytabs label {
+  padding: 16px;
+  background: #1E528A;
+  background-image: linear-gradient(180deg, #123669, #5177AC);
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: white;
+}
+
+.mytabs .tab {
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  order: 1;
+  display: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  i {
+    color:#1E528A;
+  }
+
+  p {
+    font-family: Helvetica;
+  }
+
+  h1 {
+    font-family: Helvetica;
+  }
+
+  h2 {
+    font-family: Helvetica;
+  }
+
+  h3 {
+    font-family: Helvetica;
+  }
+}
+
+
+.mytabs input[type='radio']:checked + label + .tab {
+  display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+  background-image: linear-gradient(180deg, #f5a50f, #FAD22C);
+  color: black;
+}
+
+.container-pet-profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-pet-profile-comment {
+  display: flex; // makes the text anchored to the center
+  justify-content: center; // makes the text anchored to the center
+  align-items: center; // makes the text anchored to the center
+  flex-direction: column; // makes the text anchored to the center
+  height: 8em;
+}
+
+
+.user-info ul {
+  margin-left: -15px;
+}
+.user-info ul li {
+  align-items: center;
+  list-style-type: none;
+  margin-bottom: 35px;
+  font-size: 20px;
+  display: flex;
+}
+.user-info ul li i {
+  margin-right: 10px;
+}
+.user-info ul li h3 {
+  margin: 0;
+}
+
+.tab .back-watermark {
+  z-index: 1;
+  width: 20%;
+  opacity: 0.2;
+  position: absolute;
+}
