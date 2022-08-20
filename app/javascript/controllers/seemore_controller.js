@@ -15,7 +15,7 @@ export default class extends Controller {
       button.classList.toggle('seemore__button--active');
 
       if (button.classList.contains('seemore__button--active')) {
-        seemoreContent.style.maxHeight = seemoreContent.scrollHeight + 'px';
+        seemoreContent.style.maxHeight = "fit-content";
       } else {
         seemoreContent.style.maxHeight = 0;
       }
