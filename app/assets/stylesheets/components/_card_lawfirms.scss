@@ -125,3 +125,70 @@
     font-family: Helvetica;
   }
 }
+
+.wrapper-lawfirms-show {
+  position: relative;
+  display: flex;
+  grid-template-columns: 1fr;
+  grid-gap: 64px;
+}
+
+.cards-lawfirms-show{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+}
+
+.wrapper-lawfirms-show .card-lawfirms-show {
+  position: relative;
+  width: 580px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: 0.5s;
+  h1 {
+    font-family: helvetica;
+  }
+
+  h2 {
+    font-family: helvetica;
+  }
+
+}
+
+.lawfirms-show-description-card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* width: 500px; */
+    /* height: 230px; */
+    background: #fff;
+    margin: 20px 0px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.5s;
+    h1 {
+      font-family: Helvetica;
+    }
+
+    p {
+      font-family: Helvetica;
+    }
+
+}
+
+.user-info-lawfirms-show ul {
+  margin-left: -15px;
+}
+.user-info-lawfirms-show ul li {
+  align-items: center;
+  list-style-type: none;
+  font-size: 20px;
+  display: flex;
+}
+.user-info-lawfirms-show ul li i {
+  margin-right: 10px;
+}
+.user-info-lawfirms0show ul li h3 {
+  margin: 0;
+}
