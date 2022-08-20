@@ -54,16 +54,53 @@ puts 'Creating procedures...'
   )
 
   step1 = Step.create(
-    name: "Application Form",
+    name: "1 - Application Form",
     consultation: consultation,
-    instruction: File.open("#{step_path}/steps/step1.md").read
+    instruction: "Please fill in the application form (永住許可申請書) and upload the form"
   )
 
-  item = Item.create(
+  item1 = Item.create(
     name: "Application Form",
-    description: File.open("#{step_path}/steps/step1.md").read,
+    description: File.open("#{step_path}/items/item1.md").read,
     step: step1
   )
+
+  step2 = Step.create(
+    name: "2 - Upload a photograph",
+    consultation: consultation,
+    instruction: "Please upload photograph based on MOJ website requirements"
+  )
+
+  item2 = Item.create(
+    name: "Upload a photograph",
+    description: File.open("#{step_path}/items/item2.md").read,
+    step: step2
+  )
+
+  step3d = Step.create(
+    name: "3.d - Proof of Employment Status",
+    consultation: consultation,
+    instruction: "Provide 1 copy of the following documents:"
+  )
+
+  item3d_1 = Item.create(
+    name: "If employed - Provide Certificate of Employment",
+    description: File.open("#{step_path}/items/item3d_1.md").read,
+    step: step3d
+  )
+
+  item3d_2 = Item.create(
+    name: "If self employed - Provide copy of the applicant's tax return, or the corporations' certificate of registered matters",
+    description: File.open("#{step_path}/items/item3d_2.md").read,
+    step: step3d
+  )
+
+  item3d_3 = Item.create(
+    name: "Other - Clarifying documents or other demonstrative materials which detail their employment (no specified format)",
+    description: File.open("#{step_path}/items/item3d_3.md").read,
+    step: step3d
+  )
+
 
   random = rand(1..2)
   if random == 1

@@ -1,35 +1,80 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374503/procedures-banner_djefl8.jpg')">
+</div>
   <div class="container">
-    <div class="row">
-      <h2><%= @consultation.id %></h2>
-      <h2><%= @consultation.user_id %></h2>
-      <h2><%= @consultation.procedure.name %></h2>
-      <h2><%= @consultation.steps.count %></h2>
-    </div>
     <% @consultation.steps.order(:created_at).each do |step| %>
       <div class="container_seemore">
         <div class="seemore" data-controller="seemore">
           <button type="button" class= "seemore__button" data-action="click->seemore#display"><%= step.name %></button>
           <div class="seemore__content" data-seemore-target="content">
             <p>
-              <%= @markdown.render(step.instruction).html_safe %>
+              <div class="instructions">
+                <%= @markdown.render(step.instruction).html_safe %>
+              </div>
               <% step.items.each do |item| %>
+                <%# <div class="modal" data-controller="modal"> %>
+                <input type="checkbox" id=<%"#{item.name}"%> name="item" unchecked>
+                <label for="item"><%= item.name%></label>
+                <br>
+
+              <button type="button" class="modal_button" data-bs-toggle="modal" data-bs-target="#modal<%= item.id %>">
+              More Information >
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="modal<%= item.id %>" tabindex="-1" aria-labelledby="modal<%= item.id %>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal<%= item.id %>Label"><%= item.name %></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <%= @markdown.render(item.description).html_safe %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="modal__gotit" data-bs-dismiss="modal">Got it!</button>                    </div>
+                  </div>
+                </div>
+              </div>
+
                 <% if item.photos.attached? %>
                   <p>
                   <% item.photos.each do |photo| %>
-                    Uploaded File: <%= photo.filename %> |
+                <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                  Uploaded Document >
+                </button>
+                  <div class="collapse" id="collapse<%=item.id%>">
+                  <div class="card card-body">
+                    Uploaded Document: <%= photo.filename %>
                     <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                    method: :delete, data: { confirm: 'Are you sure?' } %>​
                   <% end %>
+                  </div>
+              </div>
+              <hr style="border: 2px solid #0D2144" />
                   </p>
                 <% else %>
-                  <%= simple_form_for(item) do |f| %>
+                <p>
+                <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                  Attach Documents >
+                </button>
+              </p>
+              <div class="collapse" id="collapse<%=item.id%>">
+                <div class="card card-body">
+                    <%= simple_form_for(item) do |f| %>
                     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-                    <%= f.button :submit, 'Upload File' %>
+                    <%= f.button :submit, 'Attach a Document' %>​
                   <% end %>
+              </div>
+              </div>
+              <hr style="border: 2px solid #0D2144" />
                 <% end %>
               <% end %>
             </p>
+            </div>
           </div>
         </div>
       </div>
