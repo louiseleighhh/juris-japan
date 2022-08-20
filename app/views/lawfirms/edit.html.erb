@@ -4,16 +4,28 @@
   </div>
 </div>
 
-<div class = "container">
-  <div class="card mt-3 p-5">
-    <h1>Edit Law Firm</h1>
+<div class = "wrapper-form">
+  <div class="form-card">
+    <h1 class="d-flex justify-content-center">Edit Law Firm</h1>
     <%= simple_form_for @lawfirm do |f| %>
+     <div class="row">
       <%= f.input :name %>
+      </div>
+      <div class="row">
       <%= f.input :address %>
+      </div>
+      <div class="row">
       <%= f.input :location %>
+      </div>
+      <div class="row">
       <%= f.input :tag_list, as: :check_boxes, collection: [ "Immigration Law", "Corporate Law", "Family Law", "Intellectual Property Law" ] %>
-      <%= f.submit class: 'btn btn-primary' %>
+      </div>
+      <div class="row">
+      <%= f.submit class: 'button-consultationscenter' %>
+      </div>
     <% end %>
-    <%= link_to "Go Back", profile_path, class: "link-primary mt-3" %>
+    <div class="row pt-4">
+    <%= link_to "Go Back", profile_path, class: "button-gray" %>
+    </div>
   </div>
 </div>

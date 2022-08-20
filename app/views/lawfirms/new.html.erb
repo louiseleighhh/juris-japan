@@ -4,13 +4,19 @@
   </div>
 </div>
 
+<div class = "wrapper-form">
+  <div class="form-card">
 <div>
-  <h1>Become a Law Firm</h1>
+  <h1 class="d-flex justify-content-center">Become a Law Firm</h1>
   <%= simple_form_for @lawfirm do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :location %>
     <%= f.input :tag_list, as: :check_boxes, collection: [ "Immigration Law", "Corporate Law", "Family Law", "Intellectual Property Law" ] %>
-    <%= f.submit class: 'btn btn-primary' %>
+    <div class="row">
+    <%= f.submit class: 'button-consultationscenter' %>
+    </div>
   <% end %>
+</div>
+</div>
 </div>

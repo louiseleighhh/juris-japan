@@ -1,4 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
+  <div class="container">
+    <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
+  </div>
+</div>
+
+<div class = "wrapper-form">
+  <div class="form-card">
+<h2 class="d-flex justify-content-center">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -24,12 +32,20 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "button-consultationscenter" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy?</p>
+<div class="row">
+<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button-gray" %>
+</div>
 
-<%= link_to "Back", :back %>
+<div class="row">
+<%= link_to "Back", :back, class: "button-gray mt-2" %>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,27 @@
+.wrapper-form {
+  position: relative;
+  width: 990px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  // display: grid;  commented for dogsittings show.
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 64px;
+}
+
+.form-card {
+  padding: 3rem !important;
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: 16px;
+}
