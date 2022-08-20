@@ -3,18 +3,57 @@
       <h1><%= @lawfirm.name %></h1>
   </div>
 </div>
+<div class="container">
+<div class="lawfirms-show-description-card">
+  <h1>Description:</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+</div>
+<div class="wrapper-lawfirms-show">
+  <div class="cards-lawfirms-show">
+    <div class="card-lawfirms-show">
+      <h1>Information:</h1>
+      <div class="user-info-lawfirms-show">
+        <ul>
+          <li>
+            <p><i class="fa-solid fa-location-pin"></i></p>
+            <p>Location: <%= @lawfirm.address%>, <%= @lawfirm.location %></p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-phone"></i></p>
+            <p>Telephone Number: 123-(4567)-890 </p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-fax"></i></p>
+            <p>Fax Number: 123-(4567)-890 </p>
+          </li>
+          <li>
+            <p><i class="fa-solid fa-tag"></i></p>
+            <% if @lawfirm.tag_list.empty? %>
+            <p>There are no taglists/specialties</p>
+            <% else %>
+            <p>Specialty:<%=@lawfirm.tag_list %></p>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<h1><%= @lawfirm.name %></h1>
-<h1><%= @lawfirm.location %></h1>
-<% if @lawfirm.tag_list.empty? %>
-  <h1>There is no taglist/specialty</h1>
-<% else %>
-  <%= @lawfirm.tag_list %>
-<% end %>
-<h3>Related Firms</h3>
-<ul>
-  <% @related_lawfirms.each do |r| %>
+  <div class="map-lawfirms-show"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+<div class="lawfirms-show-description-card">
+  <h1>Related Lawfirms:</h1>
+  <% if @related_lawfirms.empty? %>
+  <p>There are no related Lawfirms</p>
+  <% else %>
+   <% @related_lawfirms.each do |r| %>
     <li><%= r.name %></li>
     <li><%= r.location %></li>
   <% end %>
-</ul>
+  <% end %>
+</div>
+</div>
