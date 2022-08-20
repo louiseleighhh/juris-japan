@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <% if @lawfirms.empty? %>
-    <div class="no-results"><h1>There are currently no law firms in this location <i class="fa-regular fa-face-frown"></i></h1></div>
+    <div class="no-results"><h1>There are currently no law firms with those parameters <i class="fa-regular fa-face-frown"></i></h1></div>
   <% else %>
   <div class="wrapper-lawfirms">
     <div class="cards-lawfirms">
@@ -30,13 +30,7 @@
         <div class="content-lawfirms">
           <h2><%= lawfirm.name %></h2>
           <h2><%= lawfirm.address %></h2>
-          <h2><%= lawfirm.location %></h2>
           <%= link_to "Show more information", lawfirm_path(lawfirm), class: "button-main" %>
-          <p>
-            <% lawfirm.tag_list.each do |tag| %>
-              <%= link_to tag, tagged_path(tag: tag) %>
-            <% end %>
-          </p>
         </div>
       </div>
       <% end %>

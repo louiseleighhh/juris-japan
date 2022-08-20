@@ -1,4 +1,6 @@
 class LawfirmsController < ApplicationController
+  before_action :set_lawfirm, only: [:show, :edit, :update, :destroy]
+
   def index
     if params[:query].present?
       sql_query = " \
@@ -21,34 +23,51 @@ class LawfirmsController < ApplicationController
   end
 
   def show
-    @lawfirm = Lawfirm.find(params[:id])
     @related_lawfirms = @lawfirm.find_related_tags
   end
 
-  #def new
-  #  @lawfirm = Lawfirm.new
-  #end
+  def new
+    @lawfirm = Lawfirm.new
+  end
 
-  #def create
-  #  @lawfirm = Lawfirm.new(lawfirm_params)
-  #  if @lawfirm.save
-  #    redirect_to lawfirm_path
-  #  else
-  #    render :new
-  #  end
-  #end
+  def create
+    @lawfirm = Lawfirm.new(lawfirm_params)
+    @lawfirm.user = current_user
+    # @lawfirm.location = current_user.location
+    if @lawfirm.save
+      redirect_to profile_path
+    else
+      render :new
+    end
+  end
 
-  #def tagged
-  #  if params[:tag].present?
-  #    @lawfirms = Lawfirm.tagged_with(params[:tag])
-  #  else
-  #    @lawfirms = Lawfirm.all
-  #  end
-  #end
+  def tagged
+    if params[:tag].present?
+      @lawfirms = Lawfirm.tagged_with(params[:tag])
+    else
+      @lawfirms = Lawfirm.all
+    end
+  end
+
+  def edit; end
+
+  def update
+    @lawfirm.update(lawfirm_params)
+    redirect_to profile_path
+  end
+
+  def destroy
+    @lawfirm.destroy
+    redirect_to profile_path
+  end
 
   private
 
   def lawfirm_params
-    params.require(:lawfirm).permit(:name, :address, :tag_list [])
+    params.require(:lawfirm).permit(:name, :address, tag_list: [])
+  end
+
+  def set_lawfirm
+    @lawfirm = Lawfirm.find(params[:id])
   end
 end
