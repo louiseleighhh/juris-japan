@@ -1,3 +1,4 @@
+
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
   <div class="container">
     <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
@@ -19,9 +20,15 @@
           </div>
           <div class="left-right">
             <div class="profile-buttons">
+            <% if current_user.lawfirm == nil %>
+                <%= link_to new_lawfirm_path(@lawfirm), class: "button-main" do %>
+                <i class="fa-solid fa-scale-balanced"></i> Become a Law Firm
+                <% end %>
+              <% end %>
               <%= link_to edit_user_registration_path, class: "nav-link", class: "button-secondary" do %>
               <i class="fa-solid fa-pen"></i> Edit Profile
               <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -74,14 +81,7 @@
           <% current_user.consultations.each do |consultation|%>
             <div class="card-consultations">
               <div class="gradient-consultations"></div>
-                <!-- <div class="consultations-img">
-                  <%#= image_tag ("immigration-icon.png")%>
-                </div> -->
                   <div class="content-consultations">
-                  <!-- <p><%="Created at: #{consultation.created_at}"%></p>
-                      <p><%="Last updated at: #{consultation.updated_at}"%></p>
-                      <p><%= link_to "Review Ongoing Procedure: #{consultation.procedure.name}", consultation_path(consultation), class: "button-main"%></p>
-                      <p><%= link_to "Cancel Application", consultation_path(consultation), class: "btn button-destroy", method: 'delete', data: { confirm: 'Are you sure?' } %></p> -->
                     <div class="consultations-flex">
                       <div class="left-right">
                         <p>Name:</p>
@@ -118,39 +118,63 @@
               </div>
             </div>
           <% end %>
+          <% else %>
+        <h1>It seems like you do not have any consultations at the moment.</h1>
+        <% end %>
         </div>
-      <% else %>
-        <h1>It seems like you don't have any consultations at the moment.</h1>
-      <% end %>
-    </div>
 
-  <input type="radio" id="tabgold" name="mytabs">
-    <label for="tabgold">Law Firms <i class="fa-solid fa-dog"></i></label>
+<% if current_user.lawfirm == nil %>
+
+<% else %>
+    <input type="radio" id="tabgold" name="mytabs">
+    <label for="tabgold">Law Firm <i class="fa-solid fa-scale-balanced"></i></label>
     <div class="tab">
-      <h1>Your Law Firm</h1>
-      <% if current_user.lawfirm == nil %>
-        <div class="center">
-          <%= link_to "Become a Law Firm", new_lawfirm_path(@lawfirm), class: "button-main"%>
-        </div>
-      <% else %>
-        <div class="content-lawfirms">
-          <h5><%= @lawfirm.name %></h5>
-          <h5><%= @lawfirm.address %></h5>
-          <% @lawfirm.tag_list.each do |tag| %>
-            <h5><%= link_to tag, lawfirms_path(tag: tag) %></h5>
+        <div class="wrapper-consultations">
+            <div class="card-consultations">
+              <div class="gradient-consultations"></div>
+                  <div class="content-consultations">
+                    <div class="consultations-flex">
+                      <div class="left-right">
+                        <p>Name:</p>
+                      </div>
+                      <div class="left-right">
+                      <p><%= @lawfirm.name %></p>
+                      </div>
+                    </div>
+                    <div class="consultations-flex">
+                      <div class="left-right">
+                        <p>Address:</p>
+                      </div>
+                      <div class="left-right">
+                      <p><%= @lawfirm.address %></p>
+                      </div>
+                    </div>
+                    <div class="consultations-flex">
+                      <div class="left-right">
+                        <p>Specialty:</p>
+                      </div>
+                      <div class="left-right">
+                        <% @lawfirm.tag_list.each do |tag| %>
+                          <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                      <% end %>
+                      </div>
+                    </div>
+                    <div class="consultations-flex pt-3">
+                      <div class="left-right">
+                        <%= link_to "Update", edit_lawfirm_path(@lawfirm), class: "button-main"%>
+                      </div>
+                      <div class="left-right">
+                        <%= link_to "Remove", lawfirm_path(@lawfirm), class: "nav-link", class: "button-gray", method: :delete,  data: { confirm: 'Are you sure?' } %>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
           <% end %>
-          <div class="flex-container">
-            <div class="left-right">
-              <%= link_to "Update", edit_lawfirm_path(@lawfirm), class: "nav-link", class: "button-main"%>
-            </div>
-            <div class="left-right">
-              <%= link_to "Remove", lawfirm_path(@lawfirm), class: "nav-link", class: "button-secondary", method: :delete %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+
     </div>
 </div>
+
 
 
 <!--
