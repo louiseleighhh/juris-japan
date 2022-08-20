@@ -2,7 +2,9 @@ class LawfirmsController < ApplicationController
   before_action :set_lawfirm, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
+    if params[:query].present? && ["immigration", "corporate", "family", "intellectual", "property", "law"].include?(params[:query])
+      @lawfirms = Lawfirm.tagged_with(params[:tag])
+    elsif params[:query].present?
       sql_query = " \
         lawfirms.name @@ :query \
         OR lawfirms.location @@ :query \
@@ -49,7 +51,7 @@ class LawfirmsController < ApplicationController
   end
 
   def tagged
-    if params[:tag].present?
+    if Lawfirm.tag_list.include?(params[:query])
       @lawfirms = Lawfirm.tagged_with(params[:tag])
     else
       @lawfirms = Lawfirm.all
