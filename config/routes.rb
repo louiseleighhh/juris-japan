@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/tagged', to: "lawfirms#tagged", as: :tagged
+  get '/profile', to: "profile#profile"
+  get '/about', to: "pages#about"
 
   resources :consultations, only: [ :index, :show, :destroy ]
 
@@ -16,14 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :lawfirms, only: [ :index, :show ]
+  resources :lawfirms
 
   namespace :lawyers do
     resources :consultations, only: [ :index, :show, :update ]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/tagged', to: "lawfirms#tagged", as: :tagged
-  get '/profile', to: "profile#profile"
-  get '/about', to: "pages#about"
 end
