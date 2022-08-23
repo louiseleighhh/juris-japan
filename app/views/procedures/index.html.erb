@@ -3,6 +3,84 @@
       <h1>Procedures</h1>
   </div>
 </div>
+
+<div class="container">
+
+  <div class="procedures-grid">
+
+    <div class="immigration-image">
+      <%= image_tag ("immigration-icon.png")%>
+    </div>
+
+    <div class="immigration-text" id="immigration">
+      <div class = "wrapper-procedures">
+        <div class="procedures-card">
+          <div class="procedures-card-infos">
+              <h2>Immigration Law</h2>
+              <p><%= link_to "Permanent Residency", procedure_path(1)%> <i class="fa-solid fa-arrow-right"></i></p>
+              <a href="#"><p>Visa Extension <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Spouse Visa <i class="fa-solid fa-arrow-right"></i></p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="corporate-text" id="corporate">
+      <div class = "wrapper-procedures">
+        <div class="procedures-card">
+          <div class="procedures-card-infos">
+              <h2>Corporate Law</h2>
+              <a href="#"><p>Employment <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"> <p>Corporate Tax <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Advertisement <i class="fa-solid fa-arrow-right"></i></p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="corporate-image">
+      <%= image_tag ("corporate-icon.png")%>
+    </div>
+
+    <div class="family-image">
+      <%= image_tag ("family-icon.png")%>
+    </div>
+
+    <div class="family-text" id="family">
+      <div class = "wrapper-procedures">
+        <div class="procedures-card">
+          <div class="procedures-card-infos">
+              <h2>Family Law</h2>
+              <a href="#"><p>Divorce <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Will and Inheritance <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Marriage <i class="fa-solid fa-arrow-right"></i></p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright-text" id="copyright">
+      <div class = "wrapper-procedures">
+        <div class="procedures-card">
+          <div class="procedures-card-infos">
+              <h2>Copyright Law</h2>
+              <a href="#"><p>Patent Law <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Trademark Law <i class="fa-solid fa-arrow-right"></i></p></a>
+              <a href="#"><p>Design Law <i class="fa-solid fa-arrow-right"></i></p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright-image">
+      <%= image_tag ("patent-icon.png")%>
+    </div>
+
+  </div>
+
+</div>
+
+<!--
 <div class="container">
   <div class="card-product">
     <%= image_tag ("immigration-icon.png")%>
@@ -41,6 +119,7 @@
     </div>
   </div>
 </div>
+-->
 
 <!-- Actual one
 <div class="container">
