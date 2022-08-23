@@ -1,5 +1,5 @@
 <div class="section">
- <img src="https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png" alt="watermark">
+ <%# <img src="https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png" alt="watermark"> %>
   <h1>JURIS JAPAN</h1>
   <p><span data-controller="typed-js"></span></p>
   <div class="two-buttons">
@@ -43,11 +43,19 @@
       <h1 class ="text-center">Law Procedures We Offer</h1>
       <div class="d-flex justify-content-around">
         <div class ="icon-text">
+          <%= link_to procedures_path("#immigration"), class: "navbar-brand" do %>
+          <div class="navbar-lewagon-blue-a">
           <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
+          </div>
+          <% end %>
           <p class="immigration-icon">Immigration</p>
         </div>
         <div class="icon-text">
+        <%= link_to procedures_path("#corporate"), class: "navbar-brand" do %>
+          <div class="navbar-lewagon-blue-a">
           <%= image_tag ("corporate-icon.png"), class: "icon-home" %>
+          </div>
+          <% end %>
           <p class="corporate-icon">Corporate</p>
         </div>
         <div class="icon-text">
@@ -72,7 +80,11 @@
       <h1 class ="text-center">Law Firms in Partnership with Us</h1>
       <div class="d-flex justify-content-around">
         <div class ="icon-text">
+          <%= link_to procedures_path("#immigration"), class: "navbar-brand" do %>
+          <div class="navbar-lewagon-blue-a">
           <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
+          </div>
+          <% end %>
           <p class="immigration-icon">Immigration</p>
         </div>
         <div class="icon-text">

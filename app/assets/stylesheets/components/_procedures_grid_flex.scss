@@ -1,0 +1,49 @@
+.procedures-grid {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  .immigration-image {
+    grid-area: 1 / 1 / 2 / 2;
+    place-items: center;
+    display: grid;
+  }
+  .immigration-text {
+    grid-area: 1 / 2 / 2 / 3;
+    place-items: center;
+    display: grid;
+  }
+  .corporate-text {
+    grid-area: 2 / 1 / 3 / 2;
+    place-items: center;
+    display: grid;
+  }
+  .corporate-image {
+    grid-area: 2 / 2 / 3 / 3;
+    place-items: center;
+    display: grid;
+  }
+  .family-image {
+    grid-area: 3 / 1 / 4 / 2;
+    place-items: center;
+    display: grid;
+  }
+  .family-text {
+    grid-area: 3 / 2 / 4 / 3;
+    place-items: center;
+    display: grid;
+  }
+  .copyright-text {
+    grid-area: 4 / 1 / 5 / 2;
+    place-items: center;
+    display: grid;
+  }
+  .copyright-image {
+    grid-area: 4 / 2 / 5 / 3;
+    place-items: center;
+    display: grid;
+  }
