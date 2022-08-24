@@ -55,7 +55,12 @@
         Be the first to leave a review for <%= @lawfirm.name %>
       <% else %>
         <% @lawfirm.reviews.each do |review| %>
-          <p id="review-<%= review.id %>"><%= review.content %></p>
+           <div id="review-<%= review.id %>">
+            <p class="lawfirm-review"><%= review.content %></p>
+            <p><%  review.rating.to_i.times do  %>
+              <i class="fa-solid fa-star star-yellow"></i>
+            <% end %></p>
+          </div>
         <% end %>
       <% end %>
     </div>
