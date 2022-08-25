@@ -14,7 +14,6 @@
           </div>
           <% step.items.each do |item| %>
             <%# <div class="modal" data-controller="modal"> %>
-            <input type="checkbox" id=<%"#{item.name}"%> name="item" unchecked>
             <label for="item"><%= item.name%></label>
             <br>
             <button type="button" class="modal_button" data-bs-toggle="modal" data-bs-target="#modal<%= item.id %>">
@@ -22,6 +21,7 @@
             </button>
             <!-- Modal -->
             <div class="modal fade" id="modal<%= item.id %>" tabindex="-1" aria-labelledby="modal<%= item.id %>Label" aria-hidden="true">
+              <%# <%= item.checked? ? "I am checked" : "I am not checked"%>
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
