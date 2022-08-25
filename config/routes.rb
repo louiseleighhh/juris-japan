@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/profile', to: "profile#profile"
   get '/about', to: "pages#about"
 
-  resources :consultations, only: [ :index, :show, :destroy ]
+  resources :consultations, only: [ :index, :show, :destroy, :edit, :update ]
 
   resources :procedures, only: [ :index, :show ] do
     resources :consultations, only: [:new, :create]

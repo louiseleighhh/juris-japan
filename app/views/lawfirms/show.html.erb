@@ -35,11 +35,7 @@
             <% end %>
           </li>
         </ul>
-        <%= simple_form_for [@lawfirm, @consultation] do |f| %>
-          <div class="text-center">
-            <%= f.submit class: 'btn button-consultationscenter ' %>
-          </div>
-        <% end %>
+        <%#= link_to "Get help from #{@lawfirm.name}", edit_consultation_path(@consultation, lawfirm_id: params[:lawfirm_id]) %>
       </div>
     </div>
   </div>

@@ -4,10 +4,11 @@
       <h1><%= @lawfirm.lawyer.first_name %> <%= @lawfirm %></h1>
   </div>
 </div>
-
-<% @consultations.each do |consultation| %>
-  <div class="top">
-    <h1><%= consultation.user.first_name %> <%= consultation.user.last_name %></h1>
-    <h1><%= consultation.procedure.name %></h1>
-  </div>
-<% end %>
+<div>
+  <% @consultations.each do |consultation| %>
+    <div class="top">
+      <h1><%= consultation.user.first_name %> <%= consultation.user.last_name %></h1>
+      <h1><%= consultation.procedure.name %></h1>
+    </div>
+  <% end %>
+</div>
