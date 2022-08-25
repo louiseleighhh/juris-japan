@@ -7,8 +7,7 @@
 
 <% @consultations.each do |consultation| %>
   <div class="top">
-    <h1><%= consultation.lawyer.first_name %> <%= consultation.lawyer.last_name %></h1>
-    <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
-    <h1><%= booking.user.pets.first.breed %> - <%= booking.user.pets.first.name %></h1>
-    <p><%= booking.user.pets.first.comments %></p>
+    <h1><%= consultation.user.first_name %> <%= consultation.user.last_name %></h1>
+    <h1><%= consultation.procedure.name %></h1>
   </div>
+<% end %>

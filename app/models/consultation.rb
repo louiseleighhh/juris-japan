@@ -2,7 +2,7 @@ class Consultation < ApplicationRecord
   belongs_to :user
   belongs_to :procedure
   belongs_to :lawfirm, optional: true
-  belongs_to :lawyer, through: :consultation, source: :user
+  has_one :lawyer, through: :consultation, source: :user
   has_many :messages, dependent: :destroy
   has_many :steps, dependent: :destroy
 
