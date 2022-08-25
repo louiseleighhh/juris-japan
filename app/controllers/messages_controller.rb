@@ -10,16 +10,16 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    # @consultation = Consultation.find(params[:consultation_id])
     @message = Message.new(message_params)
-    @user = current_user
-    @message.user = @user
-    @consultation = Consultation.find(params[:consultation_id])
-    @message.consultation = @consultation
+    @message.chatroom = @chatroom
+    # @message.consultation = @consultation
+    @message.user = current_user
     if @message.save
-      redirect_to message_path(@message)
-      # Not sure about the routes here
+      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
-      render :new
+      render "chatrooms/show"
     end
   end
 
