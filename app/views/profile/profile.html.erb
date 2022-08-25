@@ -3,7 +3,6 @@
     <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
   </div>
 </div>
-
 <div class="container-facebook-profile">
   <div class="card-facebook-profile">
     <div class="gradient">
@@ -19,164 +18,210 @@
           </div>
           <div class="left-right">
             <div class="profile-buttons">
-            <% if current_user.lawfirm == nil %>
-                <%= link_to new_lawfirm_path(@lawfirm), class: "button-main" do %>
-                <i class="fa-solid fa-scale-balanced"></i> Become a Law Firm
+              <% if current_user.lawfirm == nil %>
+                <%= link_to new_lawfirm_path(@lawfirm), class: "button-main m-4" do %>
+                  <i class="fa-solid fa-scale-balanced"></i> Become a Law Firm
                 <% end %>
               <% end %>
               <%= link_to edit_user_registration_path, class: "nav-link", class: "button-secondary" do %>
-              <i class="fa-solid fa-pen"></i> Edit Profile
+                <i class="fa-solid fa-pen"></i> Edit Profile
               <% end %>
-              </div>
             </div>
           </div>
         </div>
-        <h1><%= current_user.email %></h1>
-        <% if current_user.consultations.count == 1 %>
-          <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultation</h2>
-        <% else %>
-          <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultations</h2>
-        <% end %>
       </div>
-
+      <h1><%= current_user.email %></h1>
+      <% if current_user.consultations.count == 1 %>
+        <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultation</h2>
+      <% else %>
+        <h2> <i class="fa-solid fa-clipboard"></i> Has <%= current_user.consultations.count %> consultations</h2>
+      <% end %>
     </div>
   </div>
 </div>
-
+</div>
 <div class="mytabs">
   <input type="radio" id="tabfree" name="mytabs" checked="checked">
-    <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
-    <div class="tab">
-      <h2>About:</h2>
-      <div class="user-info">
-        <ul>
-          <li>
-            <h3><i class="fa-solid fa-file-signature"></i></h3>
-            <h3>Name: <%= current_user.first_name%> <%= current_user.last_name%></h3>
-          </li>
-          <li>
-            <h3><i class="fa-solid fa-envelope"></i></h3>
-            <h3>Email Address: <%= current_user.email %> </h3>
-          </li>
-          <li>
-            <h3><i class="fa-solid fa-map-pin"></i></h3>
-            <h3>Lives in <%= current_user.location %></h3>
-          </li>
-        </ul>
-      </div>
-      <!--
+  <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
+  <div class="tab">
+    <h2>About:</h2>
+    <div class="user-info">
+      <ul>
+        <li>
+          <h3><i class="fa-solid fa-file-signature"></i></h3>
+          <h3>Name: <%= current_user.first_name%> <%= current_user.last_name%></h3>
+        </li>
+        <li>
+          <h3><i class="fa-solid fa-envelope"></i></h3>
+          <h3>Email Address: <%= current_user.email %> </h3>
+        </li>
+        <li>
+          <h3><i class="fa-solid fa-map-pin"></i></h3>
+          <h3>Lives in <%= current_user.location %></h3>
+        </li>
+      </ul>
+    </div>
+    <!--
         <h3><i class="fa-solid fa-file-signature">&nbsp </i> Name: <%= current_user.first_name%> <%= current_user.last_name%></h3>
         <h3><i class="fa-solid fa-envelope"></i>&nbsp Email Address: <%= current_user.email %> </h3>
         <h3><i class="fa-solid fa-map-pin"></i>&nbsp &nbsp Lives in <%= current_user.location %> </i></h3>
       -->
-    </div>
-
+  </div>
   <input type="radio" id="tabsilver" name="mytabs">
-    <label for="tabsilver">Consultations <i class="fa-solid fa-clipboard"></i></label>
-    <div class="tab" >
-      <% if current_user.consultations.any? %>
-        <h2 id="consultations">Consultations:</h2>
-        <div class="wrapper-consultations">
-          <% current_user.consultations.each do |consultation|%>
-            <div class="card-consultations">
-              <div class="gradient-consultations"></div>
-                  <div class="content-consultations">
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Name:</p>
-                      </div>
-                      <div class="left-right">
-                      <p><%= consultation.procedure.name %></p>
-                      </div>
-                    </div>
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Created at:</p>
-                      </div>
-                      <div class="left-right">
-                      <p><%= consultation.created_at %></p>
-                      </div>
-                    </div>
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Last updated at:</p>
-                      </div>
-                      <div class="left-right">
-                        <p><%= consultation.updated_at %></p>
-                      </div>
-                    </div>
-                    <div class="consultations-flex pt-3">
-                      <div class="left-right">
-                        <%= link_to "Review Ongoing Procedure", consultation_path(consultation), class: "button-main"%>
-                      </div>
-                      <div class="left-right">
-                        <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
-                      </div>
-                    </div>
-                  </div>
+  <label for="tabsilver">Consultations <i class="fa-solid fa-clipboard"></i></label>
+  <div class="tab" >
+    <% if current_user.consultations.any? %>
+      <h2 id="consultations">Consultations:</h2>
+      <div class="wrapper-consultations">
+        <% current_user.consultations.each do |consultation|%>
+          <div class="card-consultations">
+            <div class="gradient-consultations"></div>
+            <div class="content-consultations">
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Name:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= consultation.procedure.name %></p>
+                </div>
               </div>
-          <% end %>
-        </div>
-          <% else %>
-        <h1>It seems like you do not have any consultations at the moment.</h1>
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Created at:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= consultation.created_at %></p>
+                </div>
+              </div>
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Last updated at:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= consultation.updated_at %></p>
+                </div>
+              </div>
+              <div class="consultations-flex pt-3">
+                <div class="left-right">
+                  <%= link_to "Review Ongoing Procedure", consultation_path(consultation), class: "button-main"%>
+                </div>
+                <div class="left-right">
+                  <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-        </div>
-
-<% if current_user.lawfirm == nil %>
-
-<% else %>
+      </div>
+    <% else %>
+      <h1>It seems like you do not have any consultations at the moment.</h1>
+    <% end %>
+  </div>
+  <input type="radio" id="tabplatinum" name="mytabs">
+  <label for="tabplatinum">Bookmarks <i class="fa-solid fa-bookmark"></i></label>
+  <div class="tab" >
+    <% if @favorite_lawfirms.any? %>
+      <h2 id="consultations">Bookmarks:</h2>
+      <div class="wrapper-consultations">
+        <% @favorite_lawfirms.each do |favorite|%>
+          <div class="card-consultations">
+            <div class="gradient-consultations"></div>
+            <div class="content-consultations">
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Name:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= favorite.name %></p>
+                </div>
+              </div>
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Address:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= favorite.address %></p>
+                </div>
+              </div>
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Location:</p>
+                </div>
+                <div class="left-right">
+                  <p><%= favorite.location %></p>
+                </div>
+              </div>
+              <div class="consultations-flex">
+                <div class="left-right">
+                  <p>Specialty:</p>
+                </div>
+                <div class="left-right">
+                  <% favorite.tag_list.each do |tag| %>
+                    <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="consultations-flex pt-3">
+                <%= link_to "Show more information", lawfirm_path(favorite), class: "button-main" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <h1>It seems like you do not have any bookmarks at the moment.</h1>
+    <% end %>
+  </div>
+  <% if current_user.lawfirm == nil %>
+  <% else %>
     <input type="radio" id="tabgold" name="mytabs">
     <label for="tabgold">Law Firm <i class="fa-solid fa-scale-balanced"></i></label>
     <div class="tab">
       <h2 id="lawfirms">Law Firm:</h2>
-        <div class="wrapper-consultations">
-            <div class="card-consultations">
-              <div class="gradient-consultations"></div>
-                  <div class="content-consultations">
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Name:</p>
-                      </div>
-                      <div class="left-right">
-                      <p><%= @lawfirm.name %></p>
-                      </div>
-                    </div>
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Address:</p>
-                      </div>
-                      <div class="left-right">
-                      <p><%= @lawfirm.address %></p>
-                      </div>
-                    </div>
-                    <div class="consultations-flex">
-                      <div class="left-right">
-                        <p>Specialty:</p>
-                      </div>
-                      <div class="left-right">
-                        <% @lawfirm.tag_list.each do |tag| %>
-                          <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
-                      <% end %>
-                      </div>
-                    </div>
-                    <div class="consultations-flex pt-3">
-                      <div class="left-right">
-                        <%= link_to "Update", edit_lawfirm_path(@lawfirm), class: "button-main"%>
-                      </div>
-                      <div class="left-right">
-                        <%= link_to "Remove", lawfirm_path(@lawfirm), class: "nav-link", class: "button-gray", method: :delete,  data: { confirm: 'Are you sure?' } %>
-                      </div>
-                    </div>
-                  </div>
+      <div class="wrapper-consultations">
+        <div class="card-consultations">
+          <div class="gradient-consultations"></div>
+          <div class="content-consultations">
+            <div class="consultations-flex">
+              <div class="left-right">
+                <p>Name:</p>
+              </div>
+              <div class="left-right">
+                <p><%= @lawfirm.name %></p>
               </div>
             </div>
-          <% end %>
-
-    </div>
+            <div class="consultations-flex">
+              <div class="left-right">
+                <p>Address:</p>
+              </div>
+              <div class="left-right">
+                <p><%= @lawfirm.address %></p>
+              </div>
+            </div>
+            <div class="consultations-flex">
+              <div class="left-right">
+                <p>Specialty:</p>
+              </div>
+              <div class="left-right">
+                <% @lawfirm.tag_list.each do |tag| %>
+                  <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="consultations-flex pt-3">
+              <div class="left-right">
+                <%= link_to "Update", edit_lawfirm_path(@lawfirm), class: "button-main"%>
+              </div>
+              <div class="left-right">
+                <%= link_to "Remove", lawfirm_path(@lawfirm), class: "nav-link", class: "button-gray", method: :delete,  data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-
-
 <!--
 
   <div class="container">
