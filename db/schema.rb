@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "consultations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -82,6 +88,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -152,6 +160,7 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.string "last_name"
     t.string "location"
     t.text "comments"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -163,6 +172,7 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
   add_foreign_key "consultations", "users"
   add_foreign_key "items", "steps"
   add_foreign_key "lawfirms", "users"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "reviews", "lawfirms"
   add_foreign_key "steps", "consultations"
   add_foreign_key "taggings", "tags"
