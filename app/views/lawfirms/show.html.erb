@@ -35,6 +35,11 @@
             <% end %>
           </li>
         </ul>
+        <%= simple_form_for [@lawfirm, @consultation] do |f| %>
+          <div class="text-center">
+            <%= f.submit class: 'btn button-consultationscenter ' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -55,7 +60,7 @@
         Be the first to leave a review for <%= @lawfirm.name %>
       <% else %>
         <% @lawfirm.reviews.each do |review| %>
-           <div id="review-<%= review.id %>">
+          <div id="review-<%= review.id %>">
             <p class="lawfirm-review"><%= review.content %></p>
             <p><%  review.rating.to_i.times do  %>
               <i class="fa-solid fa-star star-yellow"></i>

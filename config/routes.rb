@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
   end
 
-  namespace :lawyers do
+  namespace :lawyer do
     resources :consultations, only: [ :index, :show, :update ]
   end
 
