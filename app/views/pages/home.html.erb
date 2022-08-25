@@ -43,7 +43,7 @@
       <h1 class ="text-center">Law Procedures We Offer</h1>
       <div class="d-flex justify-content-around">
         <div class ="icon-text">
-          <%= link_to procedures_path("#immigration"), class: "navbar-brand" do %>
+          <%= link_to procedures_path(anchor: "banner"), class: "navbar-brand" do %>
           <div class="navbar-lewagon-blue-a">
           <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
           </div>
@@ -51,7 +51,7 @@
           <p class="immigration-icon">Immigration</p>
         </div>
         <div class="icon-text">
-        <%= link_to procedures_path("#corporate"), class: "navbar-brand" do %>
+        <%= link_to procedures_path(anchor: "immigration"), class: "navbar-brand" do %>
           <div class="navbar-lewagon-blue-a">
           <%= image_tag ("corporate-icon.png"), class: "icon-home" %>
           </div>
@@ -59,12 +59,25 @@
           <p class="corporate-icon">Corporate</p>
         </div>
         <div class="icon-text">
+
+        <%= link_to procedures_path(anchor: "corporate"), class: "navbar-brand" do %>
+          <div class="navbar-lewagon-blue-a">
           <%= image_tag ("family-icon.png"), class: "icon-home lower-home" %>
-          <p class="family-icon">Family</p>
+          </div>
+          <% end %>
+          <p class="corporate-icon">Family</p>
         </div>
+
         <div class="icon-text">
+
+          <%= link_to procedures_path(anchor: "family"), class: "navbar-brand" do %>
+          <div class="navbar-lewagon-blue-a">
           <%= image_tag ("patent-icon.png"), class: "icon-home lower-home" %>
-          <p class="patent-icon">Copyright</p>
+          </div>
+          <% end %>
+          <p class="corporate-icon">Copyright</p>
+
+
         </div>
       </div>
       <div class="home-procedures-link text-center">

@@ -1,5 +1,5 @@
 .procedures-grid {
-  padding-top: 20px;
+  margin: 24px 0px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -11,7 +11,9 @@
     grid-area: 1 / 1 / 2 / 2;
     place-items: center;
     display: grid;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
   }
+
   .immigration-text {
     grid-area: 1 / 2 / 2 / 3;
     place-items: center;
@@ -26,11 +28,13 @@
     grid-area: 2 / 2 / 3 / 3;
     place-items: center;
     display: grid;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
   }
   .family-image {
     grid-area: 3 / 1 / 4 / 2;
     place-items: center;
     display: grid;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
   }
   .family-text {
     grid-area: 3 / 2 / 4 / 3;
@@ -46,4 +50,5 @@
     grid-area: 4 / 2 / 5 / 3;
     place-items: center;
     display: grid;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
   }

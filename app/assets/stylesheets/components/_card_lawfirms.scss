@@ -130,7 +130,7 @@
   position: relative;
   display: flex;
   grid-template-columns: 1fr;
-  grid-gap: 64px;
+  grid-gap: 24px;
 }
 
 .cards-lawfirms-show{
@@ -177,6 +177,9 @@
 
 }
 
+.user-info-lawfirms-show i {
+  color: #1E528A;
+}
 .user-info-lawfirms-show ul {
   margin-left: -15px;
 }
@@ -191,4 +194,13 @@
 }
 .user-info-lawfirms0show ul li h3 {
   margin: 0;
+}
+
+.star-yellow {
+  margin-bottom: 10px;
+  color: #FFB901;
+}
+
+.lawfirm-review {
+  margin: 0px 0px;
 }

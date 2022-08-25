@@ -50,7 +50,7 @@
 
 .procedures-grid img {
   // height: 100%; temporary
-  width: 48%;
+  width: 40%;
   object-fit: cover;
 }
 
@@ -79,6 +79,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 16px;
 
   .procedures-card-infos {
