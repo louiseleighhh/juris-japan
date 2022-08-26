@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :lawfirms do
     resources :reviews, only: :create
+    resources :consultations, only: :update
   end
 
   namespace :lawyer do

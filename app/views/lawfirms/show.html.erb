@@ -4,10 +4,28 @@
   </div>
 </div>
 <div class="container">
-<div class="lawfirms-show-description-card">
-  <h1>Description:</h1>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
-</div>
+  <% if current_user.consultations.any?%>
+  <div class="row">
+    <div class="lawfirms-show-description-card col-8">
+      <h1>Description:</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+    </div>
+    <div class="lawfirms-show-description-card text-center col-4">
+      <h5>Need help from <%= @lawfirm.name %>?</h5>
+      <p>Which application do you need help with?</p>
+      <% current_user.consultations.each do |consultation| %>
+        <%= simple_form_for [@lawfirm, consultation] do |f| %>
+          <%= f.submit "+", class: "btn button-consultationscenter"%> <%= consultation.procedure.name %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% else %>
+    <div class="lawfirms-show-description-card">
+      <h1>Description:</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+    </div>
+  <% end %>
 <div class="wrapper-lawfirms-show">
   <div class="cards-lawfirms-show">
     <div class="card-lawfirms-show">
