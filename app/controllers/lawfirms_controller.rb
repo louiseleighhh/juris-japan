@@ -2,15 +2,16 @@ class LawfirmsController < ApplicationController
   before_action :set_lawfirm, only: [:show, :edit, :update, :destroy, :toggle_favorite]
 
   def index
-    if params[:query].present? && ["immigration", "corporate", "family", "intellectual", "property", "law"].include?(params[:query])
+    # @tags = ActsAsTaggableOn::Tag.search(params[:query])
+    if params[:query].present?
       @lawfirms = Lawfirm.tagged_with(params[:tag])
-    elsif params[:query].present?
       sql_query = " \
         lawfirms.name @@ :query \
-        OR lawfirms.location @@ :query \
         OR lawfirms.address @@ :query \
+        OR lawfirms.location @@ :query \
+        OR tags.name @@ :query \
       "
-      @lawfirms = Lawfirm.where(sql_query, query: "%#{params[:query]}%")
+      @lawfirms = Lawfirm.joins(:tags).where(sql_query, query: "%#{params[:query]}%")
     else
       @lawfirms = Lawfirm.all
     end
