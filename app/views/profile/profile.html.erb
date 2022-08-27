@@ -72,7 +72,7 @@
   <input type="radio" id="tabsilver" name="mytabs" <% if params[:tabs].present? && params[:tabs] == "consultations" %>checked="checked"<% end %> >
   <label for="tabsilver">Consultations <i class="fa-solid fa-clipboard"></i></label>
   <div class="tab" >
-    <% if current_user.consultations.any? %>
+    <% if current_user.lawfirm.consultations.any? %>
       <h2 id="consultations"><%= current_user.lawfirm.name %>'s Consultations:</h2><%=  %>
       <div class="wrapper-consultations">
         <% current_user.lawfirm.consultations.each do |consultation|%>
