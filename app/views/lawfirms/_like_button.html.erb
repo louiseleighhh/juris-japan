@@ -1,0 +1,7 @@
+<div class="like-icon mx-2 <%= 'text-danger' if current_user.favorited?(lawfirm) %>" data-id="<%= lawfirm.id %>" data-toggle="tooltip" data-placement="top" title="Bookmark law firm">
+  <i class="fa-solid fa-bookmark"></i>
+</div>
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>

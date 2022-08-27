@@ -175,6 +175,15 @@
       font-family: Helvetica;
     }
 
+    a {
+      color: inherit;
+      transition: .3s;
+    }
+
+    a:hover {
+      color: #FD1115;
+    }
+
 }
 
 .user-info-lawfirms-show i {

@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "consultations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,6 +64,24 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.index ["lawfirm_id"], name: "index_consultations_on_lawfirm_id"
     t.index ["procedure_id"], name: "index_consultations_on_procedure_id"
     t.index ["user_id"], name: "index_consultations_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
+    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "items", force: :cascade do |t|
@@ -82,6 +112,10 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -140,6 +174,16 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.string "title"
+    t.date "expiry_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.integer "status"
+    t.index ["user_id"], name: "index_uploads_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -152,6 +196,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.string "last_name"
     t.string "location"
     t.text "comments"
+    t.string "username"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -166,4 +212,5 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
   add_foreign_key "reviews", "lawfirms"
   add_foreign_key "steps", "consultations"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "uploads", "users"
 end

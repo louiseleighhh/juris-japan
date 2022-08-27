@@ -77,12 +77,14 @@ class ConsultationsController < ApplicationController
     @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
   end
 
-  def edit; end
+  def edit
+    @lawfirm = Lawfirm.find(params[:lawfirm_id])
+  end
 
   def update
     @lawfirm = Lawfirm.find(params[:lawfirm_id])
     @consultation.lawfirm = @lawfirm
-    @consultation.update
+    @consultation.save
     redirect_to consultation_path(@consultation)
   end
 

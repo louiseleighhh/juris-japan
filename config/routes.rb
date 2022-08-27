@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/profile', to: "profile#profile"
   get '/about', to: "pages#about"
 
-  resources :consultations, only: [ :index, :show, :destroy ]
+  resources :consultations, only: [ :index, :show, :destroy, :edit, :update ]
 
   resources :procedures, only: [ :index, :show ] do
     resources :consultations, only: [:new, :create]
@@ -21,10 +21,18 @@ Rails.application.routes.draw do
 
   resources :lawfirms do
     resources :reviews, only: :create
+    resources :consultations, only: :update
+    member do
+      post 'toggle_favorite', to: "lawfirms#toggle_favorite"
+    end
   end
 
-  namespace :lawyers do
+  namespace :lawyer do
     resources :consultations, only: [ :index, :show, :update ]
+  end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
