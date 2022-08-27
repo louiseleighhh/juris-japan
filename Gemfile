@@ -86,3 +86,5 @@ gem "turbolinks_render"
 
 gem 'htmlbeautifier'
 
+# Acts as Favoritor
+gem 'acts_as_favoritor'

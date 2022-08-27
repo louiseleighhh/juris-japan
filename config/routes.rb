@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   resources :lawfirms do
     resources :reviews, only: :create
+    member do
+      post 'toggle_favorite', to: "lawfirms#toggle_favorite"
+    end
   end
 
   namespace :lawyers do

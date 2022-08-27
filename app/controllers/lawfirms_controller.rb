@@ -1,5 +1,5 @@
 class LawfirmsController < ApplicationController
-  before_action :set_lawfirm, only: [:show, :edit, :update, :destroy]
+  before_action :set_lawfirm, only: [:show, :edit, :update, :destroy, :toggle_favorite]
 
   def index
     if params[:query].present? && ["immigration", "corporate", "family", "intellectual", "property", "law"].include?(params[:query])
@@ -25,6 +25,7 @@ class LawfirmsController < ApplicationController
   end
 
   def show
+    @lawfirms = Lawfirm.all
     @related_lawfirms = @lawfirm.find_related_tags
     @markers =
       [{
@@ -69,6 +70,12 @@ class LawfirmsController < ApplicationController
   def destroy
     @lawfirm.destroy
     redirect_to profile_path
+  end
+
+  def toggle_favorite
+    current_user.favorited?(@lawfirm) ? current_user.unfavorite(@lawfirm) : current_user.favorite(@lawfirm)
+    p current_user.favorited?(@lawfirm)
+    # redirect_to lawfirm_path(@lawfirm)
   end
 
   private
