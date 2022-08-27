@@ -1,0 +1,5 @@
+<%= simple_form_for @consultation do |f| %>
+  <%= f.hidden_field :lawfirm_id, :value => @lawfirm.id %>
+  <p>Get help from this law firm</p>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660653517/gavel-gbf4d8f0fc_1920_blzqpt.jpg')">
+  <div class="container">
+      <h1><%= @lawfirm.name %></h1>
+      <h1><%= @lawfirm.lawyer.first_name %> <%= @lawfirm %></h1>
+  </div>
+</div>
+<div>
+  <% @consultations.each do |consultation| %>
+    <div class="top">
+      <h1><%= consultation.user.first_name %> <%= consultation.user.last_name %></h1>
+      <h1><%= consultation.procedure.name %></h1>
+    </div>
+  <% end %>
+</div>

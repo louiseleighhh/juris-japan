@@ -1,5 +1,6 @@
 class Lawfirm < ApplicationRecord
   belongs_to :user
+  has_many :consultations
   include PgSearch::Model
   pg_search_scope :search_by_name_and_location,
     against: [ :name, :address, :location ],

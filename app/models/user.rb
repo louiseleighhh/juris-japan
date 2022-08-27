@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :consultations, dependent: :destroy
+  has_many :consultations_as_lawyer, through: :lawfirm, source: :consultations
   has_many :messages, dependent: :destroy
   has_one :lawfirm, dependent: :destroy
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
