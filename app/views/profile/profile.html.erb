@@ -40,11 +40,12 @@
   </div>
 </div>
 </div>
+
 <div class="mytabs">
-  <input type="radio" id="tabfree" name="mytabs" checked="checked">
-  <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
+  <input type="radio" id="tabfree" name="mytabs" <% if params[:tabs].present? == false %>checked="checked"<% end %>>
+  <label for="tabfree">My Details <i class="fa-solid fa-book-open"></i></label>
   <div class="tab">
-    <h2>About:</h2>
+    <h2>My Details:</h2>
     <div class="user-info">
       <ul>
         <li>
@@ -67,7 +68,7 @@
         <h3><i class="fa-solid fa-map-pin"></i>&nbsp &nbsp Lives in <%= current_user.location %> </i></h3>
       -->
   </div>
-  <input type="radio" id="tabsilver" name="mytabs">
+  <input type="radio" id="tabsilver" name="mytabs" <% if params[:tabs].present? && params[:tabs] == "consultations" %>checked="checked"<% end %> >
   <label for="tabsilver">Consultations <i class="fa-solid fa-clipboard"></i></label>
   <div class="tab" >
     <% if current_user.consultations.any? %>
@@ -108,6 +109,11 @@
                 <div class="left-right">
                   <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
                 </div>
+                <% if consultation.lawfirm.any? %>
+                  <div class="left-right">
+                    <%= link_to "Chat", chatroom_path(consultation.chatroom), class: "button-main" %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -174,10 +180,10 @@
   </div>
   <% if current_user.lawfirm == nil %>
   <% else %>
-    <input type="radio" id="tabgold" name="mytabs">
-    <label for="tabgold">Your Law Firm <i class="fa-solid fa-scale-balanced"></i></label>
+    <input type="radio" id="tabgold" name="mytabs" <% if params[:tabs].present? && params[:tabs] == "My Firm" %>checked="checked"<% end %>>
+    <label for="tabgold">My Firm <i class="fa-solid fa-scale-balanced"></i></label>
     <div class="tab">
-      <h2 id="lawfirms">Your Law Firm:</h2>
+      <h2 id="lawfirms">My Law Firm:</h2>
       <div class="wrapper-consultations">
         <div class="card-consultations">
           <div class="gradient-consultations"></div>

@@ -1,3 +1,4 @@
 class Chatroom < ApplicationRecord
-  has_many :messages
+  belongs_to :consultation
+  has_many :messages, dependent: :destroy
 end
