@@ -106,14 +106,14 @@
                 <div class="left-right">
                   <%= link_to "Review Ongoing Procedure", consultation_path(consultation), class: "button-main"%>
                 </div>
-                <div class="left-right">
-                  <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
-                </div>
                 <% if consultation.lawfirm %>
                   <div class="left-right">
                     <%= link_to "Chat", chatroom_path(consultation.chatroom), class: "button-main" %>
                   </div>
                 <% end %>
+                <div class="left-right">
+                  <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
+                </div>
               </div>
             </div>
           </div>
