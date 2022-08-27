@@ -17,7 +17,7 @@
       <% @consultation.steps.each_with_index do |step, index| %>
         <div class="steps-step">
           <a href="#nowhere" type="button" class="<%=step.completed? ? "btn btn-circle1" : "btn btn-circle0"%>"><%=index+1%></a>
-          <p><%=step.completed? ? "Step #{index+1} ✔️" : "Step #{index+1} ✖️"%></p>
+          <p><%=step.completed? ? "Step #{index+1} ✔️" : "Step #{index+1}"%></p>
         </div>
       <% end %>
     </div>
