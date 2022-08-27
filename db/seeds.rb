@@ -77,31 +77,77 @@ puts 'Creating procedures...'
     step: step2
   )
 
-  step3d = Step.create(
-    name: "3.d - Proof of Employment Status",
+  step3 = Step.create(
+    name: "3 - Proof of Employment Status",
     consultation: consultation,
     instruction: "Provide 1 copy of the following documents:"
   )
 
-  item3d_1 = Item.create(
+  item3_1 = Item.create(
     name: "If employed - Provide Certificate of Employment",
     description: File.open("#{step_path}/items/item3d_1.md").read,
-    step: step3d
+    step: step3
   )
 
   item3d_2 = Item.create(
     name: "If self employed - Provide copy of the applicant's tax return, or the corporations' certificate of registered matters",
     description: File.open("#{step_path}/items/item3d_2.md").read,
-    step: step3d
+    step: step3
   )
 
   item3d_3 = Item.create(
     name: "Other - Clarifying documents or other demonstrative materials which detail their employment (no specified format)",
     description: File.open("#{step_path}/items/item3d_3.md").read,
-    step: step3d
+    step: step3
   )
 
+  step4 = Step.create(
+    name: "4 - Residence Card",
+    consultation: consultation,
+    instruction: "Upload only if applying via a proxy, otherwise please produce your card at the immigration office"
+  )
 
+  item4 = Item.create(
+    name: "Upload Residence Card",
+    description: File.open("#{step_path}/items/item4.md").read,
+    step: step4
+  )
+
+  step5 = Step.create(
+    name: "5 - Written Permission",
+    consultation: consultation,
+    instruction: "Provide written permission to engage in an activity other than those permitted by the status of residence, previously granted (where applicable)"
+  )
+
+  item5 = Item.create(
+    name: "Upload written permission",
+    description: File.open("#{step_path}/items/item5.md").read,
+    step: step5
+  )
+
+  step6 = Step.create(
+    name: "6 - Passport / Certificate of Eligibility (COE)",
+    consultation: consultation,
+    instruction: "Upload only if applying via a proxy, otherwise please produce your passport or CoE at the immigration office"
+  )
+
+  item6 = Item.create(
+    name: "Upload Passport or COE",
+    description: File.open("#{step_path}/items/item6.md").read,
+    step: step6
+  )
+
+  step7 = Step.create(
+    name: "7 - *Proxy Only* Documents certifying identity",
+    consultation: consultation,
+    instruction: "Please produce ID at immigration office"
+  )
+
+  item7 = Item.create(
+    name: "Documents certifying identity",
+    description: File.open("#{step_path}/items/item7.md").read,
+    step: step7
+  )
   random = rand(1..2)
   if random == 1
     puts 'Creating lawfirms...'

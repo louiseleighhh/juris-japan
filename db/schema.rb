@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_24_165340) do
+ActiveRecord::Schema.define(version: 2022_08_25_112044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -114,8 +108,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "chatroom_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.bigint "chatroom_id", null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -174,16 +166,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "uploads", force: :cascade do |t|
-    t.string "title"
-    t.date "expiry_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.integer "status"
-    t.index ["user_id"], name: "index_uploads_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -197,7 +179,6 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
     t.string "location"
     t.text "comments"
     t.string "username"
-    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -209,8 +190,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_165340) do
   add_foreign_key "consultations", "users"
   add_foreign_key "items", "steps"
   add_foreign_key "lawfirms", "users"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "reviews", "lawfirms"
   add_foreign_key "steps", "consultations"
   add_foreign_key "taggings", "tags"
-  add_foreign_key "uploads", "users"
 end

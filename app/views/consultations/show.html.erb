@@ -4,6 +4,43 @@
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374503/procedures-banner_djefl8.jpg')">
 </div>
 <div class="container">
+  <br>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="20" aria-valuemax="100" style="width: 75%">
+      <div class="number">75%
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="steps-form">
+    <div class="steps-row setup-panel">
+      <div class="steps-step">
+        <a href="#nowhere" type="button" class="btn btn-indigo btn-circle">1</a>
+        <p>Step 1</p>
+      </div>
+      <div class="steps-step">
+        <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+        <p>Step 2</p>
+      </div>
+      <div class="steps-step">
+        <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+        <p>Step 3</p>
+      </div>
+      <div class="steps-step">
+        <a href="#step-9" type="button" class="btn btn-indigo btn-circle">4</a>
+        <p>Step 4</p>
+      </div>
+      <div class="steps-step">
+        <a href="#step-9" type="button" class="btn btn-indigo btn-circle">5</a>
+        <p>Step 5</p>
+      </div>
+      <div class="steps-step">
+        <a href="#step-9" type="button" class="btn btn-indigo btn-circle">6</a>
+        <p>Step 6</p>
+      </div>
+    </div>
+  </div>
+  <br>
   <% @consultation.steps.order(:created_at).each do |step| %>
     <div class="container_seemore">
       <div class="seemore" data-controller="seemore">
@@ -15,7 +52,7 @@
           <% step.items.each do |item| %>
             <%# <div class="modal" data-controller="modal"> %>
             <br>
-            <input type="checkbox" id=<%"#{item.name}"%> name="item" unchecked>
+            <input type="checkbox" id=<%"#{item.name}"%> name="item" <%= item.checked? ? "checked" : "unchecked"%>>
             <label for="item"><%= item.name%></label>
             <br>
             <button type="button" class="modal_button" data-bs-toggle="modal" data-bs-target="#modal<%= item.id %>">
@@ -23,7 +60,6 @@
             </button>
             <!-- Modal -->
             <div class="modal fade" id="modal<%= item.id %>" tabindex="-1" aria-labelledby="modal<%= item.id %>Label" aria-hidden="true">
-              <%# <%= item.checked? ? "I am checked" : "I am not checked"%>
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
