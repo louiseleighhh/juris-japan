@@ -1,6 +1,5 @@
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
   <div class="container">
-    <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
   </div>
 </div>
 
@@ -24,15 +23,19 @@
     <%= f.input :location,
                 hint: "leave it blank if you don't want to change it",
                 required: false %>
+    <%= f.input :photo, as: :file,
+                hint: "Leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "photo" }%>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
