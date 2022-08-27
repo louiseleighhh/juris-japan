@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_112044) do
+ActiveRecord::Schema.define(version: 2022_08_27_043958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2022_08_25_112044) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "consultation_id", null: false
+    t.index ["consultation_id"], name: "index_chatrooms_on_consultation_id"
   end
 
   create_table "consultations", force: :cascade do |t|
@@ -101,13 +103,13 @@ ActiveRecord::Schema.define(version: 2022_08_25_112044) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "user_id"
-    t.string "consultation_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "procedures", force: :cascade do |t|
@@ -185,12 +187,14 @@ ActiveRecord::Schema.define(version: 2022_08_25_112044) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "consultations"
   add_foreign_key "consultations", "lawfirms"
   add_foreign_key "consultations", "procedures"
   add_foreign_key "consultations", "users"
   add_foreign_key "items", "steps"
   add_foreign_key "lawfirms", "users"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "lawfirms"
   add_foreign_key "steps", "consultations"
   add_foreign_key "taggings", "tags"
