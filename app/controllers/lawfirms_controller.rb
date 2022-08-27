@@ -46,7 +46,7 @@ class LawfirmsController < ApplicationController
     @lawfirm.user = current_user
     # @lawfirm.location = current_user.location
     if @lawfirm.save
-      redirect_to profile_path
+      redirect_to profile_path(tabs: "My Firm")
     else
       render :new
     end

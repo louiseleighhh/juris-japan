@@ -40,7 +40,7 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="dropdown">
               <%= link_to "PROFILE", profile_path, class: "dropdown-item" %>
-              <%= link_to "APPLICATIONS", consultations_path, class: "dropdown-item" %>
+              <%= link_to "APPLICATIONS", profile_path(tabs: "consultations"), class: "dropdown-item" %>
               <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
