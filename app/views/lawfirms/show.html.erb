@@ -74,7 +74,7 @@
               <% if @lawfirm.tag_list.empty? %>
                 <p>There are no taglists/specialties</p>
               <% else %>
-                <p>Specialty: <%=@lawfirm.tag_list %></p>
+                <p>Specialty: <%= @lawfirm.tag_list %></p>
               <% end %>
             </li>
           </ul>
@@ -108,14 +108,15 @@
     </div>
   </div>
   <div class="lawfirms-show-description-card">
-    <h1>Related Lawfirms:</h1>
+    <h1>Similar Lawfirms:</h1>
     <% if @related_lawfirms.nil? %>
-      <p>There are no related Lawfirms</p>
+      <p>There are no similar Lawfirms</p>
     <% else %>
-      <% @related_lawfirms.each do |r| %>
-        <li><%= r.name %></li>
-        <li><%= r.location %></li>
-      <% end %>
+      <ul>
+        <% @related_lawfirms.each do |r| %>
+          <li><%= link_to r.name, lawfirm_path(r) %></li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 </div>
