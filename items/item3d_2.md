@@ -5,4 +5,4 @@
 
 # What is Corporations' certificate of registered matters?
 
-- __<span style="color:#938220">[Corporations' certificate of registered matters]</span>__ - With this document, the basic registered information related to the company, such as office location, officers, capital amount etc., can be officially confirmed
+- __<span style="color:#938220">[Clarifying documents]</span>__ - Tax certificate and bankbook copies are usually required.

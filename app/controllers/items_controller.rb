@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     @consultation = @item.step.consultation
+    @item.checked! if @item.photos.attached?
     redirect_to consultation_path(@consultation)
   end
 
@@ -19,6 +20,7 @@ class ItemsController < ApplicationController
     @photo = @item.photos.find_by(blob_id: params[:photo])
     @photo.purge
     @consultation = @item.step.consultation
+    @item.unchecked! unless @item.photos.attached?
     redirect_to consultation_path(@consultation)
   end
 
