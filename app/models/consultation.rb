@@ -3,7 +3,7 @@ class Consultation < ApplicationRecord
   belongs_to :procedure
   belongs_to :lawfirm, optional: true
   has_one :lawyer, through: :consultation, source: :user
-  has_many :messages, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
   has_many :steps, dependent: :destroy
 
   # after_create :create_steps
