@@ -36,38 +36,38 @@
                   </div>
                 </div>
               </div>
-              <% if item.photos.attached? %>
-                <p>
-                  <% item.photos.each do |photo| %>
-                    <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
-                      Uploaded Document >
-                    </button>
-                    <div class="collapse" id="collapse<%=item.id%>">
-                      <div class="card card-body">
-                        Uploaded Document: <%= photo.filename %>
-                        <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>​
-                      </div>
-                    </div>
-                  <% end %>
-                  <hr style="border: 2px solid #0D2144" />
-                </p>
-              <% else %>
-                <p>
-                  <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
-                    Attach Documents >
-                  </button>
-                </p>
-                <div class="collapse" id="collapse<%=item.id%>">
-                  <div class="card card-body">
-                    <%= simple_form_for(item) do |f| %>
-                      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-                      <%= f.button :submit, 'Attach a Document' %>​
-                    <% end %>
-                  </div>
-                </div>
-                <hr style="border: 2px solid #0D2144" />
-              <% end %>
             </div>
+            <% if item.photos.attached? %>
+              <p>
+                <% item.photos.each do |photo| %>
+                  <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                    Uploaded Document >
+                  </button>
+                  <div class="collapse" id="collapse<%=item.id%>">
+                    <div class="card card-body">
+                      Uploaded Document: <%= photo.filename %>
+                      <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>​
+                    </div>
+                  </div>
+                <% end %>
+                <hr style="border: 2px solid #0D2144" />
+              </p>
+            <% else %>
+              <p>
+                <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                  Attach Documents >
+                </button>
+              </p>
+              <div class="collapse" id="collapse<%=item.id%>">
+                <div class="card card-body">
+                  <%= simple_form_for(item) do |f| %>
+                    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                    <%= f.button :submit, 'Attach a Document' %>​
+                  <% end %>
+                </div>
+              </div>
+              <hr style="border: 2px solid #0D2144" />
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -105,43 +105,44 @@
                   </div>
                 </div>
               </div>
-              <% if item.photos.attached? %>
-                <p>
-                  <% item.photos.each do |photo| %>
-                    <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
-                      Uploaded Document >
-                    </button>
-                    <div class="collapse" id="collapse<%=item.id%>">
-                      <div class="card card-body">
-                        Uploaded Document: <%= photo.filename %>
-                        <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>​
-                      </div>
-                    </div>
-                  <% end %>
-                  <hr style="border: 2px solid #0D2144" />
-                </p>
-              <% else %>
-                <p>
-                  <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
-                    Attach Documents >
-                  </button>
-                </p>
-                <div class="collapse" id="collapse<%=item.id%>">
-                  <div class="card card-body">
-                    <%= simple_form_for(item) do |f| %>
-                      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-                      <%= f.button :submit, 'Attach a Document' %>​
-                    <% end %>
-                  </div>
-                </div>
-                <hr style="border: 2px solid #0D2144" />
-              <% end %>
             </div>
+            <% if item.photos.attached? %>
+              <p>
+                <% item.photos.each do |photo| %>
+                  <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                    Uploaded Document >
+                  </button>
+                  <div class="collapse" id="collapse<%=item.id%>">
+                    <div class="card card-body">
+                      Uploaded Document: <%= photo.filename %>
+                      <%= link_to 'Remove', delete_photo_attachment_item_path(item, photo: photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>​
+                    </div>
+                  </div>
+                <% end %>
+                <hr style="border: 2px solid #0D2144" />
+              </p>
+            <% else %>
+              <p>
+                <button class="modal_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=item.id%>" aria-expanded="false" aria-controls="collapseExample">
+                  Attach Documents >
+                </button>
+              </p>
+              <div class="collapse" id="collapse<%=item.id%>">
+                <div class="card card-body">
+                  <%= simple_form_for(item) do |f| %>
+                    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                    <%= f.button :submit, 'Attach a Document' %>​
+                  <% end %>
+                </div>
+              </div>
+              <hr style="border: 2px solid #0D2144" />
+            <% end %>
           <% end %>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
 <div class="card-big-shadow">
   <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
