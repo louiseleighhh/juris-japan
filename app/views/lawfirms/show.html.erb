@@ -6,71 +6,51 @@
 </div>
 <div class="container">
   <% if current_user.consultations.any?%>
-  <div class="row">
-    <div class="lawfirms-show-description-card col-8">
-      <h1>Description:</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
-    </div>
-    <div class="lawfirms-show-description-card text-center col-4">
-      <h5>Need help from <%= @lawfirm.name %>?</h5>
-      <p>Which application do you need help with?</p>
-      <% current_user.consultations.each do |consultation| %>
-        <%= simple_form_for [@lawfirm, consultation] do |f| %>
-          <%= f.submit "+", class: "btn button-consultationscenter"%> <%= consultation.procedure.name %>
+    <div class="wrapper-lawfirms-show">
+      <div class="lawfirms-show-description-card">
+        <div class="consultations-flex">
+          <div class="left-right">
+            <h1>Description:</h1>
+          </div>
+          <div class="left-right">
+            <h1>
+              <%= link_to toggle_favorite_lawfirm_path(@lawfirm), remote: true, method: :post do %>
+                <%= render 'lawfirms/like_button', lawfirm: @lawfirm %>
+              <% end %>
+            </h1>
+          </div>
+        </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+      </div>
+      <div class="lawfirms-show-description-card">
+        <h5>Need help from <%= @lawfirm.name %>?</h5>
+        <p>Which application do you need help with?</p>
+        <% current_user.consultations.each do |consultation| %>
+          <%= simple_form_for [@lawfirm, consultation] do |f| %>
+            <%= f.submit "+", class: "btn button-consultationscenter"%> <%= consultation.procedure.name %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
   <% else %>
-    <div class="lawfirms-show-description-card">
-      <h1>Description:</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+    <div class="wrapper-lawfirms-show">
+      <div class="lawfirms-show-description-card">
+        <div class="consultations-flex">
+          <div class="left-right">
+            <h1>Description:</h1>
+          </div>
+          <div class="left-right">
+            <h1>
+              <%= link_to toggle_favorite_lawfirm_path(@lawfirm), remote: true, method: :post do %>
+                <%= render 'lawfirms/like_button', lawfirm: @lawfirm %>
+              <% end %>
+            </h1>
+          </div>
+        </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
+      </div>
     </div>
   <% end %>
-<div class="wrapper-lawfirms-show">
-  <div class="cards-lawfirms-show">
-    <div class="card-lawfirms-show">
-      <h1>Information:</h1>
-      <div class="user-info-lawfirms-show">
-        <ul>
-          <li>
-            <p><i class="fa-solid fa-location-pin"></i></p>
-            <p>Location: <%= @lawfirm.address%>, <%= @lawfirm.location %></p>
-          </li>
-          <li>
-            <p><i class="fa-solid fa-phone"></i></p>
-            <p>Telephone Number: 123-(4567)-890 </p>
-          </li>
-          <li>
-            <p><i class="fa-solid fa-fax"></i></p>
-            <p>Fax Number: 123-(4567)-890 </p>
-          </li>
-          <li>
-            <p><i class="fa-solid fa-tag"></i></p>
-            <% if @lawfirm.tag_list.empty? %>
-            <p>There are no taglists/specialties</p>
-            <% else %>
-            <p>Specialty:<%=@lawfirm.tag_list %></p>
-            <% end %>
-          </li>
-        </ul>
-        <%#= link_to "Get help from #{@lawfirm.name}", edit_consultation_path(@consultation, lawfirm_id: params[:lawfirm_id]) %>
-        
-  <div class="lawfirms-show-description-card">
-    <div class="consultations-flex">
-      <div class="left-right">
-        <h1>Description:</h1>
-      </div>
-      <div class="left-right">
-        <h1>
-          <%= link_to toggle_favorite_lawfirm_path(@lawfirm), remote: true, method: :post do %>
-            <%= render 'lawfirms/like_button', lawfirm: @lawfirm %>
-          <% end %>
-        </h1>
-      </div>
-    </div>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.</p>
-  </div>
   <div class="wrapper-lawfirms-show">
     <div class="cards-lawfirms-show">
       <div class="card-lawfirms-show">
@@ -107,7 +87,6 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
   <div class="lawfirms-show-description-card">
     <h1><%= pluralize @lawfirm.reviews.size, "review" %></h1>
     <div data-controller="insert-in-list">
