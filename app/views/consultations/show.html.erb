@@ -14,6 +14,8 @@
           </div>
           <% step.items.each do |item| %>
             <%# <div class="modal" data-controller="modal"> %>
+            <br>
+            <input type="checkbox" id=<%"#{item.name}"%> name="item" unchecked>
             <label for="item"><%= item.name%></label>
             <br>
             <button type="button" class="modal_button" data-bs-toggle="modal" data-bs-target="#modal<%= item.id %>">
@@ -83,6 +85,7 @@
           </div>
           <% step.items.each do |item| %>
             <%# <div class="modal" data-controller="modal"> %>
+            <br>
             <input type="checkbox" id=<%"#{item.name}"%> name="item" unchecked>
             <label for="item"><%= item.name%></label>
             <br>
