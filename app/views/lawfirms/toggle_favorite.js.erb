@@ -1,0 +1,11 @@
+function toggleLikeButton(lawfirmId) {
+let likeButton = document.querySelector(`.like-icon[data-id='${lawfirmId}']`)
+likeButton.classList.toggle('text-danger');
+<%# if (likeButton.classList.contains('red')) {
+    const favoriteList = document.querySelector('.favorites');
+  }
+  else {
+    document.querySelector(`.favorite[data-id='${lawfirmId}']`).remove()
+  } %>
+}
+toggleLikeButton("<%= @lawfirm.id%>");

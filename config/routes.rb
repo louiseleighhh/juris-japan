@@ -22,10 +22,17 @@ Rails.application.routes.draw do
   resources :lawfirms do
     resources :reviews, only: :create
     resources :consultations, only: :update
+    member do
+      post 'toggle_favorite', to: "lawfirms#toggle_favorite"
+    end
   end
 
   namespace :lawyer do
     resources :consultations, only: [ :index, :show, :update ]
+  end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
