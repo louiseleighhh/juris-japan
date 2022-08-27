@@ -108,6 +108,9 @@
                 <div class="left-right">
                   <%= link_to "Cancel Application", consultation_path(consultation), class: "button-gray", method: 'delete', data: { confirm: 'Are you sure?' } %>
                 </div>
+                <div class="left-right">
+                  <%= link_to "Chat", chatroom_path(consultation.chatroom), class: "button-gray" %>
+                </div>
               </div>
             </div>
           </div>

@@ -18,6 +18,8 @@ class ConsultationsController < ApplicationController
     @consultation.procedure = @procedure
     if @consultation.save
       step_path = Rails.root.join
+      @chatroom = Chatroom.new(name: "Chat Room")
+      @consultation.chatroom = @chatroom
 
     step1 = Step.create(
       name: "1 - Application Form",
