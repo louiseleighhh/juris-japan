@@ -5,6 +5,18 @@
     left: 0%;
 }
 
+@media (min-width: 992px) {
+  .card-big-shadow {
+    max-width: 17% !important;
+  }
+  h4 {
+    font-size: 1.1em !important;
+  }
+
+  .card.card-just-text .content {
+    padding: 21px 39px !important;
+  }
+}
 
 .card {
     border-radius: 8px;

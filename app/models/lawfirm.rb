@@ -6,7 +6,7 @@ class Lawfirm < ApplicationRecord
   acts_as_taggable_on :tags
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  validates :name, :address, presence: true
+  validates :name, :address, :location, presence: true
 
   include PgSearch::Model
   pg_search_scope :full_search,

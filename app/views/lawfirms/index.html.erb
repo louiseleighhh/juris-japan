@@ -1,18 +1,17 @@
 <div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660554814/pexels-josh-sorenson-391522_uqnmaf.jpg')">
   <div class="container">
-      <h1>Law Firms</h1>
+    <h1>Law Firms</h1>
   </div>
 </div>
-
 <div class="container">
   <div class="search">
     <%= form_tag lawfirms_path, method: :get do %>
-    <%= text_field_tag :query,
+      <%= text_field_tag :query,
       params[:query],
       class: "lawfirms-search",
       placeholder: "Find a law firm"
     %>
-    <%= submit_tag "Search", class: "button-consultationscenter" %>
+      <%= submit_tag "Search", class: "button-consultationscenter" %>
     <% end %>
   </div>
   <% if @lawfirms.empty? %>
@@ -20,24 +19,28 @@
       <h1>There are currently no law firms with those parameters</h1>
     </div>
   <% else %>
-  <div class="wrapper-lawfirms">
-    <div class="cards-lawfirms">
-      <% @lawfirms.each do |lawfirm| %>
-      <div class="card-lawfirms">
-      <div class="gradient">
+    <div class="wrapper-lawfirms">
+      <div class="cards-lawfirms">
+        <% @lawfirms.each do |lawfirm| %>
+          <div class="card-lawfirms">
+            <div class="gradient">
+            </div>
+            <div class="card-lawfirms-img">
+              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="user">
+            </div>
+            <div class="content-lawfirms">
+              <h2><%= lawfirm.name %></h2>
+              <h2><%= lawfirm.location %></h2>
+              <% if lawfirm.tag_list.empty? %>
+                <h2>There are no taglists/specialties</h2>
+              <% else %>
+                <h2>Specialty: <%= lawfirm.tag_list %></h2>
+              <% end %>
+              <%= link_to "Show more information", lawfirm_path(lawfirm), class: "button-main" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-        <div class="card-lawfirms-img">
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="user">
-        </div>
-        <div class="content-lawfirms">
-          <h2><%= lawfirm.name %></h2>
-          <h2><%= lawfirm.location %></h2>
-          <%= link_to "Show more information", lawfirm_path(lawfirm), class: "button-main" %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
       <div class="map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
@@ -45,5 +48,4 @@
       </div>
     </div>
   <% end %>
-
 </div>
