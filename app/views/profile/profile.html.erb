@@ -314,8 +314,12 @@
                   <p>Specialty:</p>
                 </div>
                 <div class="left-right">
-                  <% favorite.tag_list.each do |tag| %>
-                    <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                  <% if favorite.tag_list.any? %>
+                    <% favorite.tag_list.each do |tag| %>
+                      <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                    <% end %>
+                  <% else %>
+                    <p>General</p>
                   <% end %>
                 </div>
               </div>
