@@ -16,19 +16,32 @@
   padding-left: 100px;
 }
 
+@media (min-width: 1920px) {
+  .container-facebook-profile .card-facebook-profile {
+    width: 68% !important;
+    left: 0px !important;
+  }
+  .container-facebook-profile .card-facebook-profile .content-facebook-profile {
+    padding: 28px 19px 20px 156px;
+    left: 192px !important;
+  }
+}
+
 .container-facebook-profile .card-facebook-profile {
   position: relative;
-  width: 79%;
+  width: 86%;
   height: 200px;
   background: #fff;
   margin: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: 0.5s;
   border-radius: 8px;
+  left: 37px;
   .content-facebook-profile{
     position: absolute;
-    padding: 28px 19px 20px 156px;
-    left: 148px;
+    // padding: 25px 19px 19px 156px;
+    padding: 25px 19px 19px 86px;
+    left: 178px;
     margin: auto;
     font-family: helvetica;
     place-items: top;
@@ -84,7 +97,8 @@
   /* text-align: center; */
   /* clip-path: polygon(8% 0, 30% 0, 10% 100%, 0 100%, 0 40%); */
   /* clip-path: polygon(26% 0, 37% 50%, 26% 100%, 0% 100%, 0 55%, 0% 0%); */
-  clip-path: polygon(19% 0, 24% 53%, 19% 100%, 0% 100%, 0 55%, 0% 0%);
+  // clip-path: polygon(19% 0, 24% 53%, 19% 100%, 0% 100%, 0 55%, 0% 0%);
+  clip-path: polygon(14% 0, 19% 53%, 14% 100%, 0% 100%, 0 55%, 0% 0%);
   text-align: center;
   h1 {
    color: #fff;
@@ -107,7 +121,7 @@
 .facebook-profile-img {
   width: 17em;
   height: 17em;
-  margin: -14.8em auto 0 5em;
+  margin: -14.8em auto 0 2em;
   border-radius: 50%;
   background-image: linear-gradient(180deg, #1E528A, #5982B0);
   // background-image: linear-gradient(180deg, #f5a50f, #FAD22C);
@@ -126,7 +140,7 @@
 .mytabs {
   display: flex;
   flex-wrap: wrap;
-  padding: 2% 4%;
+  padding: 2% 0%;
 }
 .mytabs input[type="radio"] {
   display: none;
@@ -143,7 +157,7 @@
 
 .mytabs .tab {
   width: 100%;
-  padding: 20px;
+  padding: 32px;
   background: #fff;
   order: 1;
   display: none;
@@ -195,14 +209,31 @@
   height: 8em;
 }
 
+.user-info {
+  text-align: center;
+    margin: auto;
+    font-family: helvetica;
+    height: 10em;
+    position: relative;
+    margin-top: -238px;
+    padding: 0 32px;
+  h3 {
+    font-family: Helvetica;
+  }
+
+  li i {
+    color: #1E528A;
+  }
+}
 
 .user-info ul {
   margin-left: -15px;
+  margin-top: 42px;
 }
 .user-info ul li {
   align-items: center;
   list-style-type: none;
-  margin-bottom: 35px;
+  margin: 10px 35px;
   font-size: 20px;
   display: flex;
 }

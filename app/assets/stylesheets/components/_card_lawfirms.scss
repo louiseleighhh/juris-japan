@@ -16,7 +16,7 @@
 
 .wrapper-lawfirms .card-lawfirms {
   position: relative;
-  width: 500px;
+  width: 540px;
   height: 230px;
   background: #fff;
   margin: 20px;
@@ -164,10 +164,13 @@
     /* height: 230px; */
     background: #fff;
     margin: 20px 0px;
-    padding: 20px;
+    padding: 32px;
     border-radius: 8px;
     transition: 0.5s;
     h1 {
+      font-family: Helvetica;
+    }
+    h2 {
       font-family: Helvetica;
     }
 

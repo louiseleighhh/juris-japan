@@ -116,7 +116,7 @@ class ConsultationsController < ApplicationController
       description: File.open("#{step_path}/items/item7.md").read,
       step: step7
     )
-      redirect_to profile_path(tabs: "consultations")
+      redirect_to profile_path(anchor: "consultations")
     else
       render :new
     end
@@ -135,12 +135,12 @@ class ConsultationsController < ApplicationController
     @lawfirm = Lawfirm.find(params[:lawfirm_id])
     @consultation.lawfirm = @lawfirm
     @consultation.save
-    redirect_to profile_path(tabs: "consultations")
+    redirect_to profile_path(anchor: "consultations")
   end
 
   def destroy
     @consultation.destroy
-    redirect_to profile_path(tabs: "consultations")
+    redirect_to profile_path(anchor: "consultations")
   end
 
   private

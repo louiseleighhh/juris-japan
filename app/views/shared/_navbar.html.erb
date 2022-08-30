@@ -1,17 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <div class="navbar-lewagon-blue-a">
-      <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1660748365/logo-white_ofvlr8.png" alt="logo" id="logo" data-action="mouseover->navbar#updateNavbar">
-    </div>
+      <div class="navbar-lewagon-blue-a">
+        <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1660748365/logo-white_ofvlr8.png" alt="logo" id="logo" data-action="mouseover->navbar#updateNavbar">
+      </div>
     <% end %>
-
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <div class="navbar-lewagon-blue-a">
@@ -30,17 +26,21 @@
           </li>
         </div>
         <% if user_signed_in? %>
-        <div class="navbar-lewagon-blue-a">
-          <li class="nav-item">
-            <%= link_to "MESSAGES", "#", class: "nav-link" %>
-          </li>
-        </div>
-
+          <div class="navbar-lewagon-blue-a">
+            <li class="nav-item">
+              <%= link_to "MESSAGES", "#", class: "nav-link" %>
+            </li>
+          </div>
           <li class="nav-item dropdown" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= image_tag (cl_image_path current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://cdn-icons-png.flaticon.com/512/709/709722.png", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="dropdown">
               <%= link_to "PROFILE", profile_path, class: "dropdown-item" %>
-              <%= link_to "APPLICATIONS", profile_path(tabs: "consultations"), class: "dropdown-item" %>
+              <%= link_to "APPLICATIONS", profile_path(anchor: "consultations"), class: "dropdown-item" %>
               <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
@@ -51,7 +51,6 @@
             </li>
           </div>
         <% end %>
-
       </ul>
     </div>
   </div>
