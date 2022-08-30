@@ -32,7 +32,12 @@
             </li>
           </div>
           <li class="nav-item dropdown" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= image_tag (cl_image_path current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://cdn-icons-png.flaticon.com/512/709/709722.png", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="dropdown">
               <%= link_to "PROFILE", profile_path, class: "dropdown-item" %>
               <%= link_to "APPLICATIONS", profile_path(anchor: "consultations"), class: "dropdown-item" %>

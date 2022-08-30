@@ -20,6 +20,9 @@
         <%= f.input :tag_list, as: :check_boxes, collection: [ "Immigration Law", "Corporate Law", "Family Law", "Intellectual Property Law" ] %>
       </div>
       <div class="row">
+        <%= f.input :photo, as: :file %>
+      </div>
+      <div class="row">
         <%= f.submit class: 'button-consultationscenter' %>
       </div>
     <% end %>

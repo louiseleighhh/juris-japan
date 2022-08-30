@@ -7,6 +7,7 @@ class Lawfirm < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   validates :name, :address, :location, presence: true
+  has_one_attached :photo
 
   include PgSearch::Model
   pg_search_scope :full_search,

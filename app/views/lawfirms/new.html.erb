@@ -12,6 +12,7 @@
         <%= f.input :address %>
         <%= f.input :location %>
         <%= f.input :tag_list, as: :check_boxes, collection: [ "Immigration Law", "Corporate Law", "Family Law", "Intellectual Property Law" ] %>
+        <%= f.input :photo, as: :file %>
         <div class="row">
           <%= f.submit class: 'button-consultationscenter' %>
         </div>

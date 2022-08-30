@@ -26,7 +26,11 @@
             <div class="gradient">
             </div>
             <div class="card-lawfirms-img">
-              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="user">
+              <% if lawfirm.photo.attached? %>
+                <img src="<%= cl_image_path lawfirm.photo.key %>" alt="law firm">
+              <% else %>
+                <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1661847005/logo-gold-square_nbicce.png" alt="law firm">
+              <% end %>
             </div>
             <div class="content-lawfirms">
               <h2><%= lawfirm.name %></h2>
