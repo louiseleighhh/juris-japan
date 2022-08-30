@@ -45,7 +45,7 @@ class LawfirmsController < ApplicationController
   def create
     @lawfirm = Lawfirm.new(lawfirm_params)
     @lawfirm.user = current_user
-    # @lawfirm.location = current_user.location
+    @lawfirm.location = current_user.location
     if @lawfirm.save
       redirect_to profile_path(tabs: "My Firm")
     else
@@ -82,7 +82,7 @@ class LawfirmsController < ApplicationController
   private
 
   def lawfirm_params
-    params.require(:lawfirm).permit(:name, :address, :location, :photo, tag_list: [])
+    params.require(:lawfirm).permit(:name, :address, :location, :description, :photo, tag_list: [])
   end
 
   def set_lawfirm
