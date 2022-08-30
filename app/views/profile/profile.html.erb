@@ -6,7 +6,7 @@
     </div>
     <div class="facebook-profile-img">
       <% if current_user.photo.attached? %>
-        <img src="<%= cl_image_path current_user.photo.key %>" alt="user">
+        <%= image_tag (cl_image_path current_user.photo.key), alt: "user"%>
       <% else %>
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
@@ -284,7 +284,7 @@
             <div class="gradient-favorites"></div>
             <div class="card-favorites-img">
               <% if favorite.photo.attached? %>
-                <img src="<%= cl_image_path current_user.photo.key %>" alt="law firm">
+                <%= image_tag (cl_image_path favorite.photo.key), alt: "law firm"%>
               <% else %>
                 <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1661846619/logo-black-square_iy9eai.png" alt="law firm">
               <% end %>
