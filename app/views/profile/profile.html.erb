@@ -27,9 +27,7 @@
                   <i class="fa-solid fa-pen"></i> Edit Profile
                 <% end %>
               <% else %>
-                <%= link_to "",  class: "button-gray" do %>
-                  Law Firm
-                <% end %>
+                <div class="button-accepted"><span style="white-space: nowrap">Law Firm <i class="fa-solid fa-scale-balanced"></i></span></div>
                 <%= link_to edit_user_registration_path, class: "nav-link", class: "button-secondary" do %>
                   <i class="fa-solid fa-pen"></i> Edit Profile
                 <% end %>
@@ -228,42 +226,60 @@
         <label for="tabgold"><i class="fa-solid fa-scale-balanced"></i> My Firm </label>
         <div class="tab">
           <h2 id="lawfirms">My Law Firm:</h2>
-          <div class="wrapper-consultations">
-            <div class="card-consultations">
-              <div class="gradient-consultations"></div>
-              <div class="content-consultations">
-                <div class="consultations-flex">
-                  <div class="left-right">
+          <div class="wrapper-mylawfirm">
+            <div class="card-mylawfirm">
+              <div class="gradient-mylawfirm"></div>
+              <div class="mylawfirm-img">
+                <% if @lawfirm.photo.attached? %>
+                  <%= image_tag (cl_image_path @lawfirm.photo.key), alt: "law firm"%>
+                <% else %>
+                  <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1661846619/logo-black-square_iy9eai.png" alt="law firm">
+                <% end %>
+              </div>
+              <div class="content-mylawfirm">
+                <div class="mylawfirm-flex">
+                  <div class="left-right-name">
                     <p>Name:</p>
                   </div>
-                  <div class="left-right">
+                  <div class="left-right-name">
                     <p><%= @lawfirm.name %></p>
                   </div>
                 </div>
-                <div class="consultations-flex">
+                <div class="mylawfirm-flex">
                   <div class="left-right">
                     <p>Address:</p>
                   </div>
                   <div class="left-right">
-                    <p><%= @lawfirm.address %>, <%= @lawfirm.location %></p>
+                    <p><%= @lawfirm.address %></p>
                   </div>
                 </div>
-                <div class="consultations-flex">
+                <div class="mylawfirm-flex">
+                  <div class="left-right">
+                    <p>Location:</p>
+                  </div>
+                  <div class="left-right">
+                    <p><%= @lawfirm.location %></p>
+                  </div>
+                </div>
+                <div class="mylawfirm-flex">
                   <div class="left-right">
                     <p>Specialty:</p>
                   </div>
-                  <div class="left-right">
+                  <div class="left-right-no-blue">
                     <% @lawfirm.tag_list.each do |tag| %>
                       <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
                     <% end %>
                   </div>
                 </div>
-                <div class="consultations-flex pt-3">
+                <div class="mylawfirm-flex pt-3">
                   <div class="left-right">
-                    <%= link_to "Update", edit_lawfirm_path(@lawfirm), class: "button-main"%>
+                    <%= link_to "Update Law Firm", edit_lawfirm_path(@lawfirm), class: "button-main"%>
                   </div>
                   <div class="left-right">
-                    <%= link_to "Remove", lawfirm_path(@lawfirm), class: "nav-link", class: "button-gray", method: :delete,  data: { confirm: 'Are you sure?' } %>
+                    <%= link_to "View Law Firm", lawfirm_path(@lawfirm), class: "button-main"%>
+                  </div>
+                  <div class="left-right">
+                    <%= link_to "Remove Law Firm", lawfirm_path(@lawfirm), class: "nav-link", class: "button-gray", method: :delete,  data: { confirm: 'Are you sure?' } %>
                   </div>
                 </div>
               </div>
