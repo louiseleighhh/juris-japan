@@ -56,6 +56,14 @@
   a {
     color: inherit;
   }
+
+  i {
+    transition: 0.3s;
+  }
+
+  i:hover {
+    color: red;
+  }
 }
 
 .left-right-name {

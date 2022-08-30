@@ -36,9 +36,9 @@
               <h2><%= lawfirm.name %></h2>
               <h2><%= lawfirm.location %></h2>
               <% if lawfirm.tag_list.empty? %>
-                <h2>There are no taglists/specialties</h2>
+                <h2>General Law</h2>
               <% else %>
-                <h2>Specialty: <%= lawfirm.tag_list %></h2>
+                <h2><%= lawfirm.tag_list %></h2>
               <% end %>
               <%= link_to "Show more information", lawfirm_path(lawfirm), class: "button-main" %>
             </div>

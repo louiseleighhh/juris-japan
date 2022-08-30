@@ -82,7 +82,7 @@
   background-image: linear-gradient(125deg, #f5a50f 0%, #FAD22C 34%);
   //-webkit-clip-path: circle(148px at 0 100px);
   /* clip-path: circle(148px at 0 100px); */
-  clip-path: polygon(12% 0, 24% 50%, 12% 100%, 0% 100%, 12% 50%, 0% 0%);
+  clip-path: polygon(12% 0, 24% 50%, 12% 100%, 0% 100%, 0% 50%, 0% 0%);
   // clip-path: circle(148px at 0 100px);
   text-align: center;
   h1 {
@@ -199,6 +199,15 @@
     padding: 32px;
     border-radius: 8px;
     transition: 0.5s;
+    border: 5px solid hotpink;
+    // border-image: linear-gradient(90deg, #f5a50f, #FAD22C, #f5a50f);
+    // border-image-slice: 1;
+    border: double 5px transparent;
+    background-image: linear-gradient(#FFFF, #FFFF),
+    linear-gradient(90deg, #f5a50f, #FAD22C, #f5a50f);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
     h1 {
       font-family: Helvetica;
     }
@@ -247,4 +256,9 @@
 
 .lawfirm-review {
   margin: 0px 0px;
+}
+
+.ampty {
+  border-image: linear-gradient(90deg, #f5a50f, #FAD22C, #FAD22C);
+    border-image-slice: 1;
 }
