@@ -8,3 +8,5 @@ ActsAsTaggableOn::Tag.class_eval do
       }
     }
 end
+
+class SearchTags; end
