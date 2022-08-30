@@ -21,14 +21,14 @@
           </div>
         </div>
         <p>
-        <% if @lawfirm.description %>
-          <%= @lawfirm.description %>
-        <% else %>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.
-        <% end %>
+          <% if @lawfirm.description %>
+            <%= @lawfirm.description %>
+          <% else %>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.
+          <% end %>
         </p>
       </div>
-      <div class="lawfirms-show-description-card">
+      <div class="lawfirms-show-need-help-card">
         <h5>Need help from <%= @lawfirm.name %>?</h5>
         <p>Which application do you need help with?</p>
         <% current_user.consultations.each do |consultation| %>
@@ -54,11 +54,11 @@
           </div>
         </div>
         <p>
-        <% if @lawfirm.description %>
-          <%= @lawfirm.description %>
-        <% else %>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.
-        <% end %>
+          <% if @lawfirm.description %>
+            <%= @lawfirm.description %>
+          <% else %>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem facilis numquam qui aliquid dolorem necessitatibus molestias mollitia, placeat consectetur eligendi modi pariatur omnis dolores ex.
+          <% end %>
         </p>
       </div>
     </div>
