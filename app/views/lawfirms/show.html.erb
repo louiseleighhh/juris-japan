@@ -121,14 +121,14 @@
   </div>
   <div class="lawfirms-show-description-card">
     <h1>Similar Law Firms:</h1>
-    <% if @related_lawfirms.nil? %>
-      <p>There are no similar law firms</p>
-    <% else %>
+    <% if @related_lawfirms.any? %>
       <ul>
         <% @related_lawfirms.each do |r| %>
           <li><%= link_to r.name, lawfirm_path(r) %></li>
         <% end %>
       </ul>
+    <% else %>
+      <p>There are no similar law firms</p>
     <% end %>
   </div>
 </div>
