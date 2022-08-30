@@ -90,32 +90,11 @@
 
 <div class="banner-procedures-offer lawfirms-we-offer">
     <div class="container">
-      <h1 class ="text-center">Law Firms in Partnership with Us</h1>
-      <div class="d-flex justify-content-around">
-        <div class ="icon-text">
-          <%= link_to procedures_path("#immigration"), class: "navbar-brand" do %>
-          <div class="navbar-lewagon-blue-a">
-          <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
-          </div>
-          <% end %>
-          <p class="immigration-icon">Immigration</p>
-        </div>
-        <div class="icon-text">
-          <%= image_tag ("corporate-icon.png"), class: "icon-home" %>
-          <p class="corporate-icon">Corporate</p>
-        </div>
-        <div class="icon-text">
-          <%= image_tag ("family-icon.png"), class: "icon-home lower-home" %>
-          <p class="family-icon">Family</p>
-        </div>
-        <div class="icon-text">
-          <%= image_tag ("patent-icon.png"), class: "icon-home lower-home" %>
-          <p class="patent-icon">Copyright</p>
-        </div>
-      </div>
+      <h1 class="text-center">Need help?</h1>
+      <h1 class="text-center">Click the link below to find someone to help you.</h1>
       <div class="home-procedures-link text-center">
-        <%= link_to procedures_path, class: "banner-see-more" do %>
-          See more <i class="fa-solid fa-arrow-right"></i>
+        <%= link_to lawfirms_path, class: "banner-see-more" do %>
+          <h2 class="text-center">Law Firms <i class="fa-solid fa-arrow-right"></i></h2>
         <% end %>
       </div>
     </div>
