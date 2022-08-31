@@ -266,7 +266,7 @@
                   </div>
                   <div class="left-right-no-blue">
                     <% @lawfirm.tag_list.each do |tag| %>
-                      <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                      <p><%= link_to tag, lawfirms_path(query: tag) %></p>
                     <% end %>
                   </div>
                 </div>
@@ -331,7 +331,7 @@
                 <div class="left-right">
                   <% if favorite.tag_list.any? %>
                     <% favorite.tag_list.each do |tag| %>
-                      <p><%= link_to tag, lawfirms_path(tag: tag) %></p>
+                      <p><%= link_to tag, lawfirms_path(query: tag) %></p>
                     <% end %>
                   <% else %>
                     <p>General</p>
