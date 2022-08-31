@@ -3,13 +3,11 @@
     <!-- <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Profile</h1> -->
   </div>
 </div>
-
-<div class="container chatroom"
+<div class="container-chatroom chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
-
+  <h1><%= @chatroom.name %></h1>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
@@ -19,11 +17,11 @@
     remote: true,
     html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
   %>
-    <%= f.input :content,
+  <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary" %>
-  <% end %>
+  <%= f.submit "Send", class: "chat-button" %>
+<% end %>
 </div>

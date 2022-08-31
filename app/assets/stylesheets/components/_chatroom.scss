@@ -1,22 +1,41 @@
+.container-chatroom {
+  margin: 2em 24em;
+}
+
+.message_content {
+  margin-bottom: 0rem !important;
+  font-family: Helvetica;
+}
+
+.form-control {
+ width: 98% !important;
+}
+
 .chatroom {
   background: white;
-  margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 15em);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  border-radius: 8px;
+
 
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    color: #FFFF;
+    background-image: linear-gradient(90deg, #123669, #5177AC);
+    border-radius: 8px 8px 0px 0px;
+    font-family: Helvetica;
   }
 
   .messages {
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    font-family: Helvetica;
   }
 
   #new_message {
@@ -27,4 +46,56 @@
       margin-bottom: 0;
     }
   }
+}
+
+.chat-button {
+  background-image: linear-gradient(180deg, #123669, #5177AC);
+  color: white;
+  padding: 17px 18px;
+  position: relative;
+  text-decoration: none;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.chat-button:hover {
+  color: white !important;
+  background-image: linear-gradient(180deg, #1E528A, #5982B0) !important;
+}
+
+.chat-button::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(180deg, #123669, #5177AC) !important;
+  border-radius: 8px !important;
+  opacity: 1 !important;
+  transition: opacity 0.2s linear !important;
+  z-index: -1 !important;
+}
+
+.chat-button::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(180deg, #1E528A, #5982B0) !important;
+  border-radius: 8px !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s linear !important;
+  z-index: -1 !important;
+}
+
+.chat-button:hover::after {
+  opacity: 1 !important;
 }

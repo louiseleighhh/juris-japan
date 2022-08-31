@@ -126,22 +126,17 @@
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="lawfirms-show-description-card">
-    <h1><%= pluralize @lawfirm.reviews.size, "review" %> <% @lawfirm.reviews.average(:rating).to_i.times do %>
-        <i class="fa-solid fa-star star-yellow"></i>
-      <% end %></h1>
-    <div data-controller="insert-in-list">
+  <div data-controller="insert-in-list">
+    <div class="lawfirms-show-description-card">
+      <h1> <%= pluralize @lawfirm.reviews.size, "review" %> <% @lawfirm.reviews.average(:rating).to_i.times do %>
+          <i class="fa-solid fa-star star-yellow"></i>
+        <% end %></h1>
       <div id="reviews" data-insert-in-list-target="items">
         <% if @lawfirm.reviews.blank? %>
-          Be the first to leave a review for <%= @lawfirm.name %>
+          <p id="first-text">Be the first to leave a review for <%= @lawfirm.name %></p>
         <% else %>
           <% @lawfirm.reviews.each do |review| %>
-            <div id="review-<%= review.id %>">
-              <p class="lawfirm-review"><%= review.content %></p>
-              <p><%  review.rating.to_i.times do  %>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                <% end %></p>
-            </div>
+            <%= render "reviews/review", review: review %>
           <% end %>
         <% end %>
       </div>

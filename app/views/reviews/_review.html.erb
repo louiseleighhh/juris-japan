@@ -1,0 +1,6 @@
+<div id="review-<%= review.id %>">
+  <p class="lawfirm-review"><%= review.content %></p>
+  <p><%  review.rating.to_i.times do  %>
+      <i class="fa-solid fa-star star-yellow"></i>
+    <% end %></p>
+</div>

@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to lawfirm_path(@lawfirm) }
         format.json
       else
-        format.html { render "lawfirms/show" }
+        format.html { render "lawfirms/show", status: :unprocessable_entity  }
         format.json
       end
     end
