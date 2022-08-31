@@ -26,11 +26,6 @@
           </li>
         </div>
         <% if user_signed_in? %>
-          <div class="navbar-lewagon-blue-a">
-            <li class="nav-item">
-              <%= link_to "MESSAGES", "#", class: "nav-link" %>
-            </li>
-          </div>
           <li class="nav-item dropdown" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
             <% if current_user.photo.attached? %>
               <%= image_tag (cl_image_path current_user.photo.key), class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -111,7 +111,7 @@
             <li>
               <p><i class="fa-solid fa-tag"></i></p>
               <% if @lawfirm.tag_list.empty? %>
-                <p>There are no specialties; practices general law</p>
+                <p >There are no specialties; practices general law</p>
               <% else %>
                 <p>Specialty: <%= @lawfirm.tag_list %></p>
               <% end %>
@@ -204,7 +204,7 @@
         <% end %>
       </div>
     <% else %>
-      <h1>There are no similar law firms</h1>
+      <h1 class="text-center">There are no similar law firms</h1>
     <% end %>
   </div>
 </div>
