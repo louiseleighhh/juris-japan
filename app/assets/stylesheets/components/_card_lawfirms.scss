@@ -11,28 +11,28 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
   flex-grow: 1;
-  padding-left: 100px;
+  padding-left: 66px;
 }
 
 .wrapper-lawfirms .card-lawfirms {
   position: relative;
-  width: 540px;
+  width: 639px;
   height: 230px;
   background: #fff;
-  margin: 20px;
+  margin: 18px;
   border-radius: 16px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: 0.5s;
   .content-lawfirms{
     position: absolute;
     padding: 20px;
-    left: 148px;
+    left: 100px;
     margin: auto;
     font-family: helvetica;
     place-items: top;
 
     top: 4%;
-    width: 71%;
+    width: 84%;
     text-align: top;
 
     h1 {
@@ -82,7 +82,7 @@
   background-image: linear-gradient(125deg, #f5a50f 0%, #FAD22C 34%);
   //-webkit-clip-path: circle(148px at 0 100px);
   /* clip-path: circle(148px at 0 100px); */
-  clip-path: polygon(12% 0, 24% 50%, 12% 100%, 0% 100%, 12% 50%, 0% 0%);
+  clip-path: polygon(10% 0, 18% 50%, 10% 100%, 0% 100%, 0% 50%, 0% 0%);
   // clip-path: circle(148px at 0 100px);
   text-align: center;
   h1 {
@@ -103,7 +103,7 @@
 .card-lawfirms-img {
   width: 10em;
   height: 10em;
-  margin: -12em auto 0 0em;
+  margin: -12.2em auto 0 0em;
   border-radius: 50%;
   background-image: linear-gradient(180deg, #1E528A, #5982B0);
   display: flex;
@@ -160,6 +160,38 @@
 
 .lawfirms-show-description-card {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 100%;
+    /* height: 230px; */
+    background: #fff;
+    margin: 20px 0px;
+    padding: 32px;
+    border-radius: 8px;
+    transition: 0.5s;
+    h1 {
+      font-family: Helvetica;
+    }
+    h2 {
+      font-family: Helvetica;
+    }
+
+    p {
+      font-family: Helvetica;
+    }
+
+    a {
+      color: inherit;
+      transition: .3s;
+    }
+
+    a:hover {
+      color: #FD1115;
+    }
+
+}
+
+
+.lawfirms-show-need-help-card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     /* width: 500px; */
     /* height: 230px; */
     background: #fff;
@@ -167,6 +199,15 @@
     padding: 32px;
     border-radius: 8px;
     transition: 0.5s;
+    border: 5px solid hotpink;
+    // border-image: linear-gradient(90deg, #f5a50f, #FAD22C, #f5a50f);
+    // border-image-slice: 1;
+    border: double 5px transparent;
+    background-image: linear-gradient(#FFFF, #FFFF),
+    linear-gradient(90deg, #f5a50f, #FAD22C);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
     h1 {
       font-family: Helvetica;
     }
@@ -215,4 +256,9 @@
 
 .lawfirm-review {
   margin: 0px 0px;
+}
+
+.ampty {
+  border-image: linear-gradient(90deg, #f5a50f, #FAD22C, #FAD22C);
+    border-image-slice: 1;
 }

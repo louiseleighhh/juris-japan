@@ -6,6 +6,7 @@
   /* padding-left: 7em; */
   padding-top: 16px;
   margin-top: -100px;
+  margin-bottom: 20px;
 }
 
 .cards-facebook-profile {
@@ -46,7 +47,7 @@
     font-family: helvetica;
     place-items: top;
 
-    top: 4%;
+    top: 2%;
     width: 84%;
     text-align: top;
 
@@ -57,6 +58,11 @@
     }
 
     h2 {
+      font-family: helvetica;
+      margin-top: -7px;
+    }
+
+    h3 {
       font-family: helvetica;
       margin-top: -7px;
     }
@@ -249,4 +255,8 @@
   width: 20%;
   opacity: 0.2;
   position: absolute;
+}
+
+.font-weight-bold {
+  font-weight: bold;
 }

@@ -93,7 +93,7 @@
   display: inline-block;
   position: absolute;
   left: 50%;
-  z-index: 9990;
+  z-index: 1;
   outline: none;
   bottom: 30px;
   font-size: 44px;
@@ -122,6 +122,28 @@
 .procedures-banner {
   background-size: cover;
   background-position: right 35% bottom 72%;
+  padding: 124px 0;
+  h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-align: center;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+}
+
+.consultation-banner {
+  background-size: cover;
+  background-position: right 35% bottom 45%;
   padding: 124px 0;
   h1 {
     margin: 0;

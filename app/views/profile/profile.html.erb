@@ -1,4 +1,4 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1552083940-86877723de7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80')">
 </div>
 <div class="container-facebook-profile">
   <div class="card-facebook-profile">
@@ -27,7 +27,7 @@
                   <i class="fa-solid fa-pen"></i> Edit Profile
                 <% end %>
               <% else %>
-                <div class="button-accepted"><span style="white-space: nowrap">Law Firm <i class="fa-solid fa-scale-balanced"></i></span></div>
+                <div class="lawfirm-status"><span style="white-space: nowrap"><i class="fa-solid fa-scale-balanced"></i> Law Firm</span></div>
                 <%= link_to edit_user_registration_path, class: "nav-link", class: "button-secondary" do %>
                   <i class="fa-solid fa-pen"></i> Edit Profile
                 <% end %>
@@ -52,7 +52,6 @@
       <% end %>
     </div>
   </div>
-</div>
 </div>
 <div class="container">
   <div class="wrapper-lawfirms-show">
@@ -100,7 +99,7 @@
                   </div>
                   <div class="consultations-flex">
                     <div class="left-right">
-                      <p>Name:</p>
+                      <p>Procedure Name:</p>
                     </div>
                     <div class="left-right">
                       <p><%= consultation.procedure.name %></p>
@@ -347,7 +346,7 @@
         <% end %>
       </div>
     <% else %>
-      <h1>It seems like you do not have any bookmarks at the moment.</h1>
+      <h1 class="text-center">It seems like you do not have any bookmarks at the moment.</h1>
     <% end %>
   </div>
 </div>
