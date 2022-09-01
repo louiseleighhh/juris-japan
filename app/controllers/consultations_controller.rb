@@ -125,6 +125,7 @@ class ConsultationsController < ApplicationController
   def show
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
     @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    @step = Step.find(params[:step_id]) if params[:step_id].present?
   end
 
   def edit
