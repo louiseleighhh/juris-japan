@@ -1,5 +1,5 @@
 <div class="section">
- <%# <img src="https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png" alt="watermark"> %>
+  <%# <img src="https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660374725/logo-white_oudwnm.png" alt="watermark"> %>
   <h1>JURIS JAPAN</h1>
   <p><span data-controller="typed-js"></span></p>
   <div class="two-buttons">
@@ -10,74 +10,64 @@
       <%= link_to "Look at Law Firms", lawfirms_path, class: "button-secondary" %>
     </span>
   </div>
-
   <div class="video-container" id="top-banner">
     <div class="color-overlay"></div>
-      <video muted loop autoplay id="myvideo" >
-        <source src ="https://res.cloudinary.com/dcs2vqe2s/video/upload/v1660363376/banner_video_skoa15.mp4" type="video/mp4">
-      </video>
+    <video muted loop autoplay id="myvideo" >
+      <source src ="https://res.cloudinary.com/dcs2vqe2s/video/upload/v1660363376/banner_video_skoa15.mp4" type="video/mp4">
+    </video>
   </div>
   <div id="down" class="jumplink" onclick="window.location='#about';">
     <i class="fa-solid fa-chevron-down blinking"></i>
   </div>
 </div>
-
 <div class="home-grid">
   <div class="about-us-left" id="about">
-
     <h1>What is <span class ="blue">Juris Japan? </span></h1>
   </div>
-
   <div class="about-us-right">
     <div class="container">
-    <h1>Welcome to <span class="blue">Juris Japan</span></h1>
+      <h1>Welcome to <span class="blue">Juris Japan</span></h1>
       <p>Juris Japan is a project created by Le Wagon students in order to help ease foreigners' legal experiences in Japan by providing a checklist of all requirements</p>
       <%= link_to about_path, class: "banner-see-more" do %>
-      See more <i class="fa-solid fa-arrow-right"></i>
-    <% end %>
+        See more <i class="fa-solid fa-arrow-right"></i>
+      <% end %>
     </div>
   </div>
-
   <div class="banner-procedures-offer procedures-we-offer">
     <div class="container">
       <h1 class ="text-center">Law Procedures We Offer</h1>
       <div class="d-flex justify-content-around">
         <div class ="icon-text">
           <%= link_to procedures_path(anchor: "banner"), class: "navbar-brand" do %>
-          <div class="navbar-lewagon-blue-a">
-          <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
-          </div>
+            <div class="navbar-lewagon-blue-a">
+              <%= image_tag ("immigration-icon.png"), class: "icon-home" %>
+            </div>
           <% end %>
           <p class="immigration-icon">Immigration</p>
         </div>
         <div class="icon-text">
-        <%= link_to procedures_path(anchor: "immigration"), class: "navbar-brand" do %>
-          <div class="navbar-lewagon-blue-a">
-          <%= image_tag ("corporate-icon.png"), class: "icon-home" %>
-          </div>
+          <%= link_to procedures_path(anchor: "immigration"), class: "navbar-brand" do %>
+            <div class="navbar-lewagon-blue-a">
+              <%= image_tag ("corporate-icon.png"), class: "icon-home" %>
+            </div>
           <% end %>
           <p class="corporate-icon">Corporate</p>
         </div>
         <div class="icon-text">
-
-        <%= link_to procedures_path(anchor: "corporate"), class: "navbar-brand" do %>
-          <div class="navbar-lewagon-blue-a">
-          <%= image_tag ("family-icon.png"), class: "icon-home lower-home" %>
-          </div>
+          <%= link_to procedures_path(anchor: "corporate"), class: "navbar-brand" do %>
+            <div class="navbar-lewagon-blue-a">
+              <%= image_tag ("family-icon.png"), class: "icon-home lower-home" %>
+            </div>
           <% end %>
           <p class="corporate-icon">Family</p>
         </div>
-
         <div class="icon-text">
-
           <%= link_to procedures_path(anchor: "family"), class: "navbar-brand" do %>
-          <div class="navbar-lewagon-blue-a">
-          <%= image_tag ("patent-icon.png"), class: "icon-home lower-home" %>
-          </div>
+            <div class="navbar-lewagon-blue-a">
+              <%= image_tag ("patent-icon.png"), class: "icon-home lower-home" %>
+            </div>
           <% end %>
           <p class="corporate-icon">Copyright</p>
-
-
         </div>
       </div>
       <div class="home-procedures-link text-center">
@@ -87,17 +77,23 @@
       </div>
     </div>
   </div>
-
-<div class="banner-procedures-offer lawfirms-we-offer">
+  <div class="lawfirms-we-offer">
     <div class="container">
-      <h1 class="text-center">Need help?</h1>
-      <h1 class="text-center">Click the link below to find someone to help you.</h1>
-      <div class="home-procedures-link text-center">
-        <%= link_to lawfirms_path, class: "banner-see-more" do %>
-          <h2 class="text-center">Law Firms <i class="fa-solid fa-arrow-right"></i></h2>
-        <% end %>
+      <h1 class="text-center font-weight-bold">Need help from a lawyer?</h1>
+      <div class="float-container">
+        <div class="float-child">
+          <h1>We got you!</h1>
+          <p>One of the services we offer is helping foreigners connect with law firms in Japan. We want to be the bridge that connects foreigners and legal services.</p>
+          <%= link_to lawfirms_path, class: "" do %>
+            See law firms <i class="fa-solid fa-arrow-right"></i>
+          <% end %>
+        </div>
+        <div class="float-child">
+          <div class="navbar-lewagon-blue-a">
+            <%= image_tag ("https://res.cloudinary.com/drmu7et5q/image/upload/v1662047798/lawfirm_hw3reg.png"), class: "icon-lawfirm" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>

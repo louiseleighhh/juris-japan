@@ -53,16 +53,52 @@
 
 .lawfirms-we-offer {
   grid-area: 3 / 1 / 4 / 3;
-  background: url("https://res.cloudinary.com/dcs2vqe2s/image/upload/v1661860174/pexels-thirdman-7653977_msiksr.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4));
-  background-size: cover;
-  background-position: 50% 85%;
-  filter: grayscale(50%);
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  text-align: center;
+  display: grid;
+  place-items: center;
 }
 
 .blue {
   color: #5177AC;
+}
+
+.float-container {
+  font-family: helvetica;
+  padding-left: 8em;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  h1 {
+    font-family: helvetica;
+    font-size: 2.5rem;
+  }
+  p {
+    font-family: helvetica;
+    font-size: 24px;
+  }
+  a {
+    text-decoration: none;
+    font-family: helvetica;
+    color: inherit;
+    font-size: 24px;
+    transition: 0.3s;
+  }
+  a:hover{
+    padding-left: 24px;
+  }
+  img {
+    margin-left: 9em;
+  }
+}
+
+.container {
+  h1 {
+    font-family: Helvetica !important;
+  }
+}
+
+.text-gap {
+  letter-spacing: 4px;;
 }

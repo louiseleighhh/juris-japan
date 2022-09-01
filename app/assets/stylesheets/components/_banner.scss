@@ -183,7 +183,6 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 24px;
-  font-weight: bold;
   font-family: Helvetica;
   text-decoration: none;
 }
@@ -227,4 +226,15 @@
 
 .banner-see-more:hover{
   padding-left: 24px;
+}
+
+.icon-lawfirm {
+  padding-top: 1rem;
+  width: 14em;
+  transition: .3s;
+  filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.5));
+}
+
+.icon-lawfirm:hover {
+  transform: scale(1.2);
 }
