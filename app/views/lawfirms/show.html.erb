@@ -10,7 +10,7 @@
       <% if @lawfirm.photo.attached? %>
         <%= image_tag (cl_image_path @lawfirm.photo.key), alt: "user"%>
       <% else %>
-        <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+        <img src="https://res.cloudinary.com/drmu7et5q/image/upload/v1661847005/logo-gold-square_nbicce.png" alt="user">
       <% end %>
     </div>
     <div class="content-facebook-profile">
@@ -133,9 +133,12 @@
   </div>
   <div data-controller="insert-in-list">
     <div class="lawfirms-show-description-card">
-      <h2> <%= pluralize @lawfirm.reviews.size, "review" %> <% @lawfirm.reviews.average(:rating).to_i.times do %>
-          <i class="fa-solid fa-star star-yellow"></i>
-        <% end %></h2>
+      <div class="d-flex">
+        <h2 data-insert-in-list-target="counter"> <%= pluralize @lawfirm.reviews.size, "review" %></h2>
+        <h2> <% @lawfirm.reviews.average(:rating).to_i.times do %>
+            <i class="fa-solid fa-star star-yellow"></i>
+          <% end %></h2>
+      </div>
       <div id="reviews" data-insert-in-list-target="items">
         <% if @lawfirm.reviews.blank? %>
           <p id="first-text">Be the first to leave a review for <%= @lawfirm.name %></p>
