@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     @consultation = @item.step.consultation
     @item.checked! if @item.photos.attached?
-    redirect_to consultation_path(@consultation)
+    redirect_to consultation_path(@consultation, step_id: @item.step)
   end
 
   def delete_photo_attachment
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @photo.purge
     @consultation = @item.step.consultation
     @item.unchecked! unless @item.photos.attached?
-    redirect_to consultation_path(@consultation)
+    redirect_to consultation_path(@consultation, step_id: @item.step)
   end
 
   private
