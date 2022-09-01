@@ -1,4 +1,4 @@
-<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dcs2vqe2s/image/upload/v1660653517/gavel-gbf4d8f0fc_1920_blzqpt.jpg')">
+<div class="procedures-banner" id="top-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1462396240927-52058a6a84ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1673&q=80')">
   <div class="container">
   </div>
 </div>
@@ -17,26 +17,31 @@
       <div class="top">
         <div class="container-pet-profile">
           <div class="left-right">
-            <h1><%= @lawfirm.name %><% @lawfirm.reviews.average(:rating).to_i.times do %>
-                <i class="fa-solid fa-star star-yellow"></i>
-              <% end %></h1>
+            <h2 class="font-weight-bold"><%= @lawfirm.name %></h2>
+            <% if @lawfirm.reviews.empty? %>
+              <h3>Has not been rated yet</h3>
+            <% else %>
+              <h3><% @lawfirm.reviews.average(:rating).to_i.times do %>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                <% end %> </h3>
+            <% end %>
           </div>
           <div class="left-right-no-blue">
-            <h1>
+            <h3>
               <%= link_to toggle_favorite_lawfirm_path(@lawfirm), remote: true, method: :post do %>
                 <%= render 'lawfirms/like_button', lawfirm: @lawfirm %>
               <% end %>
-            </h1>
+            </h3>
             <div class="profile-buttons">
             </div>
           </div>
         </div>
       </div>
-      <h1><%= pluralize @lawfirm.reviews.size, "review" %></h1>
+      <h3><%= pluralize @lawfirm.reviews.size, "review" %></h3>
       <% if @lawfirm.tag_list.empty? %>
-        <h2>Practices General Law</h2>
+        <h3>Practices General Law</h3>
       <% else %>
-        <h2>Specializes in <%= @lawfirm.tag_list %></h2>
+        <h3>Specializes in <%= @lawfirm.tag_list %></h3>
       <% end %>
       <div class="left-right">
         <div class="profile-buttons">
@@ -51,7 +56,7 @@
       <div class="lawfirms-show-description-card">
         <div class="consultations-flex">
           <div class="left-right">
-            <h1>Description:</h1>
+            <h2>Description:</h2>
           </div>
         </div>
         <p>
@@ -93,7 +98,7 @@
   <div class="wrapper-lawfirms-show">
     <div class="cards-lawfirms-show">
       <div class="card-lawfirms-show">
-        <h1>Information:</h1>
+        <h2>Information:</h2>
         <div class="user-info-lawfirms-show">
           <ul>
             <li>
@@ -128,9 +133,9 @@
   </div>
   <div data-controller="insert-in-list">
     <div class="lawfirms-show-description-card">
-      <h1> <%= pluralize @lawfirm.reviews.size, "review" %> <% @lawfirm.reviews.average(:rating).to_i.times do %>
+      <h2> <%= pluralize @lawfirm.reviews.size, "review" %> <% @lawfirm.reviews.average(:rating).to_i.times do %>
           <i class="fa-solid fa-star star-yellow"></i>
-        <% end %></h1>
+        <% end %></h2>
       <div id="reviews" data-insert-in-list-target="items">
         <% if @lawfirm.reviews.blank? %>
           <p id="first-text">Be the first to leave a review for <%= @lawfirm.name %></p>

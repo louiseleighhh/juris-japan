@@ -48,6 +48,9 @@
 .left-right {
   float: left;
   justify-content: space-between;
+  h2 i {
+    font-size: 16px;
+  }
 }
 
 .left-right-no-blue {
@@ -75,6 +78,12 @@
 .consultations-flex {
   display: flex;
   justify-content: space-between;
+}
+
+.consultations-flex-lawfirms {
+  display: flex;
+  justify-content: space-between;
+  max-height: 49px;
 }
 
 .consultations-flex-lawfirm {

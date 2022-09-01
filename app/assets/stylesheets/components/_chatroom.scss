@@ -2,13 +2,19 @@
   margin: 2em 24em;
 }
 
+@media (min-width: 1920px) {
+  .container-chatroom {
+    margin: 2em 37em !important;
+  }
+
+  .chatroom {
+    height: calc(100vh - 20em) !important;
+  }
+}
+
 .message_content {
   margin-bottom: 0rem !important;
   font-family: Helvetica;
-}
-
-.form-control {
- width: 98% !important;
 }
 
 .chatroom {

@@ -11,12 +11,12 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
   flex-grow: 1;
-  padding-left: 100px;
+  padding-left: 66px;
 }
 
 .wrapper-lawfirms .card-lawfirms {
   position: relative;
-  width: 567px;
+  width: 639px;
   height: 230px;
   background: #fff;
   margin: 18px;
@@ -26,13 +26,13 @@
   .content-lawfirms{
     position: absolute;
     padding: 20px;
-    left: 122px;
+    left: 100px;
     margin: auto;
     font-family: helvetica;
     place-items: top;
 
-    top: 1%;
-    width: 78%;
+    top: 4%;
+    width: 84%;
     text-align: top;
 
     h1 {
@@ -82,7 +82,7 @@
   background-image: linear-gradient(125deg, #f5a50f 0%, #FAD22C 34%);
   //-webkit-clip-path: circle(148px at 0 100px);
   /* clip-path: circle(148px at 0 100px); */
-  clip-path: polygon(12% 0, 24% 50%, 12% 100%, 0% 100%, 0% 50%, 0% 0%);
+  clip-path: polygon(10% 0, 18% 50%, 10% 100%, 0% 100%, 0% 50%, 0% 0%);
   // clip-path: circle(148px at 0 100px);
   text-align: center;
   h1 {
