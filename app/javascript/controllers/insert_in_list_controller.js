@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"
 export default class extends Controller {
-  static targets = ["items", "form"]
+  static targets = ["items", "form", "counter"]
 
   send(event) {
     event.preventDefault()
@@ -15,10 +15,10 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         const firstPost = document.getElementById("first-text")
-        const updateCounter = document.getElementById("counter")
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-          // firstPost.parentNode.removeChild(firstPost) works if there are no reviews
+          this.counterTarget.innerText = parseInt(this.counterTarget.innerText.match(/\d/)[0], 10) + 1 + " reviews "
+          firstPost.innerHTML = ""
         }
         this.formTarget.outerHTML = data.form
       })
