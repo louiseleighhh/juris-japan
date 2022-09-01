@@ -45,7 +45,7 @@ class LawfirmsController < ApplicationController
   def create
     @lawfirm = Lawfirm.new(lawfirm_params)
     @lawfirm.user = current_user
-    @lawfirm.location = current_user.location
+    @lawfirm.location = current_user.location if @lawfirm.location.nil?
     if @lawfirm.save
       redirect_to profile_path(tabs: "My Firm")
     else
