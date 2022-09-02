@@ -28,6 +28,13 @@
   }
 }
 
+@media (min-width: 3072px) {
+  .container-facebook-profile .card-facebook-profile {
+    width: 43% !important;
+    left: 0px !important;
+  }
+}
+
 .container-facebook-profile .card-facebook-profile {
   position: relative;
   width: 86%;
