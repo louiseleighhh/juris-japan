@@ -2,11 +2,11 @@
 
 This is a project created by Le Wagon students in order to ease foreigners' legal experiences in Japan by creating a list of steps needed to be accomplished
 
-![Hero Page](https://i.postimg.cc/1zZVt5cf/Screen-Shot-2022-09-04-at-22-35-39.png)
-![Profile Page](https://i.postimg.cc/brqKNbd3/Screen-Shot-2022-09-04-at-22-36-24.png)
-![Procedures Page](https://i.postimg.cc/DZPMDZ5s/Screen-Shot-2022-09-04-at-22-36-39.png)
-![Law Firms Page](https://i.postimg.cc/fykfKTPM/Screen-Shot-2022-09-04-at-22-36-55.png)
-![Steps Page](https://i.postimg.cc/0QjSgX0f/Screen-Shot-2022-09-04-at-22-37-23.png)
+![Hero Page](https://i.postimg.cc/gkbx7LCj/Screen-Shot-2022-09-07-at-14-09-19.png)
+![Bookmark Cards](https://i.postimg.cc/0QqgvxPY/Screen-Shot-2022-09-07-at-14-11-40.png)
+![Procedures Page](https://i.postimg.cc/Fs6BmmxY/Screen-Shot-2022-09-07-at-14-13-12.png)
+![Law Firms Page](https://i.postimg.cc/gJp75DH4/Screen-Shot-2022-09-07-at-14-12-38.png)
+![Steps Page](https://i.postimg.cc/d1n5fK1t/Screen-Shot-2022-09-07-at-14-13-33.png)
 <br>
 App home: https://juris-japan.com
    
