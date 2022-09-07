@@ -3,7 +3,6 @@
 This is a project created by Le Wagon students in order to ease foreigners' legal experiences in Japan by creating a list of steps needed to be accomplished
 
 ![Hero Page](https://i.postimg.cc/1zZVt5cf/Screen-Shot-2022-09-04-at-22-35-39.png)
-![Hero Page Bottom](https://i.postimg.cc/Zqdkf41F/Screen-Shot-2022-09-04-at-22-35-57.png)
 ![Profile Page](https://i.postimg.cc/brqKNbd3/Screen-Shot-2022-09-04-at-22-36-24.png)
 ![Procedures Page](https://i.postimg.cc/DZPMDZ5s/Screen-Shot-2022-09-04-at-22-36-39.png)
 ![Law Firms Page](https://i.postimg.cc/fykfKTPM/Screen-Shot-2022-09-04-at-22-36-55.png)
@@ -55,7 +54,7 @@ rails s
 - [Figma](https://www.figma.com) — Prototyping
 
 ## Team Members
-- Sara Jess
+- Sara Jessome
 - [Louise Leigh Capala](https://www.linkedin.com/in/louiseleighhh/)
 - [Rajan Ladwa](https://www.linkedin.com/in/rajan-ladwa-95716742/)
 - Michelle Barrie
